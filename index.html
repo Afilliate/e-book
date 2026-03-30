@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Guia da Pele Uniforme | E-book Profissional</title>
-    <!-- Google Fonts + Font Awesome (ícones elegantes) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <title>Guia da Pele Uniforme | Edição de Luxo</title>
+    <!-- Google Fonts Premium -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (ícones refinados) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -15,466 +16,483 @@
         }
 
         body {
-            background-color: #e7e0d4;  /* fundo suave tipo papel envelhecido */
-            font-family: 'Inter', sans-serif;
-            color: #2c241a;
+            background: #dcd2c4;  /* tom suave de linho */
+            font-family: 'Montserrat', sans-serif;
+            color: #2d2b26;
             line-height: 1.5;
-            padding: 2rem 1rem;
+            padding: 2rem 1.5rem;
         }
 
-        /* container principal estilo livro */
-        .ebook-container {
-            max-width: 1050px;
+        /* container principal com efeito livro */
+        .ebook-luxo {
+            max-width: 1150px;
             margin: 0 auto;
-            background: #fffef7;
-            border-radius: 28px;
-            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25);
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 35px 55px -20px rgba(0, 0, 0, 0.35);
             overflow: hidden;
             transition: all 0.2s;
         }
 
-        /* interior com padding generoso */
-        .ebook-content {
-            padding: 3rem 2.5rem;
+        /* interior com grid refinado */
+        .ebook-inner {
+            padding: 2.8rem 3rem;
         }
 
-        /* tipografia */
-        h1, h2, h3 {
+        /* Tipografia sofisticada */
+        h1, h2, h3, .capitulo-tag {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 600;
             letter-spacing: -0.01em;
         }
 
         h1 {
-            font-size: 3.6rem;
-            color: #2a5c4a;
-            margin-bottom: 0.75rem;
-            line-height: 1.2;
+            font-size: 4rem;
+            color: #7f5a3b;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
-        .subtitulo-principal {
-            font-size: 1.2rem;
-            color: #6f5e4a;
-            border-left: 4px solid #c7a87b;
-            padding-left: 1.2rem;
-            margin-top: 0.5rem;
+        .subtitulo-ouro {
+            font-size: 1.15rem;
+            color: #ab8a64;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 400;
+            border-left: 3px solid #dbbf94;
+            padding-left: 1.2rem;
+            margin: 0.5rem 0 0.8rem 0;
+            letter-spacing: 0.3px;
+        }
+
+        .linha-dourada {
+            width: 80px;
+            height: 2px;
+            background: #dbbf94;
+            margin: 1.2rem 0 1.5rem 0;
         }
 
         h2 {
-            font-size: 2.2rem;
+            font-size: 2.3rem;
             margin: 2rem 0 1rem 0;
-            color: #2c5a47;
-            border-bottom: 2px solid #e2d9cf;
-            padding-bottom: 0.5rem;
+            color: #5e3e28;
+            font-weight: 600;
             position: relative;
+            display: inline-block;
         }
-
-        h2 i, h3 i {
-            margin-right: 10px;
-            color: #b88b5a;
-            font-size: 1.6rem;
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 55px;
+            height: 2px;
+            background: #e1c699;
         }
 
         h3 {
-            font-size: 1.6rem;
-            margin: 1.5rem 0 0.75rem 0;
-            color: #3f2e1f;
-            font-weight: 600;
+            font-size: 1.7rem;
+            margin: 1.6rem 0 0.8rem 0;
+            color: #79553a;
+            font-weight: 500;
         }
 
-        .capitulo-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
+        .capitulo-marca {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #b98f67;
-            margin-bottom: 0.25rem;
-            display: inline-block;
+            letter-spacing: 3px;
+            color: #b6946b;
+            margin-bottom: 0.2rem;
             font-weight: 500;
         }
 
         p {
             margin-bottom: 1rem;
-            color: #3a2e24;
+            color: #3c342c;
             font-weight: 400;
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
-        /* cartões e grids */
-        .pilar-grid {
+        /* Grid dos 4 pilares – cartões com textura */
+        .pilares-luxo {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5rem;
-            margin: 1.8rem 0;
+            gap: 1.8rem;
+            margin: 2rem 0 1.5rem;
         }
-
-        .pilar-card {
+        .pilar-card-luxo {
             flex: 1 1 200px;
-            background: #faf7f0;
-            padding: 1.5rem 1rem;
-            border-radius: 24px;
+            background: #fef9f0;
+            padding: 1.6rem 0.8rem;
+            border-radius: 28px;
             text-align: center;
-            transition: all 0.2s;
-            border: 1px solid #f0e7db;
+            transition: all 0.2s ease;
+            border: 1px solid #f2e5d6;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.02);
         }
-
-        .pilar-card i {
+        .pilar-card-luxo i {
             font-size: 2.2rem;
-            color: #5c8f72;
-            margin-bottom: 0.8rem;
+            color: #b4895f;
+            margin-bottom: 1rem;
         }
-
-        .pilar-card h4 {
-            font-size: 1.25rem;
+        .pilar-card-luxo h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
             font-weight: 700;
+            color: #5e3e28;
             margin-bottom: 0.5rem;
-            color: #2a5c4a;
         }
-
-        .pilar-card p {
-            font-size: 0.9rem;
+        .pilar-card-luxo p {
+            font-size: 0.85rem;
             margin-bottom: 0;
+            color: #655b51;
         }
 
-        /* ingredientes em grid elegante */
-        .ingredientes-grid {
+        /* Ingredientes com visual de "tarja" */
+        .ingredientes-premium {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-            gap: 1rem;
-            margin: 1.8rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.2rem;
+            margin: 2rem 0;
         }
-
-        .ingrediente-item {
-            background: #fefaf5;
-            padding: 1rem 1.2rem;
+        .ingred-item {
+            background: #fffcf7;
             border-radius: 20px;
-            border-left: 5px solid #dbbd9a;
-            font-weight: 500;
+            padding: 1rem 1.2rem;
             display: flex;
             align-items: center;
-            gap: 12px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            gap: 14px;
+            border-left: 5px solid #e7cfb0;
+            transition: 0.1s;
         }
-
-        .ingrediente-item i {
-            font-size: 1.5rem;
-            color: #6f8f72;
-            width: 32px;
+        .ingred-item i {
+            font-size: 1.7rem;
+            color: #ad8460;
+            width: 36px;
+            text-align: center;
         }
-
-        .ingrediente-item strong {
-            color: #4a6b53;
+        .ingred-item .ingred-nome {
             font-weight: 700;
+            color: #5a3f2c;
+            font-size: 1rem;
+        }
+        .ingred-item small {
+            font-size: 0.8rem;
+            color: #7c6854;
+            display: block;
         }
 
-        /* lista de passos (uso) */
-        .steps-list {
-            background: #faf6ef;
-            border-radius: 28px;
-            padding: 1.8rem 2rem;
-            margin: 1.5rem 0;
+        /* Passos com numeração romana elegante */
+        .steps-ritual {
+            background: #fef7ed;
+            border-radius: 32px;
+            padding: 1.6rem 2rem;
+            margin: 1.6rem 0;
             list-style: none;
-            counter-reset: step-counter;
+            counter-reset: ritual-step;
+            box-shadow: inset 0 0 0 1px #f6ecdf, 0 6px 12px -8px rgba(0,0,0,0.05);
         }
-
-        .steps-list li {
-            counter-increment: step-counter;
+        .steps-ritual li {
+            counter-increment: ritual-step;
             margin-bottom: 1.2rem;
-            padding-left: 2.5rem;
+            padding-left: 2.6rem;
             position: relative;
             font-weight: 500;
+            font-size: 0.98rem;
         }
-
-        .steps-list li::before {
-            content: counter(step-counter);
-            background-color: #c7a87b;
-            color: white;
-            font-weight: bold;
+        .steps-ritual li::before {
+            content: counter(ritual-step);
+            background: #dbbf94;
+            color: #2e2a24;
+            font-weight: 700;
             width: 28px;
             height: 28px;
-            border-radius: 30px;
+            border-radius: 40px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             position: absolute;
             left: 0;
             top: -2px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-family: monospace;
         }
 
-        .dica-box {
-            background: #eef3ea;
-            border-radius: 20px;
-            padding: 1.2rem 1.6rem;
-            margin: 1.5rem 0;
-            border-left: 6px solid #5c8f72;
+        /* Destaque dourado */
+        .insight-dourado {
+            background: linear-gradient(135deg, #fef7ec, #fffaf2);
+            border-radius: 24px;
+            padding: 1.4rem 2rem;
+            margin: 1.8rem 0;
+            border: 1px solid #eedfcb;
+            border-left: 6px solid #d1a874;
             font-style: normal;
+            color: #5b4636;
         }
 
-        .dica-box i {
-            color: #5c8f72;
-            margin-right: 10px;
-        }
-
-        .rotina-grid {
+        /* Rotina diária com grid refinado */
+        .rotina-elegante {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem;
-            margin: 1.5rem 0;
+            gap: 1rem;
+            margin: 1.6rem 0;
         }
-
-        .rotina-etapa {
+        .etapa-rotina {
             flex: 1 1 170px;
-            background: #fff5ea;
-            border-radius: 20px;
-            padding: 1rem;
-            text-align: center;
-            border: 1px solid #eadbcb;
-        }
-
-        .rotina-etapa i {
-            font-size: 1.8rem;
-            color: #b88b5a;
-            margin-bottom: 8px;
-        }
-
-        .rotina-etapa h5 {
-            font-weight: 700;
-            margin-bottom: 6px;
-            color: #3f2e1f;
-        }
-
-        .footer-quote {
-            margin-top: 2.5rem;
-            background: #f2ede4;
-            padding: 1.8rem 2rem;
-            border-radius: 32px;
-            text-align: center;
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: #2c5a47;
-            border: 1px solid #e2d3c2;
-        }
-
-        /* sumário custom */
-        .sumario {
-            background: #fcf9f4;
+            background: #fffbf5;
             border-radius: 28px;
-            padding: 1.5rem 2rem;
-            margin: 2rem 0 1.8rem;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            padding: 1.2rem 0.8rem;
+            text-align: center;
+            transition: all 0.2s;
+            border: 1px solid #f1e5d6;
         }
-        .sumario h3 {
+        .etapa-rotina i {
+            font-size: 1.8rem;
+            color: #b48c63;
+            margin-bottom: 0.6rem;
+        }
+        .etapa-rotina h5 {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #654b34;
+            margin-bottom: 0.3rem;
+        }
+        .etapa-rotina p {
+            font-size: 0.78rem;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        /* Sumário elegante */
+        .sumario-luxo {
+            background: #fcf7f0;
+            border-radius: 32px;
+            padding: 1.8rem 2rem;
+            margin: 2rem 0 2rem;
+            border: 1px solid #efdfce;
+        }
+        .sumario-luxo h3 {
             margin-top: 0;
-            border-bottom: none;
             display: flex;
             align-items: center;
             gap: 10px;
+            border-bottom: none;
+            font-size: 1.5rem;
         }
-        .sumario-lista {
+        .lista-sumario {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem 1.8rem;
+            gap: 0.7rem 1.8rem;
             list-style: none;
-            margin-top: 0.8rem;
+            margin-top: 1rem;
         }
-        .sumario-lista li {
+        .lista-sumario li {
             width: calc(50% - 1rem);
-        }
-        .sumario-lista a {
-            text-decoration: none;
-            color: #4f6b58;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 500;
-            transition: 0.2s;
-            border-bottom: 1px dotted transparent;
         }
-        .sumario-lista a:hover {
-            color: #b87c48;
-            border-bottom-color: #b87c48;
+        .lista-sumario a {
+            text-decoration: none;
+            color: #7d5f44;
+            border-bottom: 1px dotted #d9c2a6;
+            transition: 0.2s;
+        }
+        .lista-sumario a:hover {
+            color: #b47c46;
+            border-bottom-color: #b47c46;
         }
 
-        /* responsivo */
-        @media (max-width: 700px) {
-            .ebook-content {
+        /* Rodapé e citação final */
+        .citacao-final {
+            margin-top: 2.2rem;
+            background: #f1e9df;
+            padding: 1.8rem 2rem;
+            border-radius: 36px;
+            text-align: center;
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #5d4030;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            border: 1px solid #e2cfb5;
+        }
+
+        /* elemento decorativo de capa */
+        .capa-decor {
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-size: 2.2rem;
+            letter-spacing: 8px;
+            color: #be9a73;
+        }
+
+        @media (max-width: 780px) {
+            .ebook-inner {
                 padding: 1.8rem;
             }
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
             h2 {
                 font-size: 1.8rem;
             }
-            .sumario-lista li {
+            .lista-sumario li {
                 width: 100%;
             }
-            .pilar-card {
-                flex-basis: 100%;
-            }
         }
 
-        /* elementos decorativos */
-        .separador {
-            height: 3px;
-            width: 70px;
-            background: #dcc29e;
-            margin: 1rem 0 1.5rem 0;
-        }
-
-        .cover-icon {
-            text-align: center;
-            margin-bottom: 0.5rem;
-            font-size: 2.5rem;
-            color: #92b07f;
-        }
-
-        /* para impressão / PDF - mantém elegância */
         @media print {
             body {
                 background: white;
                 padding: 0;
-                margin: 0;
             }
-            .ebook-container {
+            .ebook-luxo {
                 box-shadow: none;
                 border-radius: 0;
-                max-width: 100%;
             }
-            .sumario, .dica-box, .steps-list {
+            .insight-dourado, .steps-ritual, .pilares-luxo, .ingredientes-premium {
                 break-inside: avoid;
             }
-            h2, h3 {
-                break-after: avoid;
-            }
-            .pilar-card, .ingrediente-item {
-                break-inside: avoid;
-            }
+        }
+
+        /* separador sutil */
+        .hr-ouro {
+            margin: 2rem 0 1rem;
+            height: 1px;
+            background: linear-gradient(90deg, #eedfcb, #cdb594, #eedfcb);
+            border: none;
         }
     </style>
 </head>
 <body>
-<div class="ebook-container">
-    <div class="ebook-content">
-        <!-- Capa / cabeçalho do e-book -->
-        <div class="cover-icon">
-            <i class="fas fa-leaf"></i> <i class="fas fa-hand-sparkles"></i>
+<div class="ebook-luxo">
+    <div class="ebook-inner">
+        <!-- Capa refinada -->
+        <div class="capa-decor">
+            <i class="fas fa-feather-alt"></i> <i class="fas fa-leaf"></i> <i class="fas fa-spa"></i>
         </div>
         <h1>Guia da Pele Uniforme</h1>
-        <div class="subtitulo-principal">O Passo a Passo para uma Pele Radiante e Sem Manchas</div>
-        <div class="separador"></div>
-        <p style="font-size:1rem; margin-top: 0.5rem;"><i class="fas fa-seedling" style="color:#8aaE7A;"></i> <em>Ciência, natureza e constância para recuperar a confiança da sua pele.</em></p>
+        <div class="subtitulo-ouro">O passo a passo para uma pele radiante e sem manchas — com ativos da Amazônia e ciência dermatológica.</div>
+        <div class="linha-dourada"></div>
         
-        <!-- SUMÁRIO INTERATIVO (também funcional no PDF) -->
-        <div class="sumario">
-            <h3><i class="fas fa-book-open"></i> Sumário</h3>
-            <ul class="sumario-lista">
-                <li><a href="#introducao">📖 Introdução</a></li>
-                <li><a href="#cap1">🗺️ Cap.1: O Mapa da sua Pele</a></li>
-                <li><a href="#cap2">🏛️ Cap.2: 4 Pilares da Uniformização</a></li>
-                <li><a href="#cap3">🌿 Cap.3: A Força da Amazônia – Sabonete Amazole</a></li>
-                <li><a href="#cap4">🧼 Cap.4: Como Usar o Sabonete Amazole</a></li>
-                <li><a href="#cap5">✨ Cap.5: Rotina Completa</a></li>
-                <li><a href="#consideracoes">💎 Considerações Finais</a></li>
+        <!-- Sumário de luxo -->
+        <div class="sumario-luxo">
+            <h3><i class="fas fa-compass" style="color:#b48c63;"></i> Navegue pelo guia</h3>
+            <ul class="lista-sumario">
+                <li><a href="#intro-luxo">📖 Introdução</a></li>
+                <li><a href="#cap1-luxo">🗺️ 1. Mapa da sua Pele</a></li>
+                <li><a href="#cap2-luxo">🏛️ 2. Os 4 Pilares</a></li>
+                <li><a href="#cap3-luxo">🌿 3. A Força da Amazônia – Amazole</a></li>
+                <li><a href="#cap4-luxo">🧴 4. Como usar o Sabonete Amazole</a></li>
+                <li><a href="#cap5-luxo">✨ 5. Rotina completa para uniformizar</a></li>
+                <li><a href="#final-luxo">💎 Considerações Finais</a></li>
             </ul>
         </div>
-
-        <!-- INTRODUÇÃO -->
-        <section id="introducao">
-            <h2><i class="fas fa-dove"></i> Introdução</h2>
-            <p>A busca por uma pele com tom uniforme, luminoso e saudável é um desejo comum. Manchas escuras, resultado da hiperpigmentação, podem surgir por diversos motivos, como exposição solar, alterações hormonais, inflamações ou o processo natural de envelhecimento, afetando a autoestima e o bem-estar. A boa notícia é que, com os cuidados certos e uma rotina consistente, é possível reduzir gradualmente essas manchas e conquistar uma aparência mais radiante. Este guia prático combina conhecimento sobre a sua pele com a eficácia de ativos naturais.</p>
+        
+        <!-- INTRO -->
+        <section id="intro-luxo">
+            <div class="capitulo-marca">início da jornada</div>
+            <h2>Introdução</h2>
+            <p>A busca por uma pele com tom uniforme, luminoso e saudável transcende a vaidade: é uma expressão de autocuidado e bem-estar. Manchas escuras (hiperpigmentação) podem surgir por exposição solar, alterações hormonais, inflamações ou atrito, impactando a autoestima. A boa notícia é que, com os cuidados certos e rotina consistente, é possível reduzir gradualmente essas marcas e recuperar a confiança. Este guia combina conhecimento técnico com a eficácia de ativos naturais da Amazônia.</p>
         </section>
-
+        
         <!-- CAPÍTULO 1 -->
-        <section id="cap1">
-            <h2><i class="fas fa-chart-simple"></i> Capítulo 1: O Mapa da sua Pele</h2>
-            <p><strong>Entendendo as Manchas (Hiperpigmentação)</strong> — A hiperpigmentação acontece quando há uma produção excessiva de melanina em áreas específicas. Os principais fatores são:</p>
-            <ul style="margin-left: 1.8rem; margin-bottom: 1rem;">
-                <li><i class="fas fa-sun" style="color:#e6b17e;"></i> <strong>Exposição Solar:</strong> A radiação UV estimula a melanina como defesa, escurecendo a pele.</li>
-                <li><i class="fas fa-female"></i> <strong>Alterações Hormonais:</strong> Comuns na gravidez (melasma) ou pelo uso de anticoncecionais.</li>
-                <li><i class="fas fa-band-aid"></i> <strong>Inflamações:</strong> Marcas que surgem após acne, queimaduras ou foliculite.</li>
-                <li><i class="fas fa-hand-paper"></i> <strong>Atrito:</strong> O contato constante pode escurecer áreas como axilas e virilhas.</li>
+        <section id="cap1-luxo">
+            <div class="capitulo-marca">capítulo 1</div>
+            <h2>O Mapa da sua Pele</h2>
+            <p><strong>Entendendo a hiperpigmentação</strong> – A melanina, quando produzida em excesso em áreas específicas, forma manchas. Conheça os gatilhos:</p>
+            <ul style="margin-left: 1.6rem; margin-bottom: 1.2rem; list-style-type: none;">
+                <li style="margin-bottom: 0.5rem;"><i class="fas fa-sun" style="color:#d4a373; width: 28px;"></i> <strong>Exposição solar:</strong> Radiação UV estimula a melanina como defesa.</li>
+                <li style="margin-bottom: 0.5rem;"><i class="fas fa-female" style="color:#d4a373; width: 28px;"></i> <strong>Alterações hormonais:</strong> Gravidez (melasma) ou anticoncepcionais.</li>
+                <li style="margin-bottom: 0.5rem;"><i class="fas fa-burn" style="color:#d4a373; width: 28px;"></i> <strong>Inflamações:</strong> Marcas residuais de acne, queimaduras ou foliculite.</li>
+                <li style="margin-bottom: 0.5rem;"><i class="fas fa-hand-peace" style="color:#d4a373; width: 28px;"></i> <strong>Atrito constante:</strong> Regiões como axilas, virilhas e cotovelos.</li>
             </ul>
-            <div class="dica-box">
-                <i class="fas fa-lightbulb"></i> Entender a causa das manchas é o primeiro passo para tratá-las com eficácia e evitar novos sinais.
+            <div class="insight-dourado">
+                <i class="fas fa-microscope" style="margin-right: 8px;"></i> Diagnóstico consciente: ao identificar a origem das manchas, o tratamento torna-se mais assertivo e duradouro.
             </div>
         </section>
-
-        <!-- CAPÍTULO 2: 4 PILARES -->
-        <section id="cap2">
-            <h2><i class="fas fa-pagelines"></i> Capítulo 2: O Guia da Pele Uniforme em 4 Pilares</h2>
-            <p>Um tratamento eficaz apoia-se em quatro bases fundamentais que transformam a saúde da pele de dentro para fora.</p>
-            <div class="pilar-grid">
-                <div class="pilar-card"><i class="fas fa-soap"></i><h4>Limpeza Suave e Profunda</h4><p>Remove impurezas e prepara a pele para os ativos sem agredi-la.</p></div>
-                <div class="pilar-card"><i class="fas fa-splotches"></i><h4>Esfoliação Controlada</h4><p>Remove células mortas e promove a renovação (1 a 3 vezes por semana).</p></div>
-                <div class="pilar-card"><i class="fas fa-tint"></i><h4>Hidratação Inteligente</h4><p>Fortalece a barreira de proteção e potencializa os clareadores.</p></div>
-                <div class="pilar-card"><i class="fas fa-umbrella-beach"></i><h4>Proteção Solar Diária</h4><p>O passo mais importante. Sem ele, nenhum tratamento funciona.</p></div>
+        
+        <!-- CAPÍTULO 2 - 4 PILARES -->
+        <section id="cap2-luxo">
+            <div class="capitulo-marca">fundamentos</div>
+            <h2>O Guia da Pele Uniforme em 4 Pilares</h2>
+            <p>Um protocolo eficaz repousa sobre quatro pilares clínicos e comportamentais. Sem eles, nenhum clareador funciona em plenitude.</p>
+            <div class="pilares-luxo">
+                <div class="pilar-card-luxo"><i class="fas fa-hand-sparkles"></i><h4>Limpeza Suave</h4><p>Remove impurezas e prepara a pele sem agredir a barreira natural.</p></div>
+                <div class="pilar-card-luxo"><i class="fas fa-splotches"></i><h4>Esfoliação Controlada</h4><p>Renovação celular 1 a 3x/semana, revelando pele mais uniforme.</p></div>
+                <div class="pilar-card-luxo"><i class="fas fa-droplet"></i><h4>Hidratação Inteligente</h4><p>Fortalece a barreira e potencializa a ação dos clareadores.</p></div>
+                <div class="pilar-card-luxo"><i class="fas fa-sun"></i><h4>Proteção Solar Diária</h4><p>O passo mais importante: sem filtro solar, nenhum tratamento é sustentável.</p></div>
             </div>
         </section>
-
-        <!-- CAPÍTULO 3: SABONETE AMAZOLE -->
-        <section id="cap3">
-            <h2><i class="fas fa-tree"></i> Capítulo 3: A Força da Amazônia</h2>
-            <p><strong>Sabonete Clareador Amazole</strong> — o segredo que une ciência e biodiversidade da floresta para combater as manchas de forma gradual e eficiente.</p>
-            <div class="ingredientes-grid">
-                <div class="ingrediente-item"><i class="fas fa-vitamin"></i> <span><strong>Niacinamida (Vitamina B3)</strong><br>Uniformiza o tom e reduz a aparência dos poros.</span></div>
-                <div class="ingrediente-item"><i class="fas fa-flask"></i> <span><strong>Ácido Kójico</strong><br>Inibe a produção de melanina na fonte.</span></div>
-                <div class="ingrediente-item"><i class="fas fa-leaf"></i> <span><strong>Extrato de Mulateiro</strong><br>Antioxidante amazônico para uniformização da pele.</span></div>
-                <div class="ingrediente-item"><i class="fas fa-oil-can"></i> <span><strong>Óleo de Melaleuca</strong><br>Ação anti-inflamatória para prevenir novas marcas.</span></div>
-                <div class="ingrediente-item"><i class="fas fa-gem"></i> <span><strong>Dolomita e Argila Branca</strong><br>Minerais que auxiliam no clareamento gradual e suavidade.</span></div>
+        
+        <!-- CAPÍTULO 3 - Sabonete Amazole -->
+        <section id="cap3-luxo">
+            <div class="capitulo-marca">biodiversidade & ciência</div>
+            <h2>A Força da Amazônia</h2>
+            <h3 style="margin-top: 0;">Sabonete Clareador Amazole</h3>
+            <p>Com posicionamento único, o Sabonete Amazole combina extratos amazônicos, vitaminas e minerais para agir na raiz da hiperpigmentação, promovendo clareamento gradual e seguro.</p>
+            <div class="ingredientes-premium">
+                <div class="ingred-item"><i class="fas fa-vitamins"></i><div><span class="ingred-nome">Niacinamida (Vitamina B3)</span><small>Uniformiza o tom e reduz poros</small></div></div>
+                <div class="ingred-item"><i class="fas fa-flask"></i><div><span class="ingred-nome">Ácido Kójico</span><small>Inibe a tirosinase, evita nova melanina</small></div></div>
+                <div class="ingred-item"><i class="fas fa-tree"></i><div><span class="ingred-nome">Extrato de Mulateiro</span><small>Poderoso antioxidante amazônico</small></div></div>
+                <div class="ingred-item"><i class="fas fa-seedling"></i><div><span class="ingred-nome">Óleo de Melaleuca</span><small>Ação anti-inflamatória e preventiva</small></div></div>
+                <div class="ingred-item"><i class="fas fa-gem"></i><div><span class="ingred-nome">Dolomita + Argila Branca</span><small>Clareamento gradual e toque sedoso</small></div></div>
             </div>
-            <p>Composto por ativos que agem em sinergia, o Sabonete Amazole proporciona clareamento visível sem agredir a pele, respeitando o equilíbrio natural.</p>
+            <p>Cada uso do Sabonete Amazole oferece um ritual sensorial que une a floresta à eficácia comprovada. Resultados perceptíveis em poucas semanas com constância.</p>
         </section>
-
-        <!-- CAPÍTULO 4: COMO USAR -->
-        <section id="cap4">
-            <h2><i class="fas fa-hand-holding-heart"></i> Capítulo 4: Como Usar o Sabonete Amazole no seu Dia a Dia</h2>
-            <p>Para melhores resultados, a consistência é a chave. Siga o ritual simples e transforme sua rotina:</p>
-            <ul class="steps-list">
-                <li><strong>Humedecer:</strong> Molhe a área desejada com água morna.</li>
-                <li><strong>Aplicar:</strong> Use uma pequena quantidade do sabonete em pasta (friccione suavemente entre as mãos).</li>
-                <li><strong>Massajar:</strong> Movimentos circulares por 1 a 2 minutos. (Pode deixar agir por 5 minutos em manchas resistentes).</li>
-                <li><strong>Enxaguar:</strong> Remova tudo com água em abundância.</li>
-                <li><strong>Frequência:</strong> Use 1 a 2 vezes ao dia (manhã e noite).</li>
+        
+        <!-- CAPÍTULO 4 - COMO USAR -->
+        <section id="cap4-luxo">
+            <div class="capitulo-marca">ritual diário</div>
+            <h2>Como Usar o Sabonete Amazole</h2>
+            <p>A consistência transforma. Siga o protocolo de aplicação para potencializar cada ativo:</p>
+            <ul class="steps-ritual">
+                <li><strong>Hidratar a pele:</strong> Molhe a região desejada com água morna (abre os poros).</li>
+                <li><strong>Aplicar em pasta:</strong> Espalhe uma pequena quantidade do sabonete entre as mãos até formar espuma cremosa.</li>
+                <li><strong>Massagem circular:</strong> Movimente por 1 a 2 minutos; em manchas resistentes, deixe agir por até 5 minutos.</li>
+                <li><strong>Enxaguar completamente:</strong> Use água abundante, removendo todos os resíduos.</li>
+                <li><strong>Frequência ideal:</strong> 1 a 2 vezes ao dia (manhã e noite). Peles sensíveis: inicie 1x ao dia.</li>
             </ul>
-            <div class="dica-box">
-                <i class="fas fa-clock"></i> Dica extra: para áreas mais escuras como axilas, cotovelos e virilhas, potencialize o efeito deixando o sabonete agir por 3 minutos antes de enxaguar. A paciência e regularidade revelam uma pele uniforme.
+            <div class="insight-dourado">
+                <i class="fas fa-clock"></i> Dica profissional: para áreas como axilas, virilhas e cotovelos, potencialize o clareamento deixando o sabonete agir 3 minutos antes de enxaguar. Nunca esqueça de hidratar após o uso.
             </div>
         </section>
-
-        <!-- CAPÍTULO 5: ROTINA COMPLETA -->
-        <section id="cap5">
-            <h2><i class="fas fa-calendar-check"></i> Capítulo 5: A Rotina Completa do Guia da Pele Uniforme</h2>
-            <p>Uma rotina estruturada acelera os resultados e mantém a pele saudável. Siga estas etapas diariamente:</p>
-            <div class="rotina-grid">
-                <div class="rotina-etapa"><i class="fas fa-soap"></i><h5>Limpeza</h5><p>Inicie com o Sabonete Clareador Amazole.</p></div>
-                <div class="rotina-etapa"><i class="fas fa-brush"></i><h5>Esfoliação</h5><p>2 a 3 vezes por semana em dias alternados.</p></div>
-                <div class="rotina-etapa"><i class="fas fa-droplet"></i><h5>Tratamento</h5><p>Aplique o seu sérum clareador após a limpeza.</p></div>
-                <div class="rotina-etapa"><i class="fas fa-water"></i><h5>Hidratação</h5><p>Finalize com um hidratante adequado ao seu tipo de pele.</p></div>
-                <div class="rotina-etapa"><i class="fas fa-sun"></i><h5>Protetor Solar</h5><p>Etapa obrigatória pela manhã. Reaplique durante o dia.</p></div>
+        
+        <!-- CAPÍTULO 5 - ROTINA COMPLETA -->
+        <section id="cap5-luxo">
+            <div class="capitulo-marca">protocolo avançado</div>
+            <h2>A Rotina Completa do Guia da Pele Uniforme</h2>
+            <p>Integre o Sabonete Amazole a um sistema de cuidados diários para acelerar os resultados e manter a pele saudável.</p>
+            <div class="rotina-elegante">
+                <div class="etapa-rotina"><i class="fas fa-soap"></i><h5>Limpeza</h5><p>Sabonete Amazole pela manhã e à noite.</p></div>
+                <div class="etapa-rotina"><i class="fas fa-splotches"></i><h5>Esfoliação</h5><p>2 a 3x por semana (dias alternados).</p></div>
+                <div class="etapa-rotina"><i class="fas fa-syringe"></i><h5>Tratamento</h5><p>Sérum clareador logo após a limpeza.</p></div>
+                <div class="etapa-rotina"><i class="fas fa-hand-holding-heart"></i><h5>Hidratação</h5><p>Hidratante para seu tipo de pele.</p></div>
+                <div class="etapa-rotina"><i class="fas fa-umbrella-beach"></i><h5>Protetor Solar</h5><p>FPS 30+ (obrigatório, reaplicar).</p></div>
             </div>
-            <p><i class="fas fa-check-circle" style="color:#6b8c5c;"></i> Lembre-se: a esfoliação deve ser suave e o protetor solar é o verdadeiro aliado para evitar novas manchas e garantir a eficácia de todo o tratamento.</p>
+            <p><i class="fas fa-check-circle" style="color:#b78b5a;"></i> Lembre-se: o protetor solar é inegociável. A radiação UV é a principal causa do retorno das manchas.</p>
         </section>
-
+        
         <!-- CONSIDERAÇÕES FINAIS -->
-        <section id="consideracoes">
-            <h2><i class="fas fa-star-of-life"></i> Considerações Finais</h2>
-            <p>A jornada para uma pele uniforme exige paciência e os produtos certos. Os resultados do uso contínuo do Sabonete Amazole costumam ser visíveis em poucas semanas, transformando não apenas a aparência, mas também a relação com a sua autoestima.</p>
-            <div class="footer-quote">
-                <i class="fas fa-quote-left"></i> Diga adeus às manchas e recupere a confiança da sua pele!<br>
-                <span style="font-size: 0.9rem; display: inline-block; margin-top: 10px;">✨ Pele radiante começa com autocuidado consistente ✨</span>
+        <section id="final-luxo">
+            <div class="capitulo-marca">jornada luminosa</div>
+            <h2>Considerações Finais</h2>
+            <p>A busca pela uniformidade da pele é um processo que exige paciência, disciplina e os produtos certos. Os resultados do uso contínuo do Sabonete Amazole costumam ser visíveis em poucas semanas, refletindo não apenas na aparência, mas na relação com a sua autoestima. Diga adeus às manchas e recupere a confiança da sua pele — a beleza autêntica nasce do equilíbrio entre cuidado e conhecimento.</p>
+            <div class="citacao-final">
+                <i class="fas fa-quote-right" style="opacity: 0.7;"></i> Uma pele radiante é o reflexo de uma rotina consistente e amorosa. <br>
+                <span style="font-size: 0.9rem; display: inline-block; margin-top: 8px;">Sabonete Amazole: tradição amazônica + eficácia dermatológica</span>
             </div>
-            <p style="margin-top: 1rem;"><strong>Guia da Pele Uniforme</strong> — Um convite para valorizar sua beleza natural com ativos da Amazônia e ciência dermatológica.</p>
         </section>
-
-        <!-- rodapé elegante -->
-        <hr style="margin: 2rem 0 0.5rem 0; border: none; height: 1px; background: linear-gradient(90deg, #e7ddd0, transparent);">
-        <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #9a8b79; margin-top: 1rem;">
-            <span><i class="far fa-copyright"></i> Guia da Pele Uniforme · Uso educativo</span>
-            <span><i class="fas fa-seedling"></i> Consistência + Cuidado = Transformação</span>
+        
+        <hr class="hr-ouro">
+        <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: #a68e73; margin-top: 1.5rem;">
+            <span><i class="far fa-copyright"></i> Guia da Pele Uniforme – Edição Premium</span>
+            <span><i class="fas fa-feather"></i> Conteúdo educativo | Proibida reprodução não autorizada</span>
         </div>
     </div>
-    <!-- fim ebook-content -->
 </div>
-<!-- fim ebook-container -->
 </body>
 </html>
