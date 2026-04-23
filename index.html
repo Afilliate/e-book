@@ -2,369 +2,430 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Guia da Pele Uniforme | Edição Expandida e Luxuosa</title>
-    <!-- Google Fonts elegantes -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalho de Física - Dilatação Térmica</title>
+    <!-- MathJax para fórmulas matemáticas -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
     <style>
+        /* RESET e configurações globais ABNT */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            background: #dbcfc0;
-            font-family: 'Montserrat', sans-serif;
-            padding: 2rem 1.5rem;
-        }
-        .ebook-premium {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: #fffdf9;
-            border-radius: 48px;
-            box-shadow: 0 40px 60px -20px rgba(0,0,0,0.4);
-            overflow: hidden;
-        }
-        .ebook-inner {
-            padding: 3rem 3.2rem;
-        }
-        /* tipografia refinada */
-        h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 4.8rem;
-            font-weight: 700;
-            color: #6b4a2e;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-        }
-        h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: #5e3c24;
-            margin: 1.8rem 0 1rem 0;
-            border-left: 5px solid #e2bc85;
-            padding-left: 1rem;
-        }
-        h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: #7d5a3e;
-            margin: 1.2rem 0 0.6rem;
-        }
-        p {
-            margin-bottom: 1rem;
-            line-height: 1.65;
-            color: #3f3328;
-        }
-        .hero-sub {
-            font-size: 1rem;
-            color: #a5835e;
-            margin: 0.5rem 0 1rem;
-            border-left: 3px solid #dbbf94;
-            padding-left: 1.2rem;
-        }
-        .linha-ouro {
-            width: 80px;
-            height: 2px;
-            background: #e2bc85;
-            margin: 1rem 0 2rem;
-        }
-        .sumario-box {
-            background: #fef7ef;
-            border-radius: 32px;
-            padding: 1.5rem 2rem;
-            margin: 2rem 0;
-            border: 1px solid #ecdbba;
-        }
-        .grid-sumario {
-            display: grid;
-            grid-template-columns: repeat(2,1fr);
-            gap: 0.6rem 1.5rem;
-        }
-        .grid-sumario a {
-            color: #836b51;
-            text-decoration: none;
-            border-bottom: 1px dotted #dac09f;
-        }
-        .card-pilar {
-            background: #fefaf5;
-            border-radius: 24px;
-            padding: 1.2rem;
-            margin: 1rem 0;
-            border-left: 6px solid #e2bc85;
-        }
-        .ingred-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-        .ingred-item {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 0.8rem 1rem;
+            background-color: #e0e0e0;
             display: flex;
-            gap: 12px;
-            align-items: center;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-            border: 1px solid #f0e2d2;
-        }
-        .steps-list {
-            background: #fdf8f0;
-            border-radius: 28px;
-            padding: 1.5rem 2rem;
-            list-style: none;
-            counter-reset: step;
-            margin: 1.5rem 0;
-        }
-        .steps-list li {
-            counter-increment: step;
-            margin-bottom: 1rem;
-            padding-left: 2.3rem;
-            position: relative;
-        }
-        .steps-list li::before {
-            content: counter(step);
-            background: #dbbf94;
-            width: 26px;
-            height: 26px;
-            border-radius: 30px;
-            display: inline-flex;
-            align-items: center;
             justify-content: center;
-            position: absolute;
-            left: 0;
-            top: -2px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .paper {
+            max-width: 210mm;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            margin: 20px auto;
+            padding: 0;
+        }
+
+        .page {
+            position: relative;
+            padding: 3cm 2cm 2cm 3cm;
+            margin-bottom: 0;
+            page-break-after: always;
+            break-after: page;
+            min-height: 297mm;
+        }
+
+        h1, h2, h3, h4, figure, .exercicio {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        body, .paper, .page, p, li, figcaption, .reference, .autor, .turma, .prof, .ano {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 12pt;
+            line-height: 1.5;
+        }
+
+        h1 {
+            font-size: 14pt;
             font-weight: bold;
-            font-size: 0.8rem;
-        }
-        .dica-dourada {
-            background: linear-gradient(135deg, #fef5e8, #fffbf5);
-            border-left: 8px solid #e2bc85;
-            padding: 1.2rem 1.5rem;
-            border-radius: 24px;
-            margin: 1.5rem 0;
-        }
-        .faq-item {
-            margin-bottom: 1.2rem;
-        }
-        .faq-item strong {
-            color: #8b694a;
-        }
-        .citacao-final {
-            background: #f4ebe0;
-            border-radius: 32px;
-            padding: 2rem;
             text-align: center;
-            font-size: 1.2rem;
+            margin: 12pt 0 8pt 0;
+            text-transform: uppercase;
+        }
+
+        .titulo-trabalho {
+            font-size: 18pt;
+            font-weight: bold;
+            text-align: center;
+            margin: 5cm 0 1cm 0;
+            text-transform: uppercase;
+        }
+
+        .autor, .turma, .professor, .ano {
+            text-align: center;
+            margin: 6pt 0;
+        }
+
+        h2 {
+            font-size: 13pt;
+            font-weight: bold;
+            margin: 18pt 0 6pt 0;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            font-size: 12pt;
+            font-weight: bold;
+            margin: 12pt 0 4pt 0;
+            font-style: normal;
+        }
+
+        .sumario {
+            margin: 24pt 0;
+        }
+        .sumario-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 2pt 0;
+        }
+        .sumario h2 {
+            text-align: center;
+            margin-bottom: 12pt;
+        }
+
+        .page-number {
+            position: absolute;
+            top: 2cm;
+            right: 2cm;
+            font-size: 12pt;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .first-page .page-number {
+            display: none;
+        }
+
+        figure {
+            margin: 16pt auto;
+            text-align: center;
+        }
+        .img-placeholder {
+            background-color: #f5f5f5;
+            border: 1px dashed #999;
+            padding: 20px;
+            text-align: center;
+            font-family: monospace;
+            color: #555;
+            margin: 10px auto;
+            width: 80%;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px auto;
+        }
+        figcaption {
+            font-size: 11pt;
+            margin-top: 6px;
+            text-align: left;
+            font-style: normal;
+        }
+        .fonte {
+            font-size: 10pt;
+            margin-top: 2px;
+            text-align: left;
+        }
+
+        .exercicio {
+            margin: 12pt 0;
+            background-color: #fafafa;
+            padding: 8pt;
+            border-left: 3px solid #2c3e66;
+        }
+        .comentario {
+            margin-top: 6pt;
             font-style: italic;
-            margin-top: 2rem;
         }
-        @media (max-width: 700px) {
-            .ebook-inner { padding: 1.5rem; }
-            h1 { font-size: 2.8rem; }
-            .grid-sumario { grid-template-columns: 1fr; }
+
+        .referencias {
+            list-style: none;
+            margin-top: 12pt;
         }
-        hr {
-            margin: 2rem 0;
-            border: none;
-            height: 1px;
-            background: linear-gradient(90deg, #e6d5c0, #cfb690, #e6d5c0);
+        .referencias li {
+            margin-bottom: 6pt;
+            text-indent: 0;
         }
-        .badge {
-            display: inline-block;
-            background: #f0e3d4;
-            border-radius: 40px;
-            padding: 0.2rem 1rem;
-            font-size: 0.7rem;
-            letter-spacing: 1px;
+
+        a {
+            color: #0645ad;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media print {
+            body {
+                background: white;
+                margin: 0;
+                padding: 0;
+            }
+            .paper {
+                margin: 0;
+                box-shadow: none;
+            }
+            .page {
+                padding: 3cm 2cm 2cm 3cm;
+                page-break-after: always;
+                break-after: page;
+            }
+            .page-number {
+                position: fixed;
+                top: 2cm;
+                right: 2cm;
+            }
+            .first-page .page-number {
+                display: none;
+            }
+            .img-placeholder {
+                border: 1px solid #ccc;
+                background: #eee;
+            }
         }
     </style>
 </head>
 <body>
-<div class="ebook-premium">
-    <div class="ebook-inner">
-        <!-- Capa -->
-        <div style="text-align: center; margin-bottom: 1rem;">
-            <span class="badge"><i class="fas fa-leaf"></i> Edição Especial – Conteúdo Expandido</span>
-        </div>
-        <h1>Guia da Pele Uniforme</h1>
-        <div class="hero-sub">O protocolo definitivo para uma pele radiante, sem manchas e com autoestima renovada — com ativos da Amazônia e ciência dermatológica.</div>
-        <div class="linha-ouro"></div>
-        
-        <!-- Sumário expandido -->
-        <div class="sumario-box">
-            <h3 style="margin-top: 0;"><i class="fas fa-list-ul"></i> Navegue pelo guia completo</h3>
-            <div class="grid-sumario">
-                <a href="#intro">📖 Introdução: a jornada pela uniformidade</a>
-                <a href="#cap1">🗺️ Cap.1: O mapa da sua pele – causas e tipos de mancha</a>
-                <a href="#cap2">🏛️ Cap.2: Os 4 pilares da pele uniforme (detalhado)</a>
-                <a href="#cap3">🌿 Cap.3: A força da Amazônia – Sabonete Amazole</a>
-                <a href="#cap4">🧴 Cap.4: Como usar no dia a dia + frequência ideal</a>
-                <a href="#cap5">✨ Cap.5: Rotina completa (manhã, noite, semana)</a>
-                <a href="#cap6">💡 Cap.6: Mitos e verdades sobre clareamento</a>
-                <a href="#cap7">❓ Cap.7: Perguntas frequentes (FAQ)</a>
-                <a href="#cap8">🌟 Cap.8: Dicas para áreas específicas</a>
-                <a href="#final">💎 Considerações finais + plano de ação</a>
+<div class="paper">
+    <!-- CAPA -->
+    <div class="page first-page">
+        <div class="page-number"></div>
+        <div style="margin-top: 5cm;">
+            <h1 class="titulo-trabalho">TRABALHO DE FÍSICA</h1>
+            <h1 style="font-size: 16pt; margin-top: 20pt;">DILATAÇÃO TÉRMICA: CONCEITOS, TIPOS E APLICAÇÕES NO COTIDIANO</h1>
+            <div style="margin-top: 4cm;">
+                <p class="autor">Daniel Augustus Gomes Barbosa</p>
+                <p class="turma">Turma: 2º Ano B</p>
+                <p class="professor">Professor: Caio Barbosa</p>
+                <p class="ano">2026</p>
             </div>
         </div>
-        
-        <!-- INTRODUÇÃO EXPANDIDA -->
-        <section id="intro">
-            <h2>Introdução: a jornada pela uniformidade</h2>
-            <p>A busca por uma pele com tom uniforme, luminoso e saudável vai além da estética: está diretamente ligada ao bem-estar emocional e à autoestima. Manchas escuras, conhecidas como hiperpigmentação, podem surgir por diversos fatores: exposição solar crônica, alterações hormonais (como o melasma na gravidez), inflamações (marcas de acne, foliculite) e até atrito constante em regiões como axilas e virilhas. Essas imperfeições, muitas vezes, geram desconforto e fazem com que muitas pessoas evitem roupas decotadas, praia ou situações sociais.</p>
-            <p>A boa notícia é que, com os cuidados certos e uma rotina consistente, é possível reduzir gradualmente essas manchas e conquistar uma aparência mais radiante. Este guia foi desenvolvido para oferecer um conhecimento profundo sobre os mecanismos da pigmentação, aliado a ativos naturais poderosos, como os encontrados no coração da Amazônia. Ao longo das páginas, você entenderá como funciona sua pele, quais hábitos sabotam o clareamento e como implementar um protocolo eficaz e seguro.</p>
-            <div class="dica-dourada">
-                <i class="fas fa-seedling"></i> <strong>Fato importante:</strong> A melanina é um pigmento de defesa. O objetivo não é eliminá-la por completo, mas sim regular sua produção excessiva, devolvendo equilíbrio e luminosidade.
-            </div>
-        </section>
-        
-        <!-- CAPÍTULO 1 – EXPANDIDO -->
-        <section id="cap1">
-            <h2>Capítulo 1: O mapa da sua pele – causas e tipos de mancha</h2>
-            <p>A hiperpigmentação ocorre quando os melanócitos (células produtoras de melanina) são estimulados em excesso. Existem diferentes perfis de manchas, e identificá-los é crucial para o tratamento correto.</p>
-            <h3>1.1 Efélides (sardas) e lentigos solares</h3>
-            <p>As sardas são genéticas e surgem na infância. Já os lentigos solares (manchas de idade) aparecem após anos de exposição aos raios UV. Ambos escurecem com o sol e requerem proteção rigorosa.</p>
-            <h3>1.2 Melasma</h3>
-            <p>Caracterizado por manchas acastanhadas na face, principalmente bochechas, testa e buço. Tem forte relação hormonal (gestação, anticoncepcionais) e também influência da radiação solar e calor. O melasma é um desafio, mas com consistência e os ativos certos, há melhora significativa.</p>
-            <h3>1.3 Hiperpigmentação pós-inflamatória (HPI)</h3>
-            <p>Marcas escuras que surgem após acne, queimaduras, alergias ou depilação. Muito comum em peles morenas e negras. O tratamento com agentes clareadores e esfoliação suave é altamente eficaz.</p>
-            <h3>1.4 Manchas por atrito</h3>
-            <p>Regiões como axilas, virilhas, cotovelos e joelhos podem escurecer devido ao atrito constante com roupas ou movimentos repetitivos. A combinação de clareadores + hidratação muda completamente a aparência.</p>
-            <div class="dica-dourada">
-                <i class="fas fa-search"></i> Diagnóstico pessoal: Observe suas manchas. Elas surgiram após exposição solar? Após acne? Ou de forma gradual? Isso orientará sua rotina.
-            </div>
-        </section>
-        
-        <!-- CAPÍTULO 2 – 4 PILARES (DETALHADO) -->
-        <section id="cap2">
-            <h2>Capítulo 2: Os 4 pilares da pele uniforme (detalhado)</h2>
-            <p>Um tratamento eficaz não depende de um único produto, mas sim de uma base sólida. Estes pilares são inegociáveis:</p>
-            <div class="card-pilar">
-                <strong>1. Limpeza suave e profunda</strong><br>
-                Remover impurezas, maquiagem e excesso de oleosidade prepara a pele para receber os ativos clareadores. Sabonetes agressivos ou comuns podem piorar a inflamação. O Sabonete Amazole oferece uma limpeza eficaz sem agredir a barreira cutânea, graças à argila branca e dolomita.
-            </div>
-            <div class="card-pilar">
-                <strong>2. Esfoliação controlada</strong><br>
-                A esfoliação remove células mortas e acelera a renovação celular, permitindo que os clareadores penetrem melhor. Deve ser feita 1 a 3 vezes por semana, com produtos suaves (nada de esfoliações agressivas que geram inflamação). O Sabonete Amazole, quando massageado, já promove uma microesfoliação gradual.
-            </div>
-            <div class="card-pilar">
-                <strong>3. Hidratação inteligente</strong><br>
-                Uma pele bem hidratada tem a barreira lipídica fortalecida, reduzindo a perda de água e potencializando a ação dos ativos. Invista em hidratantes com ingredientes como ceramidas, pantenol e ácido hialurônico.
-            </div>
-            <div class="card-pilar">
-                <strong>4. Proteção solar diária</strong><br>
-                O passo mais importante e o mais negligenciado. Sem protetor solar (FPS 30 ou superior, com proteção UVA/UVB), nenhum tratamento funciona. A radiação solar reestimula a melanina e anula o efeito dos clareadores. Use todos os dias, mesmo em ambientes internos ou dias nublados, e reaplique a cada 3 horas.
-            </div>
-        </section>
-        
-        <!-- CAPÍTULO 3 – SABONETE AMAZOLE (EXPANDIDO) -->
-        <section id="cap3">
-            <h2>Capítulo 3: A força da Amazônia – Sabonete Clareador Amazole</h2>
-            <p>O Sabonete Amazole é resultado da união entre a biodiversidade amazônica e a ciência cosmética moderna. Cada ingrediente foi escolhido estrategicamente para combater a hiperpigmentação em múltiplas frentes:</p>
-            <div class="ingred-grid">
-                <div class="ingred-item"><i class="fas fa-vitamins"></i><div><strong>Niacinamida (Vitamina B3)</strong><br>Uniformiza o tom da pele, reduz a aparência dos poros e fortalece a barreira cutânea.</div></div>
-                <div class="ingred-item"><i class="fas fa-flask"></i><div><strong>Ácido Kójico</strong><br>Inibe a tirosinase, enzima-chave na produção de melanina. Eficaz contra manchas persistentes.</div></div>
-                <div class="ingred-item"><i class="fas fa-tree"></i><div><strong>Extrato de Mulateiro</strong><br>Planta amazônica com ação antioxidante potente, ajuda a uniformizar o tom e protege contra radicais livres.</div></div>
-                <div class="ingred-item"><i class="fas fa-seedling"></i><div><strong>Óleo de Melaleuca (Tea Tree)</strong><br>Ação anti-inflamatória e antimicrobiana, previne o surgimento de novas lesões e marcas de acne.</div></div>
-                <div class="ingred-item"><i class="fas fa-gem"></i><div><strong>Dolomita + Argila Branca</strong><br>Minerais que promovem clareamento gradual, suavidade e detoxificação da pele.</div></div>
-            </div>
-            <p>Diferente de sabonetes comuns, o Amazole respeita o pH da pele e pode ser usado no rosto e no corpo. Com o uso contínuo (em média 4 a 6 semanas), os resultados começam a aparecer: manchas mais claras, textura mais lisa e um brilho saudável.</p>
-        </section>
-        
-        <!-- CAPÍTULO 4 – USO DIÁRIO (EXPANDIDO) -->
-        <section id="cap4">
-            <h2>Capítulo 4: Como usar o Sabonete Amazole no dia a dia</h2>
-            <p>A eficácia do produto está diretamente ligada à forma de uso e à frequência. Siga o passo a passo abaixo para maximizar os benefícios:</p>
-            <ul class="steps-list">
-                <li><strong>Humedecer a pele:</strong> Utilize água morna (não quente) para abrir os poros sem ressecar.</li>
-                <li><strong>Aplicar em pasta:</strong> Coloque uma pequena quantidade do sabonete nas mãos úmidas e massageie até formar uma espuma cremosa.</li>
-                <li><strong>Massagem circular:</strong> Aplique na área desejada (rosto ou corpo) com movimentos suaves e circulares por 1 a 2 minutos. Em manchas mais resistentes, deixe o sabonete agir por até 5 minutos.</li>
-                <li><strong>Enxaguar abundantemente:</strong> Remova todo o resíduo com água em abundância, garantindo que não haja acúmulo do produto.</li>
-                <li><strong>Frequência ideal:</strong> Use 1 a 2 vezes ao dia (manhã e noite). Peles muito sensíveis podem iniciar com 1 aplicação diária à noite e aumentar gradualmente.</li>
-            </ul>
-            <div class="dica-dourada">
-                <i class="fas fa-clock"></i> <strong>Dica extra:</strong> Para manchas no corpo (axilas, virilhas, cotovelos), deixe o sabonete agir por 3 minutos antes de enxaguar. A constância é mais importante que a quantidade: usar todos os dias produz resultados muito melhores do que usar esporadicamente.
-            </div>
-        </section>
-        
-        <!-- CAPÍTULO 5 – ROTINA COMPLETA (EXPANDIDA) -->
-        <section id="cap5">
-            <h2>Capítulo 5: A rotina completa do Guia da Pele Uniforme</h2>
-            <p>Integre o Sabonete Amazole a um sistema de cuidados diários. Aqui está o protocolo recomendado para manhã e noite:</p>
-            <h3>Rotina matinal</h3>
-            <p>1. Limpeza com Sabonete Amazole.<br>
-            2. Tônico adstringente suave (opcional, sem álcool).<br>
-            3. Sérum clareador com vitamina C ou ácido tranexâmico.<br>
-            4. Hidratante leve.<br>
-            5. Protetor solar FPS 50 (reaplicar a cada 3 horas).</p>
-            <h3>Rotina noturna</h3>
-            <p>1. Limpeza com Sabonete Amazole (importante remover resíduos do dia).<br>
-            2. Esfoliação (2 a 3 vezes por semana, em dias alternados).<br>
-            3. Sérum clareador noturno (com ácido kójico, retinol ou niacinamida).<br>
-            4. Hidratante reparador (com ceramidas ou manteiga de karité).</p>
-            <p><strong>Esfoliação:</strong> Realize 2 a 3 vezes por semana, sempre em dias alternados à noite. Use um esfoliante químico suave (ácido mandélico ou lático) ou um esfoliante físico de grânulos finos. Nunca esfolie no mesmo dia que usar o sabonete Amazole em área sensível.</p>
-        </section>
-        
-        <!-- CAPÍTULO 6 – MITOS E VERDADES -->
-        <section id="cap6">
-            <h2>Capítulo 6: Mitos e verdades sobre clareamento da pele</h2>
-            <div class="card-pilar"><strong>Mito:</strong> Limão e bicarbonato clareiam manchas.<br> <strong>Verdade:</strong> São substâncias agressivas que causam queimaduras químicas e inflamação, piorando a hiperpigmentação. Nunca use.</div>
-            <div class="card-pilar"><strong>Mito:</strong> Protetor solar só é necessário em dias de sol forte.<br> <strong>Verdade:</strong> Raios UV penetram até em dias nublados e através do vidro. Use todos os dias.</div>
-            <div class="card-pilar"><strong>Mito:</strong> Sabonetes clareadores dão resultado em uma semana.<br> <strong>Verdade:</strong> O ciclo de renovação celular leva cerca de 28 dias. Resultados visíveis surgem entre 4 a 8 semanas de uso consistente.</div>
-            <div class="card-pilar"><strong>Mito:</strong> Pele negra não pode usar clareadores.<br> <strong>Verdade:</strong> Pode sim, desde que com orientação. O Sabonete Amazole é seguro para todos os fototipos, pois age sem agredir.</div>
-        </section>
-        
-        <!-- CAPÍTULO 7 – FAQ -->
-        <section id="cap7">
-            <h2>Capítulo 7: Perguntas frequentes (FAQ)</h2>
-            <div class="faq-item"><strong>❓ Posso usar o Sabonete Amazole no rosto e no corpo?</strong><br>Sim! Ele é suave o suficiente para o rosto e eficaz para áreas corporais como axilas, virilhas, cotovelos e joelhos.</div>
-            <div class="faq-item"><strong>❓ Grávidas podem usar?</strong><br>Em geral, os ingredientes são seguros, mas recomendamos consultar um médico antes de iniciar qualquer tratamento durante a gestação ou lactação.</div>
-            <div class="faq-item"><strong>❓ Qual o prazo para ver resultados?</strong><br>Com uso diário, os primeiros sinais de clareamento aparecem entre 3 a 6 semanas. Manchas mais antigas podem levar até 3 meses.</div>
-            <div class="faq-item"><strong>❓ Posso associar com outros clareadores?</strong><br>Sim, desde que não haja sobrecarga de ativos irritantes. Combine com hidratantes e séruns à base de niacinamida, vitamina C ou ácido hialurônico.</div>
-            <div class="faq-item"><strong>❓ O sabonete resseca a pele?</strong><br>Não, a presença de argila branca e dolomita garante uma limpeza suave. Ainda assim, sempre finalize com hidratante para potencializar os efeitos.</div>
-        </section>
-        
-        <!-- CAPÍTULO 8 – ÁREAS ESPECÍFICAS -->
-        <section id="cap8">
-            <h2>Capítulo 8: Dicas para áreas específicas</h2>
-            <h3>Axilas e virilhas</h3>
-            <p>O escurecimento nessas regiões é comum devido ao atrito, desodorantes químicos e acúmulo de células mortas. Use o Sabonete Amazole diariamente, deixando agir por 3 minutos. Evite lâminas de barbear irritantes e prefira a depilação com cera ou laser. Use roupas largas e hidrate bem.</p>
-            <h3>Cotovelos e joelhos</h3>
-            <p>Áreas com dobras e maior atrito. Esfolie 2x por semana e aplique o sabonete na rotina de banho. Após o banho, use um hidratante com ureia ou ácido salicílico.</p>
-            <h3>Manchas de acne no rosto</h3>
-            <p>Lave o rosto com o Sabonete Amazole suavemente, sem esfregar. Nunca estoure espinhas. Use protetor solar diariamente para evitar que as marcas escureçam.</p>
-            <div class="dica-dourada">
-                <i class="fas fa-smile"></i> Lembre-se: paciência e consistência são suas maiores aliadas. Nenhum produto faz milagres da noite para o dia, mas com disciplina, os resultados vêm e transformam a relação com o espelho.
-            </div>
-        </section>
-        
-        <!-- CONSIDERAÇÕES FINAIS + PLANO DE AÇÃO -->
-        <section id="final">
-            <h2>Considerações finais + plano de ação</h2>
-            <p>A jornada para uma pele uniforme exige paciência e os produtos certos. Os resultados do uso contínuo do Sabonete Amazole costumam ser visíveis em poucas semanas, mas o mais importante é transformar os cuidados diários em um ritual de amor-próprio. Aqui está seu resumo prático:</p>
-            <div class="card-pilar">
-                ✅ <strong>Plano de 30 dias:</strong><br>
-                - Use Sabonete Amazole 1x ao dia nos primeiros 7 dias, depois passe para 2x.<br>
-                - Aplique protetor solar religiosamente todas as manhãs.<br>
-                - Esfolie 2x por semana (dias alternados).<br>
-                - Hidrate a pele após cada lavagem.<br>
-                - Tire uma foto a cada 15 dias para acompanhar a evolução.
-            </div>
-            <div class="citacao-final">
-                <i class="fas fa-quote-left"></i> Diga adeus às manchas e recupere a confiança da sua pele. <br>
-                <span style="font-size: 0.9rem;">— Sabonete Amazole: tradição amazônica + eficácia comprovada</span>
-            </div>
-        </section>
-        
-        <hr>
-        <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: #b1967a;">
-            <span><i class="far fa-copyright"></i> Guia da Pele Uniforme – Edição Expandida e Profissional</span>
-            <span><i class="fas fa-leaf"></i> Conteúdo desenvolvido com base em evidências dermatológicas</span>
+    </div>
+
+    <!-- SUMÁRIO -->
+    <div class="page">
+        <div class="page-number"></div>
+        <h2>SUMÁRIO</h2>
+        <div class="sumario">
+            <div class="sumario-item"><span>1 INTRODUÇÃO</span><span>3</span></div>
+            <div class="sumario-item"><span>2 DESENVOLVIMENTO</span><span>4</span></div>
+            <div class="sumario-item"><span>&nbsp;&nbsp;2.1 Dilatação linear</span><span>4</span></div>
+            <div class="sumario-item"><span>&nbsp;&nbsp;2.2 Dilatação superficial</span><span>6</span></div>
+            <div class="sumario-item"><span>&nbsp;&nbsp;2.3 Dilatação volumétrica</span><span>8</span></div>
+            <div class="sumario-item"><span>&nbsp;&nbsp;2.4 Dilatação dos líquidos</span><span>10</span></div>
+            <div class="sumario-item"><span>3 CONCLUSÃO</span><span>12</span></div>
+            <div class="sumario-item"><span>REFERÊNCIAS</span><span>13</span></div>
         </div>
+    </div>
+
+    <!-- INTRODUÇÃO (página 3) -->
+    <div class="page">
+        <div class="page-number">3</div>
+        <h2>1 INTRODUÇÃO</h2>
+        <p>A dilatação térmica é um fenômeno que acontece o tempo todo ao nosso redor, mesmo que muitas vezes passemos despercebidos por ele. Quando um material recebe calor, suas partículas vibram com mais intensidade, aumentando a distância média entre elas. Como resultado, o corpo se expande. Ao resfriar, o processo inverso ocorre: as partículas se acalmam e o material se contrai.</p>
+        <p>Esse comportamento é extremamente importante na engenharia, na arquitetura e na indústria. Se não fossem levadas em conta as variações de dimensão dos materiais, muitas estruturas poderiam rachar, entortar ou até mesmo sofrer acidentes graves. Por isso, projetistas deixam folgas e juntas de dilatação em pontes, trilhos de trem, pisos e até em componentes eletrônicos.</p>
+        <p>Nos sólidos, existem três tipos principais de dilatação: a linear (que afeta principalmente o comprimento), a superficial (que considera a área) e a volumétrica (que leva em conta o volume total). Os líquidos também se dilatam, mas apresentam características próprias que merecem atenção especial.</p>
+        <p>Neste trabalho, vamos explorar esses quatro casos, sempre relacionando-os com situações do dia a dia e incluindo exercícios resolvidos e comentados. O objetivo é mostrar que a Física não fica só no livro: ela está presente nas ruas, nas casas e nas grandes construções, ajudando a tornar o mundo mais seguro e eficiente.</p>
+    </div>
+
+    <!-- DESENVOLVIMENTO - 2.1 Dilatação linear (página 4) -->
+    <div class="page">
+        <div class="page-number">4</div>
+        <h2>2 DESENVOLVIMENTO</h2>
+        <h3>2.1 DILATAÇÃO LINEAR</h3>
+        <p>A dilatação linear ocorre quando um corpo se expande predominantemente em uma única direção, geralmente no comprimento. É o caso de barras, fios, cabos e trilhos, onde as outras dimensões são muito menores.</p>
+        <p>A fórmula que descreve esse fenômeno é:</p>
+        <p>\[ \Delta L = L_0 \cdot \alpha \cdot \Delta T \]</p>
+        <p>Onde:</p>
+        <p>\( \Delta L \): variação do comprimento (em metros)<br>
+        \( L_0 \): comprimento inicial (em metros)<br>
+        \( \alpha \): coeficiente de dilatação linear do material (em °C⁻¹)<br>
+        \( \Delta T \): variação de temperatura (em °C)</p>
+        <p>Cada material tem seu próprio coeficiente \( \alpha \). Metais como alumínio e cobre dilatam mais que o vidro ou o concreto, por exemplo.</p>
+        
+        <h3>2.1.1 Exemplos do cotidiano</h3>
+        <p><strong>Exemplo 1 – Trilhos de trem</strong><br>
+        Em dias muito quentes, os trilhos de aço se expandem. Para evitar que eles se deformem ou emperrem, os engenheiros deixam pequenas fendas entre os segmentos, chamadas de juntas de dilatação. Essas folgas compensam o aumento de comprimento e garantem a segurança da via.</p>
+        <figure>
+            <img src="https://vault-us-east-1.pulsarimagens.com.br/file/preview/06EG790.jpg" alt="Junta de dilatação em trilho de trem" style="max-width:100%;">
+            <figcaption>Figura 1 – Junta de dilatação em trilho de trem</figcaption>
+            <div class="fonte">Fonte: Pulsar Imagens, 2023. Disponível em: &lt;https://www.pulsarimagens.com.br/...&gt;. Acesso em: 23 abr. 2026.</div>
+        </figure>
+        
+        <p><strong>Exemplo 2 – Cabos de energia elétrica</strong><br>
+        Os cabos metálicos entre os postes são instalados com uma curvatura (catenária) intencional. No calor, eles se alongam e a curva fica mais acentuada; no frio, encolhem e ficam mais esticados. Essa folga evita rompimentos ou danos aos postes.</p>
+        <figure>
+            <img src="https://www.ispblog.com.br/wp-content/uploads/2019/05/raio-curvatura-01.png" alt="Curvatura de dilatação em cabos de rede elétrica" style="max-width:100%;">
+            <figcaption>Figura 2 – Curvatura de dilatação em cabos de rede elétrica</figcaption>
+            <div class="fonte">Fonte: Overtek, 2019. Disponível em: &lt;https://www.overtek.com.br/blog/cuidado-com-curvatura-dos-cabos-opticos/&gt;. Acesso em: 23 abr. 2026.</div>
+        </figure>
+        
+        <h3>2.1.2 Exercício comentado</h3>
+        <div class="exercicio">
+            <p><strong>Enunciado:</strong> Um trilho de aço com 20 m de comprimento a 10 °C tem coeficiente de dilatação linear \( \alpha = 1,2 \times 10^{-5} \) °C⁻¹. Qual será seu comprimento a 40 °C?</p>
+            <p><strong>Resolução:</strong><br>
+            \( \Delta T = 40 - 10 = 30 \) °C<br>
+            \( \Delta L = 20 \cdot (1,2 \times 10^{-5}) \cdot 30 = 0,0072 \) m (ou 7,2 mm)<br>
+            Comprimento final = 20 + 0,0072 = 20,0072 m</p>
+            <p class="comentario"><strong>Comentário:</strong> Embora 7,2 mm pareça pouco, em quilômetros de trilhos essa variação pode somar vários centímetros. Por isso as juntas de dilatação são tão importantes.</p>
+        </div>
+    </div>
+
+    <!-- 2.2 DILATAÇÃO SUPERFICIAL (página 6) -->
+    <div class="page">
+        <div class="page-number">6</div>
+        <h3>2.2 DILATAÇÃO SUPERFICIAL</h3>
+        <p>Quando o material se expande em duas dimensões (comprimento e largura), como em placas e chapas, falamos em dilatação superficial. A fórmula é:</p>
+        <p>\[ \Delta A = A_0 \cdot \beta \cdot \Delta T \]</p>
+        <p>Onde \( \beta \approx 2\alpha \) (o coeficiente superficial é aproximadamente o dobro do linear).</p>
+        
+        <h3>2.2.1 Exemplos do cotidiano</h3>
+        <p><strong>Exemplo 1 – Placas de concreto de calçadas</strong><br>
+        No calor, as placas de concreto expandem em todas as direções. Sem espaços entre elas, as bordas podem se levantar ou rachar. As juntas de dilatação com material flexível resolvem esse problema.</p>
+        <figure>
+            <!-- Imagem não fornecida diretamente pelo usuário. Mantido placeholder -->
+            <div class="img-placeholder">[INSERIR IMAGEM - Link direto não fornecido]</div>
+            <figcaption>Figura 3 – Junta de dilatação em calçada de concreto</figcaption>
+            <div class="fonte">Fonte: Conduz Tintas. Disponível em: &lt;https://www.conduztintas.com.br/conheca-a-junta-de-dilatacao-para-piso-cimentado-e-de-adeus-as-rachaduras&gt;. Acesso em: 23 abr. 2026.</div>
+        </figure>
+        
+        <p><strong>Exemplo 2 – Portas e janelas de madeira</strong><br>
+        No verão, a madeira dilata e as portas podem emperrar. À noite, com o resfriamento, elas voltam ao tamanho normal e abrem com facilidade.</p>
+        <figure>
+            <img src="data:image/jpeg;base64,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" alt="Porta de madeira empenada devido à dilatação térmica" style="max-width:100%;">
+            <figcaption>Figura 4 – Porta de madeira empenada devido à dilatação térmica</figcaption>
+            <div class="fonte">Fonte: Rohden, 2020. Disponível em: &lt;https://rohden.com/porta-de-madeira-inchada/&gt;. Acesso em: 23 abr. 2026.</div>
+        </figure>
+        
+        <h3>2.2.2 Exercício comentado</h3>
+        <div class="exercicio">
+            <p><strong>Enunciado:</strong> Uma placa quadrada de alumínio (\( \alpha = 2,4 \times 10^{-5} \) °C⁻¹) tem 2 m de lado a 20 °C. Qual será sua área a 50 °C?</p>
+            <p><strong>Resolução:</strong><br>
+            \( \beta = 2 \times 2,4 \times 10^{-5} = 4,8 \times 10^{-5} \) °C⁻¹<br>
+            Área inicial \( A_0 = 4 \) m²<br>
+            \( \Delta T = 30 \) °C<br>
+            \( \Delta A = 4 \cdot 4,8 \times 10^{-5} \cdot 30 = 0,00576 \) m²<br>
+            Área final = 4,00576 m²</p>
+            <p class="comentario"><strong>Comentário:</strong> O aumento parece pequeno (cerca de 58 cm²), mas em grandes superfícies, como pisos cerâmicos, pode gerar tensões suficientes para quebrar o material.</p>
+        </div>
+    </div>
+
+    <!-- 2.3 DILATAÇÃO VOLUMÉTRICA (página 8) -->
+    <div class="page">
+        <div class="page-number">8</div>
+        <h3>2.3 DILATAÇÃO VOLUMÉTRICA</h3>
+        <p>A dilatação volumétrica considera a mudança nas três dimensões do corpo. A fórmula é:</p>
+        <p>\[ \Delta V = V_0 \cdot \gamma \cdot \Delta T \]</p>
+        <p>Onde \( \gamma \approx 3\alpha \).</p>
+        
+        <h3>2.3.1 Exemplos do cotidiano</h3>
+        <p><strong>Exemplo 1 – Pneus de automóvel</strong><br>
+        Em dias quentes, o ar dentro do pneu se aquece, aumenta de volume e eleva a pressão. Se não for monitorado, pode causar problemas.</p>
+        <figure>
+            <img src="data:image/jpeg;base64,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" alt="Pneu de automóvel exposto ao calor intenso" style="max-width:100%;">
+            <figcaption>Figura 5 – Pneu de automóvel exposto ao calor intenso</figcaption>
+            <div class="fonte">Fonte: Isau Center. Disponível em: &lt;https://www.isautocenter.com.br/blog/pneus/desgastes-pneu-calor&gt;. Acesso em: 23 abr. 2026.</div>
+        </figure>
+        
+        <p><strong>Exemplo 2 – Frasco de vidro com tampa metálica</strong><br>
+        Ao aquecer a tampa metálica sob água quente, o metal se expande mais que o vidro, facilitando a abertura do pote.</p>
+        <figure>
+            <img src="https://images.tcdn.com.br/img/editor/up/1403355/Como_abrir_pote_de_vidro_com_tampa_de_metal.jpg" alt="Aquecimento da tampa metálica para abertura de frasco de vidro" style="max-width:100%;">
+            <figcaption>Figura 6 – Aquecimento da tampa metálica para abertura de frasco de vidro</figcaption>
+            <div class="fonte">Fonte: Embalavalesul. Disponível em: &lt;https://www.embavalesul.com.br/como-abrir-pote-de-vidro-com-tampa-de-metal&gt;. Acesso em: 23 abr. 2026.</div>
+        </figure>
+        
+        <h3>2.3.2 Exercício comentado</h3>
+        <div class="exercicio">
+            <p><strong>Enunciado:</strong> Um cubo de ferro (\( \alpha = 1,2 \times 10^{-5} \) °C⁻¹) tem aresta de 10 cm a 25 °C. Qual será seu volume a 75 °C?</p>
+            <p><strong>Resolução:</strong><br>
+            Volume inicial \( V_0 = 0,001 \) m³<br>
+            \( \gamma = 3,6 \times 10^{-5} \) °C⁻¹<br>
+            \( \Delta T = 50 \) °C<br>
+            \( \Delta V = 1,8 \times 10^{-6} \) m³<br>
+            Volume final = 0,001018 m³ (aumento de 1,8 cm³)</p>
+            <p class="comentario"><strong>Comentário:</strong> Mesmo uma variação pequena é relevante em peças de precisão, como rolamentos e motores.</p>
+        </div>
+    </div>
+
+    <!-- 2.4 DILATAÇÃO DOS LÍQUIDOS (página 10) -->
+    <div class="page">
+        <div class="page-number">10</div>
+        <h3>2.4 DILATAÇÃO DOS LÍQUIDOS</h3>
+        <p>Os líquidos se dilatam mais que os sólidos e ocupam o volume do recipiente. Por isso, costuma-se falar em dilatação aparente (o que vemos transbordar) e dilatação real (a expansão verdadeira do líquido).</p>
+        <p>A dilatação real segue: \( \Delta V_{real} = V_0 \cdot \gamma_{real} \cdot \Delta T \).</p>
+        
+        <h3>2.4.1 Exemplos do cotidiano</h3>
+        <p><strong>Exemplo 1 – Termômetro de mercúrio</strong><br>
+        O mercúrio se dilata muito mais que o vidro, subindo pelo capilar e indicando a temperatura.</p>
+        <figure>
+            <img src="data:image/jpeg;base64,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" alt="Termômetro clínico de mercúrio" style="max-width:300px;">
+            <figcaption>Figura 7 – Termômetro clínico de mercúrio</figcaption>
+            <div class="fonte">Fonte: Kajavet. Disponível em: &lt;https://www.kajavet.com.br/termometro-clinico-de-mercurio-walmur&gt;. Acesso em: 23 abr. 2026.</div>
+        </figure>
+        
+        <p><strong>Exemplo 2 – Garrafa de água no congelador</strong><br>
+        A água tem um comportamento anômalo: entre 0 °C e 4 °C ela se contrai ao ser aquecida e se expande ao ser resfriada. Ao congelar, expande ainda mais e pode romper a garrafa.</p>
+        <figure>
+            <img src="https://static.mundoeducacao.uol.com.br/mundoeducacao/conteudo_legenda/c447d7dd6cf56ec5624b6db6a1166b39.jpg" alt="Garrafa de água rompida pelo congelamento" style="max-width:100%;">
+            <figcaption>Figura 8 – Garrafa de água rompida pelo congelamento</figcaption>
+            <div class="fonte">Fonte: Mundo Educação, 2024. Disponível em: &lt;https://mundoeducacao.uol.com.br/fisica/anomalia-agua.htm&gt;. Acesso em: 23 abr. 2026.</div>
+        </figure>
+        
+        <h3>2.4.2 Exercício comentado</h3>
+        <div class="exercicio">
+            <p><strong>Enunciado:</strong> Um frasco contém 100 cm³ de álcool etílico a 20 °C. O coeficiente de dilatação real do álcool é \( 1,1 \times 10^{-3} \) °C⁻¹ e o do vidro é \( 2,7 \times 10^{-5} \) °C⁻¹. Quanto transborda a 50 °C?</p>
+            <p><strong>Resolução:</strong><br>
+            \( \Delta T = 30 \) °C<br>
+            Dilatação real do álcool = 3,3 cm³<br>
+            Dilatação do vidro = 0,081 cm³<br>
+            Dilatação aparente = 3,219 cm³</p>
+            <p class="comentario"><strong>Comentário:</strong> O álcool dilata muito mais que o vidro. Esse princípio é a base de funcionamento dos termômetros e de vários sensores de temperatura.</p>
+        </div>
+    </div>
+
+    <!-- CONCLUSÃO (página 12) -->
+    <div class="page">
+        <div class="page-number">12</div>
+        <h2>3 CONCLUSÃO</h2>
+        <p>A dilatação térmica está presente em praticamente todos os materiais e influencia nossa vida diária de formas que nem sempre percebemos. Ao longo deste trabalho, vimos como a dilatação linear, superficial e volumétrica se aplicam a diferentes objetos, e como os líquidos apresentam comportamentos ainda mais marcantes, com a distinção entre dilatação real e aparente.</p>
+        <p>Os exemplos práticos — desde trilhos de trem e cabos elétricos até portas de madeira, pneus e termômetros — mostram que compreender esse fenômeno é fundamental para evitar problemas e projetar soluções mais seguras e duráveis.</p>
+        <p>Portanto, a Física da dilatação térmica vai muito além da teoria: ela é uma ferramenta essencial para engenheiros, arquitetos e cientistas, e um ótimo exemplo de como conceitos simples ajudam a explicar e melhorar o mundo real.</p>
+    </div>
+
+    <!-- REFERÊNCIAS (página 13) -->
+    <div class="page">
+        <div class="page-number">13</div>
+        <h2>REFERÊNCIAS</h2>
+        <ul class="referencias">
+            <li>ALLMAD. <strong>Porta de madeira empenada</strong>: o que fazer? 2023. Disponível em: &lt;https://www.allmad.com.br/porta-de-madeira-empenada-o-que-fazer/&gt;. Acesso em: 23 abr. 2026.</li>
+            <li>BRASIL ESCOLA. <strong>Dilatação Térmica</strong>. Disponível em: &lt;https://brasilescola.uol.com.br/fisica/dilatacao-termica.htm&gt;. Acesso em: 21 abr. 2026.</li>
+            <li>CREF/IF-UFRGS. <strong>Forma dos fios de alta tensão</strong>. 2025. Disponível em: &lt;https://cref.if.ufrgs.br/?cont_id=2533&gt;. Acesso em: 23 abr. 2026.</li>
+            <li>CREF/IF-UFRGS. <strong>Efeito do aquecimento da tampa do pote de conserva</strong>. 2025. Disponível em: &lt;https://cref.if.ufrgs.br/?cont_id=2379&gt;. Acesso em: 23 abr. 2026.</li>
+            <li>GARRABORRACHAS. <strong>Junta de dilatação calçada de concreto</strong>. 2024. Disponível em: &lt;https://www.garraborrachas.com.br/junta-de-dilatacao-calcada-de-concreto&gt;. Acesso em: 23 abr. 2026.</li>
+            <li>K2ON. <strong>Calor extremo e seus pneus</strong>: o que você precisa saber. 2024. Disponível em: &lt;https://k2on.com.br/calor-extremo-e-seus-pneus-o-que-voce-precisa-saber/&gt;. Acesso em: 23 abr. 2026.</li>
+            <li>MUNDO EDUCAÇÃO. <strong>Anomalia da água</strong>. 2024. Disponível em: &lt;https://mundoeducacao.uol.com.br/fisica/anomalia-agua.htm&gt;. Acesso em: 23 abr. 2026.</li>
+            <li>MUNDO EDUCAÇÃO. <strong>Dilatação Linear</strong>. Disponível em: &lt;https://mundoeducacao.uol.com.br/fisica/dilatacao-linear.htm&gt;. Acesso em: 21 abr. 2026.</li>
+            <li>PULSAR IMAGENS. <strong>Junta de dilatação em trilho de trem</strong>. 2023. Disponível em: &lt;https://www.pulsarimagens.com.br/foto/Junta-de-dilata%C3%A7%C3%A3o-em-trilho-de-trem---?assunto=Junta-de-dilata%C3%A7%C3%A3o-em-trilho-de-trem---&procurar=pedregulho&gt;. Acesso em: 23 abr. 2026.</li>
+            <li>123RF. <strong>Termômetro clínico do mercúrio no fundo branco</strong>. [s.d.]. Disponível em: &lt;https://pt.123rf.com/photo_23802226_term%C3%B4metro-cl%C3%ADnico-do-merc%C3%BArio-no-fundo-branco.html&gt;. Acesso em: 23 abr. 2026.</li>
+            <li>TODA MATÉRIA. <strong>Dilatação Térmica</strong>. Disponível em: &lt;https://www.todamateria.com.br/dilatacao-termica/&gt;. Acesso em: 21 abr. 2026.</li>
+            <li>BÔAS, Newton Villas; DOCA, Ricardo Helou; BISCUOLA, Gualter José. <strong>Tópicos de Física</strong>: Termologia, Ondulatória, Óptica. 20. ed. São Paulo: Saraiva, 2019.</li>
+            <li>YOUNG, Hugh D.; FREEDMAN, Roger A. <strong>Física II</strong>: Termodinâmica e Ondas. 14. ed. São Paulo: Pearson, 2016.</li>
+        </ul>
     </div>
 </div>
 </body>
