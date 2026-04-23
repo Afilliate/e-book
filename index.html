@@ -35,7 +35,7 @@
             min-height: 297mm;
         }
 
-        /* Impedir quebras dentro de certos elementos */
+        /* Evitar quebras dentro de elementos */
         h1, h2, h3, h4, figure, .exercicio {
             page-break-inside: avoid;
             break-inside: avoid;
@@ -69,6 +69,7 @@
             margin: 6pt 0;
         }
 
+        /* Títulos de seção (numerados) */
         h2 {
             font-size: 13pt;
             font-weight: bold;
@@ -80,6 +81,13 @@
             font-size: 12pt;
             font-weight: bold;
             margin: 12pt 0 4pt;
+        }
+
+        h4 {
+            font-size: 12pt;
+            font-weight: bold;
+            margin: 12pt 0 4pt;
+            font-style: normal;
         }
 
         .sumario {
@@ -95,7 +103,7 @@
             margin-bottom: 12pt;
         }
 
-        /* Numeração de páginas (ABNT: canto superior direito, a partir da introdução) */
+        /* Numeração de páginas (ABNT: canto superior direito) */
         .page-number {
             position: absolute;
             top: 2cm;
@@ -104,13 +112,12 @@
             font-family: 'Times New Roman', Times, serif;
         }
 
-        /* Capa e sumário sem número visível */
         .first-page .page-number,
         .no-number .page-number {
             display: none;
         }
 
-        /* Figuras e imagens */
+        /* Figuras */
         figure {
             margin: 16pt auto;
             text-align: center;
@@ -141,12 +148,10 @@
             text-align: left;
         }
 
-        /* Exercícios comentados */
+        /* Exercício - sem bordas nem fundo, apenas espaçamento */
         .exercicio {
             margin: 12pt 0;
-            background-color: #fafafa;
-            padding: 8pt;
-            border-left: 3px solid #2c3e66;
+            padding: 0;
         }
         .comentario {
             margin-top: 6pt;
@@ -167,7 +172,7 @@
             text-decoration: none;
         }
 
-        /* Impressão: remover cabeçalhos/rodapés do navegador e garantir margens */
+        /* Impressão: remover cabeçalhos/rodapés do navegador */
         @media print {
             body {
                 background: white;
@@ -183,7 +188,6 @@
                 page-break-after: always;
                 break-after: page;
             }
-            /* Tenta ocultar qualquer conteúdo extra gerado pelo navegador */
             @page {
                 margin: 0;
             }
@@ -200,7 +204,7 @@
 </head>
 <body>
 <div class="paper">
-    <!-- CAPA (sem numeração) -->
+    <!-- CAPA -->
     <div class="page first-page">
         <div class="page-number"></div>
         <div style="margin-top: 5cm;">
@@ -221,17 +225,16 @@
         <h2>SUMÁRIO</h2>
         <div class="sumario">
             <div class="sumario-item"><span>1 INTRODUÇÃO</span><span>3</span></div>
-            <div class="sumario-item"><span>2 DESENVOLVIMENTO</span><span>4</span></div>
-            <div class="sumario-item"><span>&nbsp;&nbsp;2.1 Dilatação linear</span><span>4</span></div>
-            <div class="sumario-item"><span>&nbsp;&nbsp;2.2 Dilatação superficial</span><span>6</span></div>
-            <div class="sumario-item"><span>&nbsp;&nbsp;2.3 Dilatação volumétrica</span><span>8</span></div>
-            <div class="sumario-item"><span>&nbsp;&nbsp;2.4 Dilatação dos líquidos</span><span>10</span></div>
+            <div class="sumario-item"><span>2.1 Dilatação linear</span><span>4</span></div>
+            <div class="sumario-item"><span>2.2 Dilatação superficial</span><span>6</span></div>
+            <div class="sumario-item"><span>2.3 Dilatação volumétrica</span><span>8</span></div>
+            <div class="sumario-item"><span>2.4 Dilatação dos líquidos</span><span>10</span></div>
             <div class="sumario-item"><span>3 CONCLUSÃO</span><span>12</span></div>
             <div class="sumario-item"><span>REFERÊNCIAS</span><span>13</span></div>
         </div>
     </div>
 
-    <!-- INTRODUÇÃO (página 3) -->
+    <!-- 1 INTRODUÇÃO (página 3) -->
     <div class="page">
         <div class="page-number">3</div>
         <h2>1 INTRODUÇÃO</h2>
@@ -244,8 +247,7 @@
     <!-- 2.1 DILATAÇÃO LINEAR (página 4) -->
     <div class="page">
         <div class="page-number">4</div>
-        <h2>2 DESENVOLVIMENTO</h2>
-        <h3>2.1 DILATAÇÃO LINEAR</h3>
+        <h2>2.1 DILATAÇÃO LINEAR</h2>
         <p>A dilatação linear ocorre quando um corpo se expande predominantemente em uma única direção, geralmente no comprimento. É o caso de barras, fios, cabos e trilhos, onde as outras dimensões são muito menores.</p>
         <p>A fórmula que descreve esse fenômeno é:</p>
         <p>\[ \Delta L = L_0 \cdot \alpha \cdot \Delta T \]</p>
@@ -256,7 +258,7 @@
         \( \Delta T \): variação de temperatura (em °C)</p>
         <p>Cada material tem seu próprio coeficiente \( \alpha \). Metais como alumínio e cobre dilatam mais que o vidro ou o concreto, por exemplo.</p>
         
-        <h4 style="margin: 12pt 0 4pt;">2.1.1 Exemplos do cotidiano</h4>
+        <h3>2.1.1 Exemplos do cotidiano</h3>
         <p><strong>Exemplo 1 – Trilhos de trem</strong><br>
         Em dias muito quentes, os trilhos de aço se expandem. Para evitar que eles se deformem ou emperrem, os engenheiros deixam pequenas fendas entre os segmentos, chamadas de juntas de dilatação. Essas folgas compensam o aumento de comprimento e garantem a segurança da via.</p>
         <figure>
@@ -273,7 +275,7 @@
             <div class="fonte">Fonte: Overtek, 2019. Acesso em: 23 abr. 2026.</div>
         </figure>
         
-        <h4 style="margin: 12pt 0 4pt;">2.1.2 Exercício comentado</h4>
+        <h3>2.1.2 Exercício comentado</h3>
         <div class="exercicio">
             <p><strong>Enunciado:</strong> Um trilho de aço com 20 m de comprimento a 10 °C tem coeficiente de dilatação linear \( \alpha = 1,2 \times 10^{-5} \) °C⁻¹. Qual será seu comprimento a 40 °C?</p>
             <p><strong>Resolução:</strong><br>
@@ -287,12 +289,12 @@
     <!-- 2.2 DILATAÇÃO SUPERFICIAL (página 6) -->
     <div class="page">
         <div class="page-number">6</div>
-        <h3>2.2 DILATAÇÃO SUPERFICIAL</h3>
+        <h2>2.2 DILATAÇÃO SUPERFICIAL</h2>
         <p>Quando o material se expande em duas dimensões (comprimento e largura), como em placas e chapas, falamos em dilatação superficial. A fórmula é:</p>
         <p>\[ \Delta A = A_0 \cdot \beta \cdot \Delta T \]</p>
         <p>Onde \( \beta \approx 2\alpha \) (o coeficiente superficial é aproximadamente o dobro do linear).</p>
         
-        <h4 style="margin: 12pt 0 4pt;">2.2.1 Exemplos do cotidiano</h4>
+        <h3>2.2.1 Exemplos do cotidiano</h3>
         <p><strong>Exemplo 1 – Placas de concreto de calçadas</strong><br>
         No calor, as placas de concreto expandem em todas as direções. Sem espaços entre elas, as bordas podem se levantar ou rachar. As juntas de dilatação com material flexível resolvem esse problema.</p>
         <figure>
@@ -309,7 +311,7 @@
             <div class="fonte">Fonte: Rohden, 2020. Acesso em: 23 abr. 2026.</div>
         </figure>
         
-        <h4 style="margin: 12pt 0 4pt;">2.2.2 Exercício comentado</h4>
+        <h3>2.2.2 Exercício comentado</h3>
         <div class="exercicio">
             <p><strong>Enunciado:</strong> Uma placa quadrada de alumínio (\( \alpha = 2,4 \times 10^{-5} \) °C⁻¹) tem 2 m de lado a 20 °C. Qual será sua área a 50 °C?</p>
             <p><strong>Resolução:</strong><br>
@@ -325,12 +327,12 @@
     <!-- 2.3 DILATAÇÃO VOLUMÉTRICA (página 8) -->
     <div class="page">
         <div class="page-number">8</div>
-        <h3>2.3 DILATAÇÃO VOLUMÉTRICA</h3>
+        <h2>2.3 DILATAÇÃO VOLUMÉTRICA</h2>
         <p>A dilatação volumétrica considera a mudança nas três dimensões do corpo. A fórmula é:</p>
         <p>\[ \Delta V = V_0 \cdot \gamma \cdot \Delta T \]</p>
         <p>Onde \( \gamma \approx 3\alpha \).</p>
         
-        <h4 style="margin: 12pt 0 4pt;">2.3.1 Exemplos do cotidiano</h4>
+        <h3>2.3.1 Exemplos do cotidiano</h3>
         <p><strong>Exemplo 1 – Pneus de automóvel</strong><br>
         Em dias quentes, o ar dentro do pneu se aquece, aumenta de volume e eleva a pressão. Se não for monitorado, pode causar problemas.</p>
         <figure>
@@ -347,7 +349,7 @@
             <div class="fonte">Fonte: Embalavalesul. Acesso em: 23 abr. 2026.</div>
         </figure>
         
-        <h4 style="margin: 12pt 0 4pt;">2.3.2 Exercício comentado</h4>
+        <h3>2.3.2 Exercício comentado</h3>
         <div class="exercicio">
             <p><strong>Enunciado:</strong> Um cubo de ferro (\( \alpha = 1,2 \times 10^{-5} \) °C⁻¹) tem aresta de 10 cm a 25 °C. Qual será seu volume a 75 °C?</p>
             <p><strong>Resolução:</strong><br>
@@ -363,11 +365,11 @@
     <!-- 2.4 DILATAÇÃO DOS LÍQUIDOS (página 10) -->
     <div class="page">
         <div class="page-number">10</div>
-        <h3>2.4 DILATAÇÃO DOS LÍQUIDOS</h3>
+        <h2>2.4 DILATAÇÃO DOS LÍQUIDOS</h2>
         <p>Os líquidos se dilatam mais que os sólidos e ocupam o volume do recipiente. Por isso, costuma-se falar em dilatação aparente (o que vemos transbordar) e dilatação real (a expansão verdadeira do líquido).</p>
         <p>A dilatação real segue: \( \Delta V_{real} = V_0 \cdot \gamma_{real} \cdot \Delta T \).</p>
         
-        <h4 style="margin: 12pt 0 4pt;">2.4.1 Exemplos do cotidiano</h4>
+        <h3>2.4.1 Exemplos do cotidiano</h3>
         <p><strong>Exemplo 1 – Termômetro de mercúrio</strong><br>
         O mercúrio se dilata muito mais que o vidro, subindo pelo capilar e indicando a temperatura.</p>
         <figure>
@@ -384,7 +386,7 @@
             <div class="fonte">Fonte: Mundo Educação, 2024. Acesso em: 23 abr. 2026.</div>
         </figure>
         
-        <h4 style="margin: 12pt 0 4pt;">2.4.2 Exercício comentado</h4>
+        <h3>2.4.2 Exercício comentado</h3>
         <div class="exercicio">
             <p><strong>Enunciado:</strong> Um frasco contém 100 cm³ de álcool etílico a 20 °C. O coeficiente de dilatação real do álcool é \( 1,1 \times 10^{-3} \) °C⁻¹ e o do vidro é \( 2,7 \times 10^{-5} \) °C⁻¹. Quanto transborda a 50 °C?</p>
             <p><strong>Resolução:</strong><br>
@@ -396,7 +398,7 @@
         </div>
     </div>
 
-    <!-- CONCLUSÃO (página 12) -->
+    <!-- 3 CONCLUSÃO (página 12) -->
     <div class="page">
         <div class="page-number">12</div>
         <h2>3 CONCLUSÃO</h2>
