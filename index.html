@@ -174,32 +174,33 @@
 
         /* Impressão: remover cabeçalhos/rodapés do navegador */
         @media print {
-            body {
-                background: white;
-                margin: 0;
-                padding: 0;
-            }
-            .paper {
-                margin: 0;
-                box-shadow: none;
-            }
-            .page {
-                padding: 3cm 2cm 2cm 3cm;
-                page-break-after: always;
-                break-after: page;
-            }
-            @page {
-                margin: 0;
-            }
-            .page-number {
-                position: fixed;
-                top: 2cm;
-                right: 2cm;
-            }
-            .first-page .page-number {
-                display: none;
-            }
-        }
+    body {
+        background: white;
+        margin: 0;
+        padding: 0;
+    }
+    .paper {
+        margin: 0;
+        box-shadow: none;
+    }
+    .page {
+        padding: 3cm 2cm 2cm 3cm;
+        page-break-after: always;
+        break-after: page;
+    }
+    @page {
+        margin: 0;
+    }
+    /* Removido o position: fixed, mantendo absolute para cada página */
+    .page-number {
+        position: absolute;
+        top: 2cm;
+        right: 2cm;
+    }
+    .first-page .page-number {
+        display: none;
+    }
+}
     </style>
 </head>
 <body>
