@@ -12,14 +12,13 @@
         }
 
         body {
-            font-family: 'Times New Roman', Times, serif;
+            font-family: Arial, sans-serif;
             font-size: 12pt;
             line-height: 1.5;
             color: #000;
             background: #fff;
         }
 
-        /* Container padrão ABNT */
         .abnt-container {
             width: 210mm;
             min-height: 297mm;
@@ -49,7 +48,8 @@
             font-weight: bold;
             text-transform: uppercase;
             margin-bottom: 0.5cm;
-            line-height: 1.8;
+            line-height: 1.4;
+            white-space: nowrap;
         }
 
         .capa .titulo-principal {
@@ -83,7 +83,8 @@
             font-weight: bold;
             text-transform: uppercase;
             margin-bottom: 2cm;
-            line-height: 1.8;
+            line-height: 1.4;
+            white-space: nowrap;
         }
 
         .folha-de-rosto .titulo-rosto {
@@ -102,8 +103,8 @@
         .folha-de-rosto .descricao {
             font-size: 11pt;
             text-align: justify;
-            margin: 0 2cm 2cm 2cm;
-            text-indent: 1.25cm;
+            margin: 0 2cm 2cm 7.5cm;  /* recuo total de 7,5 cm da borda esquerda */
+            text-indent: 0;            /* sem recuo na primeira linha */
         }
 
         .folha-de-rosto .cidade-ano-rosto {
@@ -129,20 +130,43 @@
             list-style: none;
             font-size: 12pt;
             line-height: 2;
+            padding: 0;
         }
 
         .sumario ul li {
-            border-bottom: 1px dotted #999;
             padding: 2px 0;
             display: flex;
-            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .sumario .sumario-titulo {
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        .sumario .sumario-pontilhado {
+            flex: 1;
+            border-bottom: 1px dotted #999;
+            margin: 0 4px;
+            min-width: 1em;
+        }
+
+        .sumario .sumario-pagina {
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        .sumario .subitem .sumario-titulo {
+            padding-left: 2cm;
+            font-size: 11pt;
         }
 
         .sumario .subitem {
-            padding-left: 2cm;
-            font-size: 11pt;
-            border-bottom: none;
             line-height: 1.8;
+        }
+
+        .sumario .subitem .sumario-pagina {
+            font-size: 11pt;
         }
 
         /* ===== SEÇÕES DO TEXTO ===== */
@@ -163,6 +187,7 @@
             font-weight: bold;
             text-transform: uppercase;
             margin: 1.5cm 0 1cm 0;
+            text-align: left;
         }
 
         .secao p {
@@ -173,6 +198,12 @@
             line-height: 1.5;
             widows: 2;
             orphans: 2;
+        }
+
+        /* Primeiro parágrafo após título sem recuo (padrão ABNT recomendado) */
+        .secao h1 + p,
+        .secao h2 + p {
+            text-indent: 0;
         }
 
         /* ===== REFERÊNCIAS ===== */
@@ -195,18 +226,15 @@
         /* ===== NUMERAÇÃO DE PÁGINA ===== */
         .numero-pagina {
             position: absolute;
-            top: 2cm;
-            right: 2cm;
+            top: -1cm;               /* 2 cm da borda superior (3 cm de padding - 1 cm) */
+            right: 2cm;              /* 2 cm da borda direita */
             font-size: 10pt;
-            color: #000;
         }
 
-        /* Sem número nas páginas pré-textuais */
         .sem-numero .numero-pagina {
             display: none;
         }
 
-        /* Quebras de página controladas */
         .pagina-nova {
             page-break-before: always;
             padding-top: 3cm;
@@ -239,11 +267,7 @@
     <div class="abnt-container capa sem-numero">
         <div class="instituicao">COLÉGIO UNICULTURA</div>
         <div class="autores">
-            DANIEL<br>
-            FELIPE M.<br>
-            JOÃO<br>
-            NICOLAS AOKI<br>
-            WENDY
+            DANIEL, FELIPE M., JOÃO, NICOLAS AOKI, WENDY
         </div>
         <div class="titulo-principal">
             SISTEMA DIGESTÓRIO –<br>ANOTAÇÕES DE ESTUDO
@@ -260,11 +284,7 @@
     <!-- FOLHA DE ROSTO (sem numeração) -->
     <div class="abnt-container folha-de-rosto sem-numero">
         <div class="autores-rosto">
-            DANIEL<br>
-            FELIPE M.<br>
-            JOÃO<br>
-            NICOLAS AOKI<br>
-            WENDY
+            DANIEL, FELIPE M., JOÃO, NICOLAS AOKI, WENDY
         </div>
         <div class="titulo-rosto">
             SISTEMA DIGESTÓRIO – ANOTAÇÕES DE ESTUDO
@@ -285,23 +305,91 @@
     <div class="abnt-container sumario sem-numero">
         <h2>SUMÁRIO</h2>
         <ul>
-            <li><span>1 INTRODUÇÃO</span><span>4</span></li>
-            <li><span>2 CLASSIFICAÇÃO DA DIGESTÃO</span><span>4</span></li>
-            <li class="subitem"><span>2.1 Quanto ao local</span><span>4</span></li>
-            <li class="subitem"><span>2.2 Quanto à anatomia do sistema</span><span>5</span></li>
-            <li><span>3 COMPARAÇÕES ENTRE VERTEBRADOS</span><span>5</span></li>
-            <li class="subitem"><span>3.1 Aves</span><span>5</span></li>
-            <li class="subitem"><span>3.2 Ruminantes</span><span>6</span></li>
-            <li class="subitem"><span>3.3 Outros herbívoros e carnívoros</span><span>6</span></li>
-            <li><span>4 SISTEMA DIGESTÓRIO HUMANO</span><span>7</span></li>
-            <li class="subitem"><span>4.1 Boca e deglutição</span><span>7</span></li>
-            <li class="subitem"><span>4.2 Estômago</span><span>7</span></li>
-            <li class="subitem"><span>4.3 Controle do apetite</span><span>8</span></li>
-            <li class="subitem"><span>4.4 Intestino delgado</span><span>8</span></li>
-            <li class="subitem"><span>4.5 Fígado, vesícula biliar e pâncreas</span><span>9</span></li>
-            <li class="subitem"><span>4.6 Intestino grosso e eliminação</span><span>9</span></li>
-            <li><span>5 CONCLUSÃO</span><span>10</span></li>
-            <li><span>REFERÊNCIAS</span><span>11</span></li>
+            <li>
+                <span class="sumario-titulo">1 INTRODUÇÃO</span>
+                <span class="sumario-pontilhado"></span>
+                <span class="sumario-pagina">4</span>
+            </li>
+            <li>
+                <span class="sumario-titulo">2 CLASSIFICAÇÃO DA DIGESTÃO</span>
+                <span class="sumario-pontilhado"></span>
+                <span class="sumario-pagina">4</span>
+            </li>
+            <li class="subitem">
+                <span class="sumario-titulo">2.1 Quanto ao local</span>
+                <span class="sumario-pontilhado"></span>
+                <span class="sumario-pagina">4</span>
+            </li>
+            <li class="subitem">
+                <span class="sumario-titulo">2.2 Quanto à anatomia do sistema</span>
+                <span class="sumario-pontilhado"></span>
+                <span class="sumario-pagina">5</span>
+            </li>
+            <li>
+                <span class="sumario-titulo">3 COMPARAÇÕES ENTRE VERTEBRADOS</span>
+                <span class="sumario-pontilhado"></span>
+                <span class="sumario-pagina">5</span>
+            </li>
+            <li class="subitem">
+                <span class="sumario-titulo">3.1 Aves</span>
+                <span class="sumario-pontilhado"></span>
+                <span class="sumario-pagina">5</span>
+            </li>
+            <li class="subitem">
+                <span class="sumario-titulo">3.2 Ruminantes</span>
+                <span class="sumario-pontilhado"></span>
+                <span class="sumario-pagina">6</span>
+            </li>
+            <li class="subitem">
+                <span class="sumario-titulo">3.3 Outros herbívoros e carnívoros</span>
+                <span class="sumario-pontilhado"></span>
+                <span class="sumario-pagina">6</span>
+            </li>
+            <li>
+                <span class="sumario-titulo">4 SISTEMA DIGESTÓRIO HUMANO</span>
+                <span class="sumario-pontilhado"></span>
+                <span class="sumario-pagina">7</span>
+            </li>
+            <li class="subitem">
+                <span class="sumario-titulo">4.1 Boca e deglutição</span>
+                <span class="sumario-pontilhado"></span>
+                <span class="sumario-pagina">7</span>
+            </li>
+            <li class="subitem">
+                <span class="sumario-titulo">4.2 Estômago</span>
+                <span class="sumario-pontilhado"></span>
+                <span class="sumario-pagina">7</span>
+            </li>
+            <li class="subitem">
+                <span class="sumario-titulo">4.3 Controle do apetite</span>
+                <span class="sumario-pontilhado"></span>
+                <span class="sumario-pagina">8</span>
+            </li>
+            <li class="subitem">
+                <span class="sumario-titulo">4.4 Intestino delgado</span>
+                <span class="sumario-pontilhado"></span>
+                <span class="sumario-pagina">8</span>
+            </li>
+            <li class="subitem">
+                <span class="sumario-titulo">4.5 Fígado, vesícula biliar e pâncreas</span>
+                <span class="sumario-pontilhado"></span>
+                <span class="sumario-pagina">9</span>
+            </li>
+            <li class="subitem">
+                <span class="sumario-titulo">4.6 Intestino grosso e eliminação</span>
+                <span class="sumario-pontilhado"></span>
+                <span class="sumario-pagina">9</span>
+            </li>
+            <li>
+                <span class="sumario-titulo">5 CONCLUSÃO</span>
+                <span class="sumario-pontilhado"></span>
+                <span class="sumario-pagina">10</span>
+            </li>
+            <li>
+                <span class="sumario-titulo">REFERÊNCIAS</span>
+                <span class="sumario-pontilhado"></span>
+                <span class="sumario-pagina">11</span>
+            </li>
         </ul>
     </div>
 
