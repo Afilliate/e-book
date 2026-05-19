@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trabalho de Física - Dilatação Térmica</title>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+    <title>Sistema Digestório – Anotações de Estudo</title>
     <style>
         * {
             margin: 0;
@@ -13,436 +12,387 @@
         }
 
         body {
-            background-color: #e0e0e0;
-            display: flex;
-            justify-content: center;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        .paper {
-            max-width: 210mm;
-            width: 100%;
-            background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-            margin: 20px auto;
-        }
-
-        .page {
-            position: relative;
-            padding: 3cm 2cm 2cm 3cm;
-            page-break-after: always;
-            break-after: page;
-            min-height: 297mm;
-        }
-
-        /* Evitar quebras dentro de elementos */
-        h1, h2, h3, h4, figure, .exercicio {
-            page-break-inside: avoid;
-            break-inside: avoid;
-        }
-
-        /* Tipografia ABNT */
-        body, .page, p, li, figcaption, .reference, .autor, .turma, .prof, .ano {
             font-family: 'Times New Roman', Times, serif;
             font-size: 12pt;
             line-height: 1.5;
+            color: #000;
+            background: #fff;
         }
 
-        h1 {
+        /* Container padrão ABNT */
+        .abnt-container {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: #fff;
+            padding: 3cm 2cm 2cm 3cm;
+            position: relative;
+            page-break-after: avoid;
+        }
+
+        /* ===== CAPA ===== */
+        .capa {
+            text-align: center;
+            page-break-after: always;
+            padding-top: 5cm;
+        }
+
+        .capa .instituicao {
+            font-size: 14pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 2.5cm;
+        }
+
+        .capa .autores {
+            font-size: 14pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 0.5cm;
+            line-height: 1.8;
+        }
+
+        .capa .titulo-principal {
+            font-size: 16pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 2.5cm 0 1cm 0;
+            line-height: 1.4;
+        }
+
+        .capa .subtitulo {
+            font-size: 12pt;
+            font-style: italic;
+            margin-bottom: 1.5cm;
+        }
+
+        .capa .cidade-ano {
+            font-size: 12pt;
+            margin-top: 3cm;
+        }
+
+        /* ===== FOLHA DE ROSTO ===== */
+        .folha-de-rosto {
+            text-align: center;
+            page-break-after: always;
+            padding-top: 3cm;
+        }
+
+        .folha-de-rosto .autores-rosto {
+            font-size: 14pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 2cm;
+            line-height: 1.8;
+        }
+
+        .folha-de-rosto .titulo-rosto {
+            font-size: 16pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 0.5cm;
+        }
+
+        .folha-de-rosto .subtitulo-rosto {
+            font-size: 12pt;
+            font-style: italic;
+            margin-bottom: 2cm;
+        }
+
+        .folha-de-rosto .descricao {
+            font-size: 11pt;
+            text-align: justify;
+            margin: 0 2cm 2cm 2cm;
+            text-indent: 1.25cm;
+        }
+
+        .folha-de-rosto .cidade-ano-rosto {
+            font-size: 12pt;
+            margin-top: 3cm;
+        }
+
+        /* ===== SUMÁRIO ===== */
+        .sumario {
+            page-break-after: always;
+            text-align: left;
+        }
+
+        .sumario h2 {
             font-size: 14pt;
             font-weight: bold;
             text-align: center;
-            margin: 12pt 0 8pt;
             text-transform: uppercase;
+            margin-bottom: 1.5cm;
         }
 
-        .titulo-trabalho {
-            font-size: 18pt;
-            font-weight: bold;
-            text-align: center;
-            margin: 5cm 0 1cm;
-            text-transform: uppercase;
-        }
-
-        .autor, .turma, .professor, .ano {
-            text-align: center;
-            margin: 6pt 0;
-        }
-
-        /* Títulos de seção (numerados) */
-        h2 {
-            font-size: 13pt;
-            font-weight: bold;
-            margin: 18pt 0 6pt;
-            text-transform: uppercase;
-        }
-
-        h3 {
+        .sumario ul {
+            list-style: none;
             font-size: 12pt;
-            font-weight: bold;
-            margin: 12pt 0 4pt;
+            line-height: 2;
         }
 
-        h4 {
-            font-size: 12pt;
-            font-weight: bold;
-            margin: 12pt 0 4pt;
-            font-style: normal;
-        }
-
-        .sumario {
-            margin: 24pt 0;
-        }
-        .sumario-item {
+        .sumario ul li {
+            border-bottom: 1px dotted #999;
+            padding: 2px 0;
             display: flex;
             justify-content: space-between;
-            margin: 2pt 0;
-        }
-        .sumario h2 {
-            text-align: center;
-            margin-bottom: 12pt;
         }
 
-        /* Numeração de páginas (ABNT: canto superior direito) */
-        .page-number {
+        .sumario .subitem {
+            padding-left: 2cm;
+            font-size: 11pt;
+            border-bottom: none;
+            line-height: 1.8;
+        }
+
+        /* ===== SEÇÕES DO TEXTO ===== */
+        .secao {
+            margin-bottom: 1cm;
+        }
+
+        .secao h1 {
+            font-size: 14pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 1.5cm;
+        }
+
+        .secao h2 {
+            font-size: 12pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 1.5cm 0 1cm 0;
+        }
+
+        .secao p {
+            font-size: 12pt;
+            text-align: justify;
+            text-indent: 1.25cm;
+            margin-bottom: 0.5cm;
+            line-height: 1.5;
+            widows: 2;
+            orphans: 2;
+        }
+
+        /* ===== REFERÊNCIAS ===== */
+        .referencias h2 {
+            font-size: 14pt;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 1.5cm;
+        }
+
+        .referencias p {
+            font-size: 12pt;
+            text-align: justify;
+            margin-bottom: 0.5cm;
+            padding-left: 1.25cm;
+            text-indent: -1.25cm;
+        }
+
+        /* ===== NUMERAÇÃO DE PÁGINA ===== */
+        .numero-pagina {
             position: absolute;
             top: 2cm;
             right: 2cm;
-            font-size: 12pt;
-            font-family: 'Times New Roman', Times, serif;
+            font-size: 10pt;
+            color: #000;
         }
 
-        .first-page .page-number,
-        .no-number .page-number {
+        /* Sem número nas páginas pré-textuais */
+        .sem-numero .numero-pagina {
             display: none;
         }
 
-        /* Figuras */
-        figure {
-            margin: 16pt auto;
-            text-align: center;
-        }
-        .img-placeholder {
-            background: #f5f5f5;
-            border: 1px dashed #999;
-            padding: 20px;
-            text-align: center;
-            font-family: monospace;
-            color: #555;
-            margin: 10px auto;
-            width: 80%;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            margin: 10px auto;
-        }
-        figcaption {
-            font-size: 11pt;
-            margin-bottom: 6px;
-            text-align: left;
-        }
-        .fonte {
-            font-size: 10pt;
-            margin-top: 2px;
-            text-align: left;
+        /* Quebras de página controladas */
+        .pagina-nova {
+            page-break-before: always;
+            padding-top: 3cm;
         }
 
-        /* Exercício - sem bordas nem fundo, apenas espaçamento */
-        .exercicio {
-            margin: 12pt 0;
-            padding: 0;
-        }
-        .comentario {
-            margin-top: 6pt;
-            font-style: italic;
-        }
-
-        /* Referências */
-        .referencias {
-            list-style: none;
-            margin-top: 12pt;
-        }
-        .referencias li {
-            margin-bottom: 6pt;
-        }
-
-        a {
-            color: #0645ad;
-            text-decoration: none;
-        }
-
-        /* Impressão: remover cabeçalhos/rodapés do navegador */
+        /* Impressão */
         @media print {
             body {
-                background: white;
+                background: #fff;
                 margin: 0;
                 padding: 0;
             }
-            .paper {
-                margin: 0;
+            .abnt-container {
                 box-shadow: none;
-            }
-            .page {
+                margin: 0;
                 padding: 3cm 2cm 2cm 3cm;
-                page-break-after: always;
-                break-after: page;
+                width: 100%;
+                min-height: auto;
             }
             @page {
+                size: A4;
                 margin: 0;
-            }
-            /* Removido o position: fixed, mantendo absolute para cada página */
-            .page-number {
-                position: absolute;
-                top: 2cm;
-                right: 2cm;
-            }
-            .first-page .page-number {
-                display: none;
             }
         }
     </style>
 </head>
 <body>
-<div class="paper">
-    <!-- CAPA -->
-    <div class="page first-page">
-        <div class="page-number"></div>
-        <div style="margin-top: 5cm;">
-            <h1 class="titulo-trabalho">TRABALHO DE FÍSICA</h1>
-            <h1 style="font-size: 16pt; margin-top: 20pt;">DILATAÇÃO TÉRMICA: CONCEITOS, TIPOS E APLICAÇÕES NO COTIDIANO</h1>
-            <div style="margin-top: 4cm;">
-                <p class="autor">Daniel Augustus Gomes Barbosa</p>
-                <p class="turma">Turma: 2º Ano B</p>
-                <p class="professor">Professor: Caio Barbosa</p>
-                <p class="ano">2026</p>
-            </div>
+
+    <!-- CAPA (sem numeração) -->
+    <div class="abnt-container capa sem-numero">
+        <div class="instituicao">COLÉGIO UNICULTURA</div>
+        <div class="autores">
+            DANIEL<br>
+            FELIPE M.<br>
+            JOÃO<br>
+            NICOLAS AOKI<br>
+            WENDY
+        </div>
+        <div class="titulo-principal">
+            SISTEMA DIGESTÓRIO –<br>ANOTAÇÕES DE ESTUDO
+        </div>
+        <div class="subtitulo">
+            (Comparações evolutivas + Funcionamento humano)
+        </div>
+        <div class="cidade-ano">
+            Guarulhos<br>
+            2026
         </div>
     </div>
 
-    <!-- FOLHA DE ROSTO -->
-    <div class="page no-number">
-        <div class="page-number"></div>
-        <div style="margin-top: 8cm;">
-            <p class="autor">DANIEL AUGUSTUS GOMES BARBOSA</p>
-            <h1 style="font-size: 16pt; font-weight: bold; text-align: center; margin-top: 3cm;">DILATAÇÃO TÉRMICA: CONCEITOS, TIPOS E APLICAÇÕES NO COTIDIANO</h1>
-            <div style="margin-top: 4cm; text-align: justify; margin-left: 0;">
-                <p>Trabalho de Física apresentado ao Colégio Unicultura como requisito parcial para obtenção de nota no 2º Ano do Ensino Médio.</p>
-                <p style="margin-top: 1.5cm;">Orientador: Prof. Caio Barbosa</p>
-            </div>
-            <p class="ano" style="margin-top: 4cm;">SÃO PAULO / GUARULHOS</p>
-            <p class="ano">2026</p>
+    <!-- FOLHA DE ROSTO (sem numeração) -->
+    <div class="abnt-container folha-de-rosto sem-numero">
+        <div class="autores-rosto">
+            DANIEL<br>
+            FELIPE M.<br>
+            JOÃO<br>
+            NICOLAS AOKI<br>
+            WENDY
+        </div>
+        <div class="titulo-rosto">
+            SISTEMA DIGESTÓRIO – ANOTAÇÕES DE ESTUDO
+        </div>
+        <div class="subtitulo-rosto">
+            (Comparações evolutivas + Funcionamento humano)
+        </div>
+        <div class="descricao">
+            Trabalho escolar apresentado como requisito parcial para aprovação na disciplina de Biologia, ministrada pelo professor licenciado Cris, no 2º ano do Ensino Médio do Colégio Unicultura. O conteúdo aborda anotações de estudo sobre o sistema digestório, comparando estruturas entre diferentes grupos animais e detalhando o funcionamento humano, com ênfase nos processos de digestão mecânica e química, glândulas anexas e regulação hormonal, fundamentado em referências da área de Fisiologia Animal.
+        </div>
+        <div class="cidade-ano-rosto">
+            Guarulhos<br>
+            2026
         </div>
     </div>
 
     <!-- SUMÁRIO (sem numeração) -->
-    <div class="page no-number">
-        <div class="page-number"></div>
+    <div class="abnt-container sumario sem-numero">
         <h2>SUMÁRIO</h2>
-        <div class="sumario">
-            <div class="sumario-item"><span>1 INTRODUÇÃO</span><span>3</span></div>
-            <div class="sumario-item"><span>2.1 Dilatação linear</span><span>4</span></div>
-            <div class="sumario-item"><span>2.2 Dilatação superficial</span><span>6</span></div>
-            <div class="sumario-item"><span>2.3 Dilatação volumétrica</span><span>8</span></div>
-            <div class="sumario-item"><span>2.4 Dilatação dos líquidos</span><span>10</span></div>
-            <div class="sumario-item"><span>3 CONCLUSÃO</span><span>12</span></div>
-            <div class="sumario-item"><span>REFERÊNCIAS</span><span>13</span></div>
-        </div>
-    </div>
-
-    <!-- 1 INTRODUÇÃO (página 3) -->
-    <div class="page">
-        <div class="page-number">3</div>
-        <h2>1 INTRODUÇÃO</h2>
-        <p>A dilatação térmica é um fenômeno que acontece o tempo todo ao nosso redor, mesmo que muitas vezes passemos despercebidos por ele. Quando um material recebe calor, suas partículas vibram com mais intensidade, aumentando a distância média entre elas. Como resultado, o corpo se expande. Ao resfriar, o processo inverso ocorre: as partículas se acalmam e o material se contrai.</p>
-        <p>Esse comportamento é extremamente importante na engenharia, na arquitetura e na indústria. Se não fossem levadas em conta as variações de dimensão dos materiais, muitas estruturas poderiam rachar, entortar ou até mesmo sofrer acidentes graves. Por isso, projetistas deixam folgas e juntas de dilatação em pontes, trilhos de trem, pisos e até em componentes eletrônicos.</p>
-        <p>Nos sólidos, existem três tipos principais de dilatação: a linear (que afeta principalmente o comprimento), a superficial (que considera a área) e a volumétrica (que leva em conta o volume total). Os líquidos também se dilatam, mas apresentam características próprias que merecem atenção especial.</p>
-        <p>Neste trabalho, vamos explorar esses quatro casos, sempre relacionando-os com situações do dia a dia e incluindo exercícios resolvidos e comentados. O objetivo é mostrar que a Física não fica só no livro: ela está presente nas ruas, nas casas e nas grandes construções, ajudando a tornar o mundo mais seguro e eficiente.</p>
-    </div>
-
-    <!-- 2.1 DILATAÇÃO LINEAR (página 4) -->
-    <div class="page">
-        <div class="page-number">4</div>
-        <h2>2.1 DILATAÇÃO LINEAR</h2>
-        <p>A dilatação linear ocorre quando um corpo se expande predominantemente em uma única direção, geralmente no comprimento. É o caso de barras, fios, cabos e trilhos, onde as outras dimensões são muito menores.</p>
-        <p>A fórmula que descreve esse fenômeno é:</p>
-        <p>\[ \Delta L = L_0 \cdot \alpha \cdot \Delta T \]</p>
-        <p>Onde:</p>
-        <p>\( \Delta L \): variação do comprimento (em metros)<br>
-        \( L_0 \): comprimento inicial (em metros)<br>
-        \( \alpha \): coeficiente de dilatação linear do material (em °C⁻¹)<br>
-        \( \Delta T \): variação de temperatura (em °C)</p>
-        <p>Cada material tem seu próprio coeficiente \( \alpha \). Metais como alumínio e cobre dilatam mais que o vidro ou o concreto, por exemplo.</p>
-        
-        <h3>2.1.1 Exemplos do cotidiano</h3>
-        <p><strong>Exemplo 1 – Trilhos de trem</strong><br>
-        Em dias muito quentes, os trilhos de aço se expandem. Para evitar que eles se deformem ou emperrem, os engenheiros deixam pequenas fendas entre os segmentos, chamadas de juntas de dilatação. Essas folgas compensam o aumento de comprimento e garantem a segurança da via.</p>
-        <figure>
-            <figcaption>Figura 1 – Junta de dilatação em trilho de trem</figcaption>
-            <img src="https://vault-us-east-1.pulsarimagens.com.br/file/preview/06EG790.jpg" alt="Junta de dilatação em trilho de trem" style="max-width:100%;">
-            <div class="fonte">Fonte: Pulsar Imagens, 2023. Acesso em: 23 abr. 2026.</div>
-        </figure>
-        
-        <p><strong>Exemplo 2 – Cabos de energia elétrica</strong><br>
-        Os cabos metálicos entre os postes são instalados com uma curvatura (catenária) intencional. No calor, eles se alongam e a curva fica mais acentuada; no frio, encolhem e ficam mais esticados. Essa folga evita rompimentos ou danos aos postes.</p>
-        <figure>
-            <figcaption>Figura 2 – Curvatura de dilatação em cabos de rede elétrica</figcaption>
-            <img src="https://www.ispblog.com.br/wp-content/uploads/2019/05/raio-curvatura-01.png" alt="Curvatura de dilatação em cabos de rede elétrica" style="max-width:100%;">
-            <div class="fonte">Fonte: Overtek, 2019. Acesso em: 23 abr. 2026.</div>
-        </figure>
-        
-        <h3>2.1.2 Exercício comentado</h3>
-        <div class="exercicio">
-            <p><strong>Enunciado:</strong> Um trilho de aço com 20 m de comprimento a 10 °C tem coeficiente de dilatação linear \( \alpha = 1,2 \times 10^{-5} \) °C⁻¹. Qual será seu comprimento a 40 °C?</p>
-            <p><strong>Resolução:</strong><br>
-            \( \Delta T = 40 - 10 = 30 \) °C<br>
-            \( \Delta L = 20 \cdot (1,2 \times 10^{-5}) \cdot 30 = 0,0072 \) m (7,2 mm)<br>
-            Comprimento final = 20 + 0,0072 = 20,0072 m</p>
-            <p class="comentario"><strong>Comentário:</strong> Embora 7,2 mm pareça pouco, em quilômetros de trilhos essa variação pode somar vários centímetros. Por isso as juntas de dilatação são tão importantes.</p>
-        </div>
-    </div>
-
-    <!-- 2.2 DILATAÇÃO SUPERFICIAL (página 6) -->
-    <div class="page">
-        <div class="page-number">6</div>
-        <h2>2.2 DILATAÇÃO SUPERFICIAL</h2>
-        <p>Quando o material se expande em duas dimensões (comprimento e largura), como em placas e chapas, falamos em dilatação superficial. A fórmula é:</p>
-        <p>\[ \Delta A = A_0 \cdot \beta \cdot \Delta T \]</p>
-        <p>Onde \( \beta \approx 2\alpha \) (o coeficiente superficial é aproximadamente o dobro do linear).</p>
-        
-        <h3>2.2.1 Exemplos do cotidiano</h3>
-        <p><strong>Exemplo 1 – Placas de concreto de calçadas</strong><br>
-        No calor, as placas de concreto expandem em todas as direções. Sem espaços entre elas, as bordas podem se levantar ou rachar. As juntas de dilatação com material flexível resolvem esse problema.</p>
-        <figure>
-            <figcaption>Figura 3 – Junta de dilatação em calçada de concreto</figcaption>
-            <img src="https://res.cloudinary.com/dxphpupax/image/upload/v1776984835/baixados_1_s0tfjj.jpg" alt="Junta de dilatação em calçada de concreto" style="max-width:100%;">
-            <div class="fonte">Fonte: Conduz Tintas. Acesso em: 23 abr. 2026.</div>
-        </figure>
-        
-        <p><strong>Exemplo 2 – Portas e janelas de madeira</strong><br>
-        No verão, a madeira dilata e as portas podem emperrar. À noite, com o resfriamento, elas voltam ao tamanho normal e abrem com facilidade.</p>
-        <figure>
-            <figcaption>Figura 4 – Porta de madeira empenada devido à dilatação térmica</figcaption>
-            <img src="https://res.cloudinary.com/dxphpupax/image/upload/v1776984835/baixados_tde61l.jpg" alt="Porta de madeira empenada" style="max-width:100%;">
-            <div class="fonte">Fonte: Rohden, 2020. Acesso em: 23 abr. 2026.</div>
-        </figure>
-        
-        <h3>2.2.2 Exercício comentado</h3>
-        <div class="exercicio">
-            <p><strong>Enunciado:</strong> Uma placa quadrada de alumínio (\( \alpha = 2,4 \times 10^{-5} \) °C⁻¹) tem 2 m de lado a 20 °C. Qual será sua área a 50 °C?</p>
-            <p><strong>Resolução:</strong><br>
-            \( \beta = 2 \times 2,4 \times 10^{-5} = 4,8 \times 10^{-5} \) °C⁻¹<br>
-            Área inicial \( A_0 = 4 \) m²<br>
-            \( \Delta T = 30 \) °C<br>
-            \( \Delta A = 4 \cdot 4,8 \times 10^{-5} \cdot 30 = 0,00576 \) m²<br>
-            Área final = 4,00576 m²</p>
-            <p class="comentario"><strong>Comentário:</strong> O aumento parece pequeno (cerca de 58 cm²), mas em grandes superfícies, como pisos cerâmicos, pode gerar tensões suficientes para quebrar o material.</p>
-        </div>
-    </div>
-
-    <!-- 2.3 DILATAÇÃO VOLUMÉTRICA (página 8) -->
-    <div class="page">
-        <div class="page-number">8</div>
-        <h2>2.3 DILATAÇÃO VOLUMÉTRICA</h2>
-        <p>A dilatação volumétrica considera a mudança nas três dimensões do corpo. A fórmula é:</p>
-        <p>\[ \Delta V = V_0 \cdot \gamma \cdot \Delta T \]</p>
-        <p>Onde \( \gamma \approx 3\alpha \).</p>
-        
-        <h3>2.3.1 Exemplos do cotidiano</h3>
-        <p><strong>Exemplo 1 – Pneus de automóvel</strong><br>
-        Em dias quentes, o ar dentro do pneu se aquece, aumenta de volume e eleva a pressão. Se não for monitorado, pode causar problemas.</p>
-        <figure>
-            <figcaption>Figura 5 – Pneu de automóvel exposto ao calor intenso</figcaption>
-            <img src="https://res.cloudinary.com/dxphpupax/image/upload/v1776984835/baixados_2_djca41.jpg" alt="Pneu exposto ao calor" style="max-width:100%;">
-            <div class="fonte">Fonte: Isau Center. Acesso em: 23 abr. 2026.</div>
-        </figure>
-        
-        <p><strong>Exemplo 2 – Frasco de vidro com tampa metálica</strong><br>
-        Ao aquecer a tampa metálica sob água quente, o metal se expande mais que o vidro, facilitando a abertura do pote.</p>
-        <figure>
-            <figcaption>Figura 6 – Aquecimento da tampa metálica para abertura de frasco de vidro</figcaption>
-            <img src="https://images.tcdn.com.br/img/editor/up/1403355/Como_abrir_pote_de_vidro_com_tampa_de_metal.jpg" alt="Tampa metálica aquecida" style="max-width:100%;">
-            <div class="fonte">Fonte: Embalavalesul. Acesso em: 23 abr. 2026.</div>
-        </figure>
-        
-        <h3>2.3.2 Exercício comentado</h3>
-        <div class="exercicio">
-            <p><strong>Enunciado:</strong> Um cubo de ferro (\( \alpha = 1,2 \times 10^{-5} \) °C⁻¹) tem aresta de 10 cm a 25 °C. Qual será seu volume a 75 °C?</p>
-            <p><strong>Resolução:</strong><br>
-            Volume inicial \( V_0 = 0,001 \) m³<br>
-            \( \gamma = 3,6 \times 10^{-5} \) °C⁻¹<br>
-            \( \Delta T = 50 \) °C<br>
-            \( \Delta V = 1,8 \times 10^{-6} \) m³<br>
-            Volume final = 0,001018 m³ (aumento de 1,8 cm³)</p>
-            <p class="comentario"><strong>Comentário:</strong> Mesmo uma variação pequena é relevante em peças de precisão, como rolamentos e motores.</p>
-        </div>
-    </div>
-
-    <!-- 2.4 DILATAÇÃO DOS LÍQUIDOS (página 10) -->
-    <div class="page">
-        <div class="page-number">10</div>
-        <h2>2.4 DILATAÇÃO DOS LÍQUIDOS</h2>
-        <p>Os líquidos se dilatam mais que os sólidos e ocupam o volume do recipiente. Por isso, costuma-se falar em dilatação aparente (o que vemos transbordar) e dilatação real (a expansão verdadeira do líquido).</p>
-        <p>A dilatação real segue: \( \Delta V_{real} = V_0 \cdot \gamma_{real} \cdot \Delta T \).</p>
-        
-        <h3>2.4.1 Exemplos do cotidiano</h3>
-        <p><strong>Exemplo 1 – Termômetro de mercúrio</strong><br>
-        O mercúrio se dilata muito mais que o vidro, subindo pelo capilar e indicando a temperatura.</p>
-        <figure>
-            <figcaption>Figura 7 – Termômetro clínico de mercúrio</figcaption>
-            <img src="https://res.cloudinary.com/dxphpupax/image/upload/v1776984835/baixados_3_vtisaw.jpg" alt="Termômetro de mercúrio" style="max-width:250px;">
-            <div class="fonte">Fonte: Kajavet. Acesso em: 23 abr. 2026.</div>
-        </figure>
-        
-        <p><strong>Exemplo 2 – Garrafa de água no congelador</strong><br>
-        A água tem um comportamento anômalo: entre 0 °C e 4 °C ela se contrai ao ser aquecida e se expande ao ser resfriada. Ao congelar, expande ainda mais e pode romper a garrafa.</p>
-        <figure>
-            <figcaption>Figura 8 – Garrafa de água rompida pelo congelamento</figcaption>
-            <img src="https://static.mundoeducacao.uol.com.br/mundoeducacao/conteudo_legenda/c447d7dd6cf56ec5624b6db6a1166b39.jpg" alt="Garrafa quebrada pelo congelamento" style="max-width:100%;">
-            <div class="fonte">Fonte: Mundo Educação, 2024. Acesso em: 23 abr. 2026.</div>
-        </figure>
-        
-        <h3>2.4.2 Exercício comentado</h3>
-        <div class="exercicio">
-            <p><strong>Enunciado:</strong> Um frasco contém 100 cm³ de álcool etílico a 20 °C. O coeficiente de dilatação real do álcool é \( 1,1 \times 10^{-3} \) °C⁻¹ e o do vidro é \( 2,7 \times 10^{-5} \) °C⁻¹. Quanto transborda a 50 °C?</p>
-            <p><strong>Resolução:</strong><br>
-            \( \Delta T = 30 \) °C<br>
-            Dilatação real do álcool = 3,3 cm³<br>
-            Dilatação do vidro = 0,081 cm³<br>
-            Dilatação aparente = 3,219 cm³</p>
-            <p class="comentario"><strong>Comentário:</strong> O álcool dilata muito mais que o vidro. Esse princípio é a base de funcionamento dos termômetros e de vários sensores de temperatura.</p>
-        </div>
-    </div>
-
-    <!-- 3 CONCLUSÃO (página 12) -->
-    <div class="page">
-        <div class="page-number">12</div>
-        <h2>3 CONCLUSÃO</h2>
-        <p>A dilatação térmica está presente em praticamente todos os materiais e influencia nossa vida diária de formas que nem sempre percebemos. Ao longo deste trabalho, vimos como a dilatação linear, superficial e volumétrica se aplicam a diferentes objetos, e como os líquidos apresentam comportamentos ainda mais marcantes, com a distinção entre dilatação real e aparente.</p>
-        <p>Os exemplos práticos — desde trilhos de trem e cabos elétricos até portas de madeira, pneus e termômetros — mostram que compreender esse fenômeno é fundamental para evitar problemas e projetar soluções mais seguras e duráveis.</p>
-        <p>Portanto, a Física da dilatação térmica vai muito além da teoria: ela é uma ferramenta essencial para engenheiros, arquitetos e cientistas, e um ótimo exemplo de como conceitos simples ajudam a explicar e melhorar o mundo real.</p>
-    </div>
-
-    <!-- REFERÊNCIAS (página 13) -->
-    <div class="page">
-        <div class="page-number">13</div>
-        <h2>REFERÊNCIAS</h2>
-        <ul class="referencias">
-            <li>ALLMAD. <strong>Porta de madeira empenada</strong>: o que fazer? 2023. Disponível em: &lt;https://www.allmad.com.br/porta-de-madeira-empenada-o-que-fazer/&gt;. Acesso em: 23 abr. 2026.</li>
-            <li>BRASIL ESCOLA. <strong>Dilatação Térmica</strong>. Disponível em: &lt;https://brasilescola.uol.com.br/fisica/dilatacao-termica.htm&gt;. Acesso em: 21 abr. 2026.</li>
-            <li>CREF/IF-UFRGS. <strong>Forma dos fios de alta tensão</strong>. 2025. Disponível em: &lt;https://cref.if.ufrgs.br/?cont_id=2533&gt;. Acesso em: 23 abr. 2026.</li>
-            <li>CREF/IF-UFRGS. <strong>Efeito do aquecimento da tampa do pote de conserva</strong>. 2025. Disponível em: &lt;https://cref.if.ufrgs.br/?cont_id=2379&gt;. Acesso em: 23 abr. 2026.</li>
-            <li>GARRABORRACHAS. <strong>Junta de dilatação calçada de concreto</strong>. 2024. Disponível em: &lt;https://www.garraborrachas.com.br/junta-de-dilatacao-calcada-de-concreto&gt;. Acesso em: 23 abr. 2026.</li>
-            <li>K2ON. <strong>Calor extremo e seus pneus</strong>: o que você precisa saber. 2024. Disponível em: &lt;https://k2on.com.br/calor-extremo-e-seus-pneus-o-que-voce-precisa-saber/&gt;. Acesso em: 23 abr. 2026.</li>
-            <li>MUNDO EDUCAÇÃO. <strong>Anomalia da água</strong>. 2024. Disponível em: &lt;https://mundoeducacao.uol.com.br/fisica/anomalia-agua.htm&gt;. Acesso em: 23 abr. 2026.</li>
-            <li>MUNDO EDUCAÇÃO. <strong>Dilatação Linear</strong>. Disponível em: &lt;https://mundoeducacao.uol.com.br/fisica/dilatacao-linear.htm&gt;. Acesso em: 21 abr. 2026.</li>
-            <li>PULSAR IMAGENS. <strong>Junta de dilatação em trilho de trem</strong>. 2023. Acesso em: 23 abr. 2026.</li>
-            <li>123RF. <strong>Termômetro clínico do mercúrio no fundo branco</strong>. [s.d.]. Acesso em: 23 abr. 2026.</li>
-            <li>TODA MATÉRIA. <strong>Dilatação Térmica</strong>. Disponível em: &lt;https://www.todamateria.com.br/dilatacao-termica/&gt;. Acesso em: 21 abr. 2026.</li>
-            <li>BÔAS, Newton Villas; DOCA, Ricardo Helou; BISCUOLA, Gualter José. <strong>Tópicos de Física</strong>: Termologia, Ondulatória, Óptica. 20. ed. São Paulo: Saraiva, 2019.</li>
-            <li>YOUNG, Hugh D.; FREEDMAN, Roger A. <strong>Física II</strong>: Termodinâmica e Ondas. 14. ed. São Paulo: Pearson, 2016.</li>
+        <ul>
+            <li><span>1 INTRODUÇÃO</span><span>4</span></li>
+            <li><span>2 CLASSIFICAÇÃO DA DIGESTÃO</span><span>4</span></li>
+            <li class="subitem"><span>2.1 Quanto ao local</span><span>4</span></li>
+            <li class="subitem"><span>2.2 Quanto à anatomia do sistema</span><span>5</span></li>
+            <li><span>3 COMPARAÇÕES ENTRE VERTEBRADOS</span><span>5</span></li>
+            <li class="subitem"><span>3.1 Aves</span><span>5</span></li>
+            <li class="subitem"><span>3.2 Ruminantes</span><span>6</span></li>
+            <li class="subitem"><span>3.3 Outros herbívoros e carnívoros</span><span>6</span></li>
+            <li><span>4 SISTEMA DIGESTÓRIO HUMANO</span><span>7</span></li>
+            <li class="subitem"><span>4.1 Boca e deglutição</span><span>7</span></li>
+            <li class="subitem"><span>4.2 Estômago</span><span>7</span></li>
+            <li class="subitem"><span>4.3 Controle do apetite</span><span>8</span></li>
+            <li class="subitem"><span>4.4 Intestino delgado</span><span>8</span></li>
+            <li class="subitem"><span>4.5 Fígado, vesícula biliar e pâncreas</span><span>9</span></li>
+            <li class="subitem"><span>4.6 Intestino grosso e eliminação</span><span>9</span></li>
+            <li><span>5 CONCLUSÃO</span><span>10</span></li>
+            <li><span>REFERÊNCIAS</span><span>11</span></li>
         </ul>
     </div>
-</div>
+
+    <!-- INTRODUÇÃO (página 4) -->
+    <div class="abnt-container secao pagina-nova" id="secao1">
+        <h1>1 INTRODUÇÃO</h1>
+        <p>Todo organismo necessita de nutrientes para sobreviver, crescer e se reproduzir. Ao longo da evolução, cada grupo resolveu esse problema de forma distinta. Organismos unicelulares realizam todos os processos de obtenção e processamento de nutrientes através da membrana plasmática — fagocitose, pinocitose e mecanismos correlatos. Já os pluricelulares precisaram organizar sistemas com órgãos especializados para desempenhar funções digestivas de modo eficiente. O estudo do sistema digestório, além de constituir base fundamental da Fisiologia, auxilia na compreensão de processos de saúde, doença e até mesmo de questões ambientais (REECE <em>et al.</em>, 2015).</p>
+        <p>Digerir, em essência, é quebrar macromoléculas — carboidratos, lipídeos, proteínas, ácidos nucleicos — em moléculas menores que as células conseguem absorver. Essas unidades que se repetem nos polímeros são os monômeros. A digestão pode ser classificada de duas formas principais: quanto ao local e quanto à anatomia do sistema.</p>
+        <div class="numero-pagina">4</div>
+    </div>
+
+    <!-- SEÇÃO 2 (página 5) -->
+    <div class="abnt-container secao pagina-nova" id="secao2">
+        <h1>2 CLASSIFICAÇÃO DA DIGESTÃO</h1>
+        <h2>2.1 Quanto ao local</h2>
+        <p>A digestão pode ser <strong>intracelular</strong> ou <strong>extracelular</strong>. A intracelular ocorre dentro da célula, com auxílio dos lisossomos. Quem realiza esse tipo de digestão são as esponjas (poríferos): os coanócitos filtram partículas da água e as transferem para outras células, que terminam o serviço digestivo. Esse mecanismo funciona, mas limita o tamanho da presa, o que representa uma restrição evolutiva clara.</p>
+        <p>Já a digestão extracelular consiste no lançamento de enzimas para fora das células, em uma cavidade digestória. Essa inovação permitiu que os animais lidassem com alimentos maiores, representando um avanço evolutivo significativo (MOYES; SCHULTE, 2010).</p>
+        <h2>2.2 Quanto à anatomia do sistema</h2>
+        <p>Existem dois planos anatômicos básicos: <strong>sistema incompleto</strong> e <strong>sistema completo</strong>. O incompleto possui uma única abertura — a boca serve tanto para entrada de comida quanto para saída de restos. Exemplo clássico são os cnidários, como água-viva e coral. Neles, a digestão começa na cavidade gastrovascular (extracelular) e termina dentro das células (intracelular), caracterizando um sistema misto.</p>
+        <p>O sistema completo, por sua vez, tem boca e ânus separados, criando um fluxo unidirecional e permitindo o surgimento de regiões especializadas — estômago, intestino delgado, intestino grosso. Essa organização está presente na maioria dos animais e representa uma vantagem adaptativa considerável (REECE <em>et al.</em>, 2015).</p>
+        <div class="numero-pagina">5</div>
+    </div>
+
+    <!-- SEÇÃO 3 (página 6) -->
+    <div class="abnt-container secao pagina-nova" id="secao3">
+        <h1>3 COMPARAÇÕES ENTRE VERTEBRADOS</h1>
+        <p>Quando se consideram os vertebrados (filo Chordata), o sistema digestório torna-se basicamente um tubo musculoso que se estende da boca ao ânus, repleto de glândulas anexas. No entanto, a forma e a função modificam-se radicalmente conforme a dieta e o ambiente. Comparar esses sistemas auxilia significativamente na compreensão do modelo humano.</p>
+        <h2>3.1 Aves</h2>
+        <p>As aves não possuem dentes. O bico realiza o trabalho de capturar e processar o alimento — quebrar sementes, capturar insetos, dilacerar carne, conforme a espécie. O alimento desce pelo esôfago e, em muitas aves, dirige-se ao <strong>papo</strong>, uma bolsa que armazena e amolece a comida. Essa estrutura é útil para animais que precisam comer rapidamente e fugir, além de permitir a regurgitação para alimentar os filhotes.</p>
+        <p>O estômago das aves é dividido em duas porções: o <strong>proventrículo</strong> (parte glandular, responsável pela digestão química) e a <strong>moela</strong> ou ventrículo (parte muscular, responsável pela digestão mecânica). Aves granívoras engolem pedrinhas e areia propositalmente para auxiliar na trituração dos grãos no interior da moela. O tubo digestório termina na <strong>cloaca</strong>, que reúne excreção, urina e reprodução em uma única câmara (MONTEIRO, 2023).</p>
+        <h2>3.2 Ruminantes</h2>
+        <p>Entre os mamíferos, os ruminantes constituem um caso notável. Bois, girafas, ovelhas e camelos são herbívoros com estômago dividido em quatro câmaras. O <strong>rúmen</strong> (pança) funciona como um tanque de fermentação, onde bactérias e protozoários quebram a celulose. O <strong>retículo</strong> (barrete) auxilia na formação de bolos alimentares que retornam à boca para serem remastigados — o processo de ruminação.</p>
+        <p>Após ser engolido novamente, o alimento passa pelo <strong>omaso</strong> (folhoso), que absorve água, e chega ao <strong>abomaso</strong> (coagulador), o estômago químico propriamente dito, com presença de HCl e pepsina. Trata-se de um sistema adaptado para extrair o máximo possível de energia de uma dieta rica em fibras (MOYES; SCHULTE, 2010).</p>
+        <h2>3.3 Outros herbívoros e carnívoros</h2>
+        <p>Nem todo herbívoro é ruminante. Coelhos, por exemplo, possuem estômago simples e um ceco intestinal bastante desenvolvido, onde a fermentação ocorre após o intestino delgado. Já os carnívoros apresentam estômago volumoso (adaptado para receber grande quantidade de carne de uma só vez), intestino delgado curto (pois proteínas e gorduras são absorvidas rapidamente) e ceco praticamente vestigial (REECE <em>et al.</em>, 2015).</p>
+        <div class="numero-pagina">6</div>
+    </div>
+
+    <!-- SEÇÃO 4 – parte 1 (página 7) -->
+    <div class="abnt-container secao pagina-nova" id="secao4">
+        <h1>4 SISTEMA DIGESTÓRIO HUMANO</h1>
+        <p>O sistema digestório humano possui quatro funções principais: ingestão, digestão, absorção e eliminação das fezes. O trato gastrointestinal inclui boca, faringe, esôfago, estômago, intestinos delgado e grosso, reto e ânus. Os órgãos anexos são dentes, língua, glândulas salivares, fígado, vesícula biliar e pâncreas. A digestão ocorre simultaneamente em duas frentes: a <strong>mecânica</strong> (mastigação, peristaltismo, emulsificação) e a <strong>química</strong> (enzimas quebrando ligações específicas).</p>
+        <h2>4.1 Boca e deglutição</h2>
+        <p>Na boca, a mastigação constitui a digestão mecânica inicial, com dentes e língua formando o <strong>bolo alimentar</strong>. As glândulas salivares secretam saliva — composta por água, muco e a enzima <strong>amilase salivar</strong> (ptialina). Essa enzima inicia a quebra do amido em pH neutro (ótimo em torno de 7). A saliva também umedece o bolo e facilita a deglutição.</p>
+        <p>A deglutição é um ato que se inicia voluntário e torna-se reflexo. A língua empurra o bolo em direção à faringe; a epiglote fecha a laringe e a respiração é interrompida por um breve instante. O esôfago assume com movimentos peristálticos, conduzindo o material em direção ao estômago (MONTEIRO, 2023).</p>
+        <h2>4.2 Estômago</h2>
+        <p>No estômago, o ambiente torna-se consideravelmente ácido. A parede gástrica é composta por diferentes tipos celulares: células <strong>mucosas</strong> (produzem muco protetor), células <strong>parietais</strong> (oxínticas — secretam HCl, reduzindo o pH para aproximadamente 2), células <strong>principais</strong> (zimogênicas — liberam pepsinogênio, que o HCl converte em pepsina) e células <strong>G</strong> (produzem gastrina, hormônio que estimula a produção de suco gástrico e a motilidade).</p>
+        <p>A mistura dessas secreções constitui o <strong>suco gástrico</strong>. O bolo alimentar transforma-se em uma massa semilíquida denominada <strong>quimo</strong>. Um detalhe relevante: mascar chiclete com frequência pode irritar a mucosa gástrica, pois a mastigação estimula a secreção de HCl sem a presença de alimento para diluí-lo, podendo agredir a parede estomacal.</p>
+        <div class="numero-pagina">7</div>
+    </div>
+
+    <!-- SEÇÃO 4 – parte 2 (página 8) -->
+    <div class="abnt-container secao pagina-nova" id="secao4b">
+        <h2>4.3 Controle do apetite</h2>
+        <p>Um parêntese necessário diz respeito ao controle do apetite. A obesidade é um problema grave, associado a diabetes, hipertensão e doenças cardiovasculares. O tecido adiposo secreta <strong>leptina</strong>, hormônio que atua no hipotálamo reduzindo a fome e aumentando o gasto energético (com pico de secreção à noite e de madrugada). Já o estômago produz <strong>grelina</strong>, que dispara a sensação de fome antes das refeições. A resistência à leptina ou a desregulação na grelina aumentam significativamente o risco de obesidade (REECE <em>et al.</em>, 2015).</p>
+        <h2>4.4 Intestino delgado</h2>
+        <p>O quimo sai do estômago pelo esfíncter pilórico e alcança o intestino delgado, que possui mais de 6 metros de comprimento e se divide em <strong>duodeno</strong>, <strong>jejuno</strong> e <strong>íleo</strong>. O duodeno é onde ocorrem os principais eventos: a acidez do quimo estimula a liberação de hormônios como <strong>secretina</strong> (estimula suco pancreático rico em bicarbonato), <strong>colecistoquinina</strong> (estimula secreção pancreática e ejeção da bile) e <strong>PIG</strong> (peptídeo inibidor gástrico — inibe secreção gástrica e retarda o esvaziamento do estômago).</p>
+        <p>A parede do intestino delgado é revestida por <strong>vilosidades</strong> e <strong>microvilosidades</strong>, que aumentam extraordinariamente a área de absorção. As glândulas intestinais produzem o <strong>suco entérico</strong>, contendo enzimas que finalizam a digestão: maltase, lactase, sacarase, aminopeptidases, dipeptidases e lipase intestinal. Nesse contexto, cabe mencionar a doença celíaca: condição autoimune em que o glúten desencadeia ataque às vilosidades intestinais, prejudicando severamente a absorção de nutrientes (MOYES; SCHULTE, 2010).</p>
+        <h2>4.5 Fígado, vesícula biliar e pâncreas</h2>
+        <p>A digestão de gorduras depende essencialmente da <strong>bile</strong>. O fígado produz a bile — líquido amarelo-esverdeado composto por sais biliares e bilirrubina (derivada da degradação da hemoglobina). A bile fica armazenada na vesícula biliar e é lançada no duodeno quando a colecistoquinina sinaliza. A bile não contém enzimas: atua na digestão mecânica, emulsionando gorduras e quebrando gotas grandes em gotículas menores, o que facilita a ação das lipases.</p>
+        <p>O <strong>pâncreas</strong> é uma glândula mista. Sua porção exócrina produz o <strong>suco pancreático</strong>, que alcança o duodeno com água, bicarbonato de sódio (eleva o pH) e diversas enzimas: amilase pancreática, lipase pancreática, nucleases e proteases (tripsinogênio, quimotripsinogênio, entre outras). Essas proteases são liberadas na forma inativa e só se ativam no intestino — a enteroquinase converte tripsinogênio em tripsina, e a tripsina ativa as demais. Esse mecanismo evita que o pâncreas se digira a si mesmo (MONTEIRO, 2023).</p>
+        <p>Com a ação conjunta da bile, do suco pancreático e do suco entérico, o quimo transforma-se em <strong>quilo</strong>, líquido repleto de nutrientes prontos para serem absorvidos pelo sangue e pela linfa.</p>
+        <div class="numero-pagina">8</div>
+    </div>
+
+    <!-- SEÇÃO 4 – parte 3 (página 9) -->
+    <div class="abnt-container secao pagina-nova" id="secao4c">
+        <h2>4.6 Intestino grosso e eliminação</h2>
+        <p>O material que não é absorvido no intestino delgado prossegue para o intestino grosso. Este se inicia no <strong>ceco</strong> (que abriga o apêndice, de função imunológica reduzida em humanos) e segue pelos cólons. A principal função do intestino grosso é absorver água e sais minerais, compactando o quilo até a formação das <strong>fezes</strong>.</p>
+        <p>A <strong>flora intestinal</strong> (conjunto de bactérias que habitam o intestino grosso) fermenta restos de carboidratos e proteínas, produzindo gases e os compostos responsáveis pelo odor característico das fezes. As fezes são compostas basicamente por água, bactérias, fibras de celulose e resíduos não digeridos. Permanecem armazenadas no reto e são eliminadas pelo ânus.</p>
+        <p>As <strong>fibras alimentares</strong>, embora não possuam valor energético para os seres humanos, são essenciais porque estimulam o peristaltismo e mantêm o trânsito intestinal regular. Cuidar do sistema digestório envolve práticas básicas: mastigar bem, beber água, consumir fibras e respeitar a microbiota intestinal. É conhecimento que se converte em autocuidado (REECE <em>et al.</em>, 2015).</p>
+        <div class="numero-pagina">9</div>
+    </div>
+
+    <!-- SEÇÃO 5 (página 10) -->
+    <div class="abnt-container secao pagina-nova" id="secao5">
+        <h1>5 CONCLUSÃO</h1>
+        <p>Comparar os diferentes sistemas digestórios é observar a evolução resolvendo o mesmo problema fundamental — extrair energia do alimento — por meio de ferramentas diversas e engenhosas. Moela, rúmen, ceco de coelho, vilosidades humanas: cada estrutura funciona perfeitamente em seu contexto ecológico e alimentar.</p>
+        <p>O entendimento do sistema digestório humano, desde a mastigação até a absorção no intestino delgado e a compactação no intestino grosso, permite não apenas compreender a fisiologia do próprio corpo, mas também adotar medidas conscientes de saúde. A mastigação adequada, a hidratação, o consumo de fibras e o respeito à microbiota intestinal são atitudes simples, porém profundamente embasadas no conhecimento científico aqui sistematizado.</p>
+        <p>Estudar digestão é, portanto, estudar a própria história evolutiva dos animais e, ao mesmo tempo, aprender a cuidar melhor de si mesmo.</p>
+        <div class="numero-pagina">10</div>
+    </div>
+
+    <!-- REFERÊNCIAS (página 11) -->
+    <div class="abnt-container referencias pagina-nova" id="referencias">
+        <h2>REFERÊNCIAS</h2>
+        <p>MONTEIRO, G. <strong>Como funciona o sistema digestório?</strong>. [<em>S.l.: s.n.</em>], 2023. Material didático de apoio – Biologia, 2º ano do Ensino Médio.</p>
+        <p>MOYES, C. D.; SCHULTE, P. M. <strong>Principles of Animal Physiology</strong>. 2. ed. San Francisco: Pearson Benjamin Cummings, 2010.</p>
+        <p>REECE, J. B. <em>et al.</em> <strong>Biologia de Campbell</strong>. 10. ed. Porto Alegre: Artmed, 2015.</p>
+        <div class="numero-pagina">11</div>
+    </div>
+
 </body>
 </html>
