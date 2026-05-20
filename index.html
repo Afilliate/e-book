@@ -66,7 +66,11 @@
 
         .capa .cidade-ano {
             font-size: 12pt;
-            margin-top: 3cm;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
         }
 
         /* ===== FOLHA DE ROSTO ===== */
@@ -106,7 +110,11 @@
 
         .folha-de-rosto .cidade-ano-rosto {
             font-size: 12pt;
-            margin-top: 3cm;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
         }
 
         /* ===== SUMÁRIO ===== */
@@ -200,6 +208,26 @@
         .secao h1 + p,
         .secao h2 + p {
             text-indent: 0;
+        }
+
+        /* ===== IMAGENS ===== */
+        .imagem {
+            text-align: center;
+            margin: 1.5cm 0;
+            page-break-inside: avoid;
+        }
+        .imagem img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        .imagem p {
+            font-size: 10pt;
+            text-align: center;
+            margin-top: 0.3cm;
+            text-indent: 0;
+            font-style: italic;
         }
 
         /* ===== REFERÊNCIAS ===== */
@@ -318,6 +346,10 @@
         <p>Já a digestão extracelular consiste no lançamento de enzimas para fora das células, em uma cavidade digestória. Essa inovação permitiu que os animais lidassem com alimentos maiores, representando um avanço evolutivo significativo (MOYES; SCHULTE, 2010).</p>
         <h2>2.2 Quanto à anatomia do sistema</h2>
         <p>Existem dois planos anatômicos básicos: <strong>sistema incompleto</strong> e <strong>sistema completo</strong>. O incompleto possui uma única abertura — a boca serve tanto para entrada de comida quanto para saída de restos. Exemplo clássico são os cnidários, como água-viva e coral. Neles, a digestão começa na cavidade gastrovascular (extracelular) e termina dentro das células (intracelular), caracterizando um sistema misto.</p>
+        <div class="imagem">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Hydra_oligactis.jpg" alt="Foto de uma Hydra oligactis, um pequeno cnidário de água doce, usado como exemplo de sistema digestório incompleto." style="max-width: 100%; height: auto;">
+            <p>Figura 1: Hydra oligactis, exemplo de cnidário com sistema digestório incompleto.</p>
+        </div>
         <p>O sistema completo, por sua vez, tem boca e ânus separados, criando um fluxo unidirecional e permitindo o surgimento de regiões especializadas — estômago, intestino delgado, intestino grosso. Essa organização está presente na maioria dos animais e representa uma vantagem adaptativa considerável (REECE <em>et al.</em>, 2015).</p>
         <div class="numero-pagina">5</div>
     </div>
@@ -328,6 +360,10 @@
         <p>Quando se consideram os vertebrados (filo Chordata), o sistema digestório torna-se basicamente um tubo musculoso que se estende da boca ao ânus, repleto de glândulas anexas. No entanto, a forma e a função modificam-se radicalmente conforme a dieta e o ambiente. Comparar esses sistemas auxilia significativamente na compreensão do modelo humano.</p>
         <h2>3.1 Aves</h2>
         <p>As aves não possuem dentes. O bico realiza o trabalho de capturar e processar o alimento — quebrar sementes, capturar insetos, dilacerar carne, conforme a espécie. O alimento desce pelo esôfago e, em muitas aves, dirige-se ao <strong>papo</strong>, uma bolsa que armazena e amolece a comida. Essa estrutura é útil para animais que precisam comer rapidamente e fugir, além de permitir a regurgitação para alimentar os filhotes.</p>
+        <div class="imagem">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Pigeon_Crop_Contaning_Food.jpg" alt="Dissecção de um pombo mostrando o papo (crop) cheio de alimento, parte do sistema digestório das aves." style="max-width: 100%; height: auto;">
+            <p>Figura 2: Detalhe do papo (crop) de um pombo, estrutura de armazenamento de alimento nas aves.</p>
+        </div>
         <p>O estômago das aves é dividido em duas porções: o <strong>proventrículo</strong> (parte glandular, responsável pela digestão química) e a <strong>moela</strong> ou ventrículo (parte muscular, responsável pela digestão mecânica). Aves granívoras engolem pedrinhas e areia propositalmente para auxiliar na trituração dos grãos no interior da moela. O tubo digestório termina na <strong>cloaca</strong>, que reúne excreção, urina e reprodução em uma única câmara (MONTEIRO, 2023).</p>
         <div class="numero-pagina">6</div>
     </div>
@@ -336,6 +372,10 @@
     <div class="abnt-container secao pagina-nova" id="secao3b">
         <h2>3.2 Ruminantes</h2>
         <p>Entre os mamíferos, os ruminantes constituem um caso notável. Bois, girafas, ovelhas e camelos são herbívoros com estômago dividido em quatro câmaras. O <strong>rúmen</strong> (pança) funciona como um tanque de fermentação, onde bactérias e protozoários quebram a celulose. O <strong>retículo</strong> (barrete) auxilia na formação de bolos alimentares que retornam à boca para serem remastigados — o processo de ruminação.</p>
+        <div class="imagem">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/Ruminant_digestive_tract.jpg" alt="Diagrama do trato digestivo de um ruminante, destacando as quatro câmaras do estômago: rúmen, retículo, omaso e abomaso." style="max-width: 100%; height: auto;">
+            <p>Figura 3: Diagrama do trato digestivo de um ruminante.</p>
+        </div>
         <p>Após ser engolido novamente, o alimento passa pelo <strong>omaso</strong> (folhoso), que absorve água, e chega ao <strong>abomaso</strong> (coagulador), o estômago químico propriamente dito, com presença de HCl e pepsina. Trata-se de um sistema adaptado para extrair o máximo possível de energia de uma dieta rica em fibras (MOYES; SCHULTE, 2010).</p>
         <h2>3.3 Outros herbívoros e carnívoros</h2>
         <p>Nem todo herbívoro é ruminante. Coelhos, por exemplo, possuem estômago simples e um ceco intestinal bastante desenvolvido, onde a fermentação ocorre após o intestino delgado. Já os carnívoros apresentam estômago volumoso (adaptado para receber grande quantidade de carne de uma só vez), intestino delgado curto (pois proteínas e gorduras são absorvidas rapidamente) e ceco praticamente vestigial (REECE <em>et al.</em>, 2015).</p>
@@ -346,6 +386,12 @@
     <div class="abnt-container secao pagina-nova" id="secao4">
         <h1>4 SISTEMA DIGESTÓRIO HUMANO</h1>
         <p>O sistema digestório humano possui quatro funções principais: ingestão, digestão, absorção e eliminação das fezes. O trato gastrointestinal inclui boca, faringe, esôfago, estômago, intestinos delgado e grosso, reto e ânus. Os órgãos anexos são dentes, língua, glândulas salivares, fígado, vesícula biliar e pâncreas. A digestão ocorre simultaneamente em duas frentes: a <strong>mecânica</strong> (mastigação, peristaltismo, emulsificação) e a <strong>química</strong> (enzimas quebrando ligações específicas).</p>
+        
+        <div class="imagem">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/Digestive_system_diagram_numbered.svg" alt="Diagrama do sistema digestório humano numerado, mostrando boca, esôfago, estômago, fígado, pâncreas, intestinos delgado e grosso." style="max-width: 100%; height: auto;">
+            <p>Figura 4: Diagrama do sistema digestório humano.</p>
+        </div>
+
         <h2>4.1 Boca e deglutição</h2>
         <p>Na boca, a mastigação constitui a digestão mecânica inicial, com dentes e língua formando o <strong>bolo alimentar</strong>. As glândulas salivares secretam saliva — composta por água, muco e a enzima <strong>amilase salivar</strong> (ptialina). Essa enzima inicia a quebra do amido em pH neutro (ótimo em torno de 7). A saliva também umedece o bolo e facilita a deglutição.</p>
         <p>A deglutição é um ato que se inicia voluntário e torna-se reflexo. A língua empurra o bolo em direção à faringe; a epiglote fecha a laringe e a respiração é interrompida por um breve instante. O esôfago assume com movimentos peristálticos, conduzindo o material em direção ao estômago (MONTEIRO, 2023).</p>
@@ -374,6 +420,10 @@
     <div class="abnt-container secao pagina-nova" id="secao4d">
         <h2>4.5 Fígado, vesícula biliar e pâncreas</h2>
         <p>A digestão de gorduras depende essencialmente da <strong>bile</strong>. O fígado produz a bile — líquido amarelo-esverdeado composto por sais biliares e bilirrubina (derivada da degradação da hemoglobina). A bile fica armazenada na vesícula biliar e é lançada no duodeno quando a colecistoquinina sinaliza. A bile não contém enzimas: atua na digestão mecânica, emulsionando gorduras e quebrando gotas grandes em gotículas menores, o que facilita a ação das lipases.</p>
+        <div class="imagem">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/Liver_Gallbladder_SI.jpg" alt="Ilustração mostrando a relação anatômica entre o fígado, a vesícula biliar, o pâncreas e o intestino delgado." style="max-width: 100%; height: auto;">
+            <p>Figura 5: Relação anatômica entre fígado, vesícula biliar, pâncreas e intestino delgado.</p>
+        </div>
         <p>O <strong>pâncreas</strong> é uma glândula mista. Sua porção exócrina produz o <strong>suco pancreático</strong>, que alcança o duodeno com água, bicarbonato de sódio (eleva o pH) e diversas enzimas: amilase pancreática, lipase pancreática, nucleases e proteases (tripsinogênio, quimotripsinogênio, entre outras). Essas proteases são liberadas na forma inativa e só se ativam no intestino — a enteroquinase converte tripsinogênio em tripsina, e a tripsina ativa as demais. Esse mecanismo evita que o pâncreas se digira a si mesmo (MONTEIRO, 2023).</p>
         <p>Com a ação conjunta da bile, do suco pancreático e do suco entérico, o quimo transforma-se em <strong>quilo</strong>, líquido repleto de nutrientes prontos para serem absorvidos pelo sangue e pela linfa.</p>
         <div class="numero-pagina">11</div>
