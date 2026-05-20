@@ -45,7 +45,7 @@
         .capa .autores {
             font-size: 14pt;
             font-weight: bold;
-            text-transform: uppercase;
+            /* removido text-transform: uppercase */
             margin-bottom: 0.5cm;
             line-height: 1.4;
             white-space: nowrap;
@@ -80,7 +80,7 @@
         .folha-de-rosto .autores-rosto {
             font-size: 14pt;
             font-weight: bold;
-            text-transform: uppercase;
+            /* removido text-transform: uppercase */
             margin-bottom: 2cm;
             line-height: 1.4;
             white-space: nowrap;
@@ -184,14 +184,14 @@
         .secao h2 {
             font-size: 12pt;
             font-weight: bold;
-            /* sem text-transform – apenas a primeira letra maiúscula conforme digitado */
+            /* sem text-transform – apenas a primeira letra maiúscula */
             margin: 1.5cm 0 1cm 0;
             text-align: left;
         }
 
         .secao p {
             font-size: 12pt;
-            text-align: justify;        /* <--- garante justificação */
+            text-align: justify;
             text-indent: 1.25cm;
             margin-bottom: 0.5cm;
             line-height: 1.5;
@@ -215,7 +215,7 @@
 
         .referencias p {
             font-size: 12pt;
-            text-align: justify;        /* <--- justificado */
+            text-align: justify;
             margin-bottom: 0.5cm;
             padding-left: 1.25cm;
             text-indent: -1.25cm;
@@ -224,7 +224,7 @@
         /* ===== NUMERAÇÃO DE PÁGINA ===== */
         .numero-pagina {
             position: absolute;
-            top: -1cm;               /* 2 cm da borda superior */
+            top: -1cm;
             right: 2cm;
             font-size: 10pt;
         }
@@ -238,7 +238,6 @@
             padding-top: 3cm;
         }
 
-        /* Impressão */
         @media print {
             body {
                 background: #fff;
@@ -261,7 +260,7 @@
 </head>
 <body>
 
-       <!-- CAPA (sem numeração) -->
+    <!-- CAPA (sem numeração) -->
     <div class="abnt-container capa sem-numero">
         <div class="instituicao">COLÉGIO UNICULTURA</div>
         <div class="autores">Daniel, Felipe M., João, Nicolas Aoki, Wendy</div>
@@ -276,7 +275,7 @@
         <div class="titulo-rosto">SISTEMA DIGESTÓRIO – ANOTAÇÕES DE ESTUDO</div>
         <div class="subtitulo-rosto">(Comparações evolutivas + Funcionamento humano)</div>
         <div class="descricao">
-            Trabalho escolar apresentado como requisito parcial para aprovação na disciplina de Biologia, ministrada pelo(a) professor(a) licenciado Cristiane, no 2º ano do Ensino Médio do Colégio Unicultura. O conteúdo aborda anotações de estudo sobre o sistema digestório, comparando estruturas entre diferentes grupos animais e detalhando o funcionamento humano, com ênfase nos processos de digestão mecânica e química, glândulas anexas e regulação hormonal, fundamentado em referências da área de Fisiologia Animal.
+            Trabalho escolar apresentado como requisito parcial para aprovação na disciplina de Biologia, ministrada pelo professor licenciado Cris, no 2º ano do Ensino Médio do Colégio Unicultura. O conteúdo aborda anotações de estudo sobre o sistema digestório, comparando estruturas entre diferentes grupos animais e detalhando o funcionamento humano, com ênfase nos processos de digestão mecânica e química, glândulas anexas e regulação hormonal, fundamentado em referências da área de Fisiologia Animal.
         </div>
         <div class="cidade-ano-rosto">Guarulhos<br>2026</div>
     </div>
@@ -335,7 +334,7 @@
         <div class="numero-pagina">6</div>
     </div>
 
-    <!-- Página 7: 3.2 sozinha -->
+    <!-- Página 7: 3.2 -->
     <div class="abnt-container secao pagina-nova" id="secao3b">
         <h2>3.2 Ruminantes</h2>
         <p>Entre os mamíferos, os ruminantes constituem um caso notável. Bois, girafas, ovelhas e camelos são herbívoros com estômago dividido em quatro câmaras. O <strong>rúmen</strong> (pança) funciona como um tanque de fermentação, onde bactérias e protozoários quebram a celulose. O <strong>retículo</strong> (barrete) auxilia na formação de bolos alimentares que retornam à boca para serem remastigados — o processo de ruminação.</p>
@@ -343,7 +342,7 @@
         <div class="numero-pagina">7</div>
     </div>
 
-    <!-- Página 8: 3.3 sozinha -->
+    <!-- Página 8: 3.3 -->
     <div class="abnt-container secao pagina-nova" id="secao3c">
         <h2>3.3 Outros herbívoros e carnívoros</h2>
         <p>Nem todo herbívoro é ruminante. Coelhos, por exemplo, possuem estômago simples e um ceco intestinal bastante desenvolvido, onde a fermentação ocorre após o intestino delgado. Já os carnívoros apresentam estômago volumoso (adaptado para receber grande quantidade de carne de uma só vez), intestino delgado curto (pois proteínas e gorduras são absorvidas rapidamente) e ceco praticamente vestigial (REECE <em>et al.</em>, 2015).</p>
