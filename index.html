@@ -3,512 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fichamento de Biologia - Daniel Augustus Gomes Barbosa</title>
+    <title>Fichamento de Biologia</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', 'Times New Roman', Times, serif;
-            background: white;
-            color: #1a1a1a;
-            line-height: 1.6;
-            display: flex;
-            justify-content: center;
-        }
-
-        .documento {
-            max-width: 1000px;
-            width: 100%;
-            background: white;
-        }
-
-        /* ===== CAPA ===== */
-        .capa {
-            background: linear-gradient(145deg, #f5f0e8 0%, #e8e0d5 30%, #d9cebc 70%, #c8bba5 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 3rem 2rem;
-            page-break-after: always;
-            position: relative;
-            overflow: hidden;
-            border: 12px double #8b7d6b;
-            box-shadow: inset 0 0 0 8px #f5f0e8, inset 0 0 0 14px #d9cebc;
-        }
-
-        .capa::before {
-            content: "";
-            position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(139, 125, 107, 0.12) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .capa::after {
-            content: "";
-            position: absolute;
-            bottom: -60px;
-            right: -40px;
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, rgba(139, 125, 107, 0.1) 0%, transparent 65%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .capa .ornamento-topo {
-            font-size: 2.8rem;
-            letter-spacing: 8px;
-            color: #8b7d6b;
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .capa .instituicao {
-            font-size: 1.1rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #6b5d4f;
-            margin-bottom: 1.8rem;
-            position: relative;
-            z-index: 1;
-            border-top: 2px solid #8b7d6b;
-            border-bottom: 2px solid #8b7d6b;
-            display: inline-block;
-            padding: 0.7rem 2rem;
-        }
-
-        .capa .titulo-principal {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: #3a3227;
-            margin-bottom: 0.8rem;
-            position: relative;
-            z-index: 1;
-            text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
-        }
-
-        .capa .subtitulo-capa {
-            font-size: 1.3rem;
-            font-style: italic;
-            color: #6b5d4f;
-            margin-bottom: 2.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .capa .linha-divisoria {
-            width: 120px;
-            height: 2px;
-            background: #8b7d6b;
-            margin: 0 auto 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .capa .info-aluno-capa {
-            font-size: 1.05rem;
-            color: #4a4035;
-            line-height: 2.2;
-            position: relative;
-            z-index: 1;
-            background: rgba(255, 255, 255, 0.35);
-            padding: 1.5rem 2.5rem;
-            border-radius: 4px;
-            display: inline-block;
-        }
-
-        .capa .info-aluno-capa strong {
-            color: #3a3227;
-            font-weight: 600;
-        }
-
-        .capa .rodape-capa {
-            margin-top: 3rem;
-            font-size: 0.9rem;
-            color: #8b7d6b;
-            letter-spacing: 2px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ===== MIOLO (CONTEÚDO) ===== */
-        .miolo {
-            padding: 0;
-        }
-
-        /* Cada capítulo inicia em nova página na impressão */
-        .capitulo {
-            padding: 2.5rem 2.8rem;
-            page-break-before: always;
-            page-break-inside: avoid;
-        }
-
-        /* O primeiro capítulo não precisa de quebra forçada (já vem depois da capa) */
-        .capitulo:first-of-type {
-            page-break-before: auto;
-        }
-
-        .titulo-capitulo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2c241a;
-            border-bottom: 3px double #8b7d6b;
-            padding-bottom: 0.4rem;
-            margin-bottom: 1.2rem;
-            text-align: center;
-        }
-
-        .corpo-capitulo h3 {
-            font-size: 1.1rem;
-            color: #4a4035;
-            margin: 1.2rem 0 0.5rem;
-            font-weight: 700;
-            border-left: 3px solid #8b7d6b;
-            padding-left: 0.6rem;
-        }
-
-        .corpo-capitulo h3:first-child {
-            margin-top: 0;
-        }
-
-        .resumo-texto,
-        .analise-texto {
-            font-size: 0.95rem;
-            text-align: justify;
-            margin-bottom: 0.5rem;
-            text-indent: 1.5em;
-        }
-
-        .ideias-lista {
-            list-style-type: square;
-            padding-left: 1.8rem;
-            margin: 0.5rem 0 0.8rem;
-        }
-
-        .ideias-lista li {
-            margin-bottom: 0.4rem;
-            font-size: 0.94rem;
-            text-align: justify;
-        }
-
-        .citacao-bloco {
-            background: transparent;
-            border-left: 3px solid #8b7d6b;
-            padding: 0.7rem 1.2rem;
-            margin: 0.8rem 0;
-            font-style: italic;
-            font-size: 0.94rem;
-            color: #3a3227;
-            text-align: justify;
-        }
-
-        .citacao-bloco .autor-pagina {
-            display: block;
-            margin-top: 0.4rem;
-            font-style: normal;
-            font-weight: 600;
-            color: #4a4035;
-            text-align: right;
-        }
-
-        .tags-gerais {
-            padding: 2rem 2.8rem;
-            page-break-before: always;
-        }
-
-        .tags-gerais h3 {
-            font-size: 1.1rem;
-            color: #4a4035;
-            margin-bottom: 0.6rem;
-            font-weight: 700;
-            border-left: 3px solid #8b7d6b;
-            padding-left: 0.6rem;
-        }
-
-        .lista-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .lista-tags li {
-            background: #f5f0e8;
-            border: 1px solid #d9cebc;
-            padding: 0.35rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: #3a3227;
-            letter-spacing: 0.3px;
-        }
-
-        /* Estilos de impressão */
+        /* Apenas controle de página para impressão, sem design visual */
         @media print {
-            body {
-                background: white;
-                margin: 0;
-                padding: 0;
-            }
-
-            .documento {
-                max-width: 100%;
-            }
-
-            .capa {
-                background: #f5f0e8 !important;
-                border: 12px double #8b7d6b !important;
-                box-shadow: none !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
             .capitulo {
                 page-break-before: always;
                 page-break-inside: avoid;
             }
-
             .capitulo:first-of-type {
                 page-break-before: auto;
-            }
-
-            .tags-gerais {
-                page-break-before: always;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .capa .titulo-principal {
-                font-size: 2rem;
-            }
-            .capa .instituicao {
-                font-size: 0.9rem;
-                padding: 0.5rem 1rem;
-            }
-            .capitulo {
-                padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="documento">
-        <!-- ==================== CAPA ==================== -->
-        <div class="capa">
-            <div class="ornamento-topo">❦</div>
-            <div class="instituicao">Ensino Médio · 2º ano B</div>
-            <h1 class="titulo-principal">Fichamento de Biologia</h1>
-            <p class="subtitulo-capa">Vertebrados e Fisiologia Humana<br>Capítulos 3 a 7</p>
-            <div class="linha-divisoria"></div>
-            <div class="info-aluno-capa">
-                <p><strong>Aluno:</strong> Daniel Augustus Gomes Barbosa</p>
-                <p><strong>Turma:</strong> 2º EM B</p>
-                <p><strong>Professora:</strong> Cristiane</p>
-                <p><strong>Disciplina:</strong> Biologia</p>
-            </div>
-            <div class="rodape-capa">2025</div>
-        </div>
+    <!-- Cabeçalho simples -->
+    <h1>Fichamento de Biologia</h1>
+    <p><strong>Aluno:</strong> Daniel Augustus Gomes Barbosa</p>
+    <p><strong>Turma:</strong> 2º EM B</p>
+    <p><strong>Professora:</strong> Cristiane</p>
+    <p><strong>Disciplina:</strong> Biologia</p>
+    <p><strong>Obra consultada:</strong> SILVA JÚNIOR, César da; SASSON, Sezar; CALDINI JÚNIOR, Nelson. Biologia – Ensino Médio – Volume 2. 12. ed. São Paulo: Atual Editora, 2022. Capítulos 3 a 7.</p>
+    <hr>
 
-        <!-- ==================== MIOLO ==================== -->
-        <div class="miolo">
-            <!-- CAPÍTULO 3 - PEIXES E ANFÍBIOS -->
-            <div class="capitulo">
-                <div class="titulo-capitulo">CAP. 3 – PEIXES E ANFÍBIOS</div>
-                <div class="corpo-capitulo">
-                    <h3>Resumo</h3>
-                    <p class="resumo-texto">O capítulo aborda a transição dos vertebrados do meio aquático para o terrestre. Inicia com a análise genômica do celacanto e do peixe pulmonado <em>Protopterus annectens</em>, indicando que os tetrápodes são mais aparentados aos peixes pulmonados. Descreve as propriedades físico-químicas da água e como os peixes se adaptaram a esse ambiente: corpo hidrodinâmico, nadadeiras, escamas, linha lateral e brânquias com fluxo unidirecional. Apresenta a divisão entre Chondrichthyes (tubarões, raias, quimeras) e Osteichthyes (peixes ósseos), detalhando características como bexiga natatória, opérculo e nadadeiras raiadas ou lobadas. Em seguida, trata da conquista do ambiente terrestre, destacando o fóssil <em>Tiktaalik roseae</em> e as adaptações dos anfíbios: pele fina e vascularizada, respiração cutânea e pulmonar, excreção de ureia e dependência da água para reprodução. A diversidade dos anfíbios é explorada nos grupos Gymnophiona (cecílias), Urodela (salamandras, axolotes) e Anura (sapos, rãs, pererecas), com ênfase na metamorfose e no papel de bioindicadores ambientais.</p>
+    <!-- CAPÍTULO 3 - PEIXES E ANFÍBIOS -->
+    <div class="capitulo">
+        <h2>CAP. 3 – PEIXES E ANFÍBIOS</h2>
 
-                    <h3>Ideias principais</h3>
-                    <ul class="ideias-lista">
-                        <li>O sequenciamento do genoma do celacanto mostrou que os peixes pulmonados são o grupo-irmão dos tetrápodes; os celacantos evoluem lentamente e são chamados de fósseis vivos.</li>
-                        <li>A água impõe desafios como baixa concentração de oxigênio, alta densidade e viscosidade; os peixes respondem com corpo hidrodinâmico, nadadeiras e sistema de linha lateral.</li>
-                        <li>Chondrichthyes têm esqueleto cartilaginoso, escamas placoides, fígado oleoso e ureia no sangue para flutuabilidade; possuem ampolas de Lorenzini que detectam campos elétricos.</li>
-                        <li>Osteichthyes apresentam esqueleto ósseo, opérculo protegendo as brânquias e bexiga natatória; dividem-se em actinopterígeos (nadadeiras raiadas) e sarcopterígeos (nadadeiras lobadas).</li>
-                        <li>Os primeiros tetrápodes, como o Tiktaalik, ainda dependiam majoritariamente da água; a transição para a terra foi gradual e envolveu modificações no esqueleto e na fisiologia.</li>
-                        <li>Anfíbios têm pele fina e úmida que permite respiração cutânea; na fase larval são aquáticos e respiram por brânquias; a metamorfose elimina a cauda e as brânquias por apoptose.</li>
-                        <li>Anura (sapos, rãs, pererecas) distinguem-se pelo hábitat e textura da pele; todos passam por estágio larval de girino e realizam fecundação externa com amplexo.</li>
-                    </ul>
+        <h3>Resumo</h3>
+        <p>O capítulo aborda a transição dos vertebrados do meio aquático para o terrestre. Inicia com a análise genômica do celacanto e do peixe pulmonado <em>Protopterus annectens</em>, indicando que os tetrápodes são mais aparentados aos peixes pulmonados. Descreve as propriedades físico-químicas da água e como os peixes se adaptaram a esse ambiente: corpo hidrodinâmico, nadadeiras, escamas, linha lateral e brânquias com fluxo unidirecional. Apresenta a divisão entre Chondrichthyes (tubarões, raias, quimeras) e Osteichthyes (peixes ósseos), detalhando características como bexiga natatória, opérculo e nadadeiras raiadas ou lobadas. Em seguida, trata da conquista do ambiente terrestre, destacando o fóssil <em>Tiktaalik roseae</em> e as adaptações dos anfíbios: pele fina e vascularizada, respiração cutânea e pulmonar, excreção de ureia e dependência da água para reprodução. A diversidade dos anfíbios é explorada nos grupos Gymnophiona (cecílias), Urodela (salamandras, axolotes) e Anura (sapos, rãs, pererecas), com ênfase na metamorfose e no papel de bioindicadores ambientais.</p>
 
-                    <h3>Citações</h3>
-                    <div class="citacao-bloco">
-                        <p>"Os celacantos não enfrentaram condições ambientais que favorecessem o acúmulo de alterações genéticas. Eles continuam vivendo primariamente na costa leste da África e (...) são considerados pelos biólogos como fósseis vivos."</p>
-                        <span class="autor-pagina">(ANDRADE, 2013, apud SILVA JR. et al., p. 36)</span>
-                    </div>
-                    <div class="citacao-bloco">
-                        <p>"A linha lateral é um sistema que capacita os peixes e outros vertebrados aquáticos a decodificarem o ambiente. (...) detectam vibrações em seu entorno, propiciando a busca por nutrientes, a reprodução e a proteção contra predadores."</p>
-                        <span class="autor-pagina">(SILVA JR. et al., p. 40)</span>
-                    </div>
+        <h3>Ideias principais</h3>
+        <ul>
+            <li>O sequenciamento do genoma do celacanto mostrou que os peixes pulmonados são o grupo-irmão dos tetrápodes; os celacantos evoluem lentamente e são chamados de fósseis vivos.</li>
+            <li>A água impõe desafios como baixa concentração de oxigênio, alta densidade e viscosidade; os peixes respondem com corpo hidrodinâmico, nadadeiras e sistema de linha lateral.</li>
+            <li>Chondrichthyes têm esqueleto cartilaginoso, escamas placoides, fígado oleoso e ureia no sangue para flutuabilidade; possuem ampolas de Lorenzini que detectam campos elétricos.</li>
+            <li>Osteichthyes apresentam esqueleto ósseo, opérculo protegendo as brânquias e bexiga natatória; dividem-se em actinopterígeos (nadadeiras raiadas) e sarcopterígeos (nadadeiras lobadas).</li>
+            <li>Os primeiros tetrápodes, como o Tiktaalik, ainda dependiam majoritariamente da água; a transição para a terra foi gradual e envolveu modificações no esqueleto e na fisiologia.</li>
+            <li>Anfíbios têm pele fina e úmida que permite respiração cutânea; na fase larval são aquáticos e respiram por brânquias; a metamorfose elimina a cauda e as brânquias por apoptose.</li>
+            <li>Anura (sapos, rãs, pererecas) distinguem-se pelo hábitat e textura da pele; todos passam por estágio larval de girino e realizam fecundação externa com amplexo.</li>
+        </ul>
 
-                    <h3>Análise</h3>
-                    <p class="analise-texto">A integração de dados genômicos recentes com a anatomia comparada fortalece o entendimento da filogenia dos vertebrados. A ênfase nas adaptações ao meio aquático e terrestre mostra como pressões ambientais moldaram estruturas complexas. A classificação dos peixes em Chondrichthyes e Osteichthyes é didática, mas o texto deixa claro o caráter parafilético do termo "peixe".</p>
-                </div>
-            </div>
+        <h3>Citações</h3>
+        <blockquote>
+            <p>"Os celacantos não enfrentaram condições ambientais que favorecessem o acúmulo de alterações genéticas. Eles continuam vivendo primariamente na costa leste da África e (...) são considerados pelos biólogos como fósseis vivos."</p>
+            <footer>(ANDRADE, 2013, apud SILVA JR. et al., p. 36)</footer>
+        </blockquote>
+        <blockquote>
+            <p>"A linha lateral é um sistema que capacita os peixes e outros vertebrados aquáticos a decodificarem o ambiente. (...) detectam vibrações em seu entorno, propiciando a busca por nutrientes, a reprodução e a proteção contra predadores."</p>
+            <footer>(SILVA JR. et al., p. 40)</footer>
+        </blockquote>
 
-            <!-- CAPÍTULO 4 - RÉPTEIS E AVES -->
-            <div class="capitulo">
-                <div class="titulo-capitulo">CAP. 4 – RÉPTEIS E AVES</div>
-                <div class="corpo-capitulo">
-                    <h3>Resumo</h3>
-                    <p class="resumo-texto">O capítulo aborda a conquista definitiva do ambiente terrestre pelos amniotas, grupo que inclui répteis, aves e mamíferos. Destaca o surgimento do ovo amniótico, da pele queratinizada e da excreção de ácido úrico como adaptações cruciais. Os répteis são descritos como ectotérmicos, com pele seca e escamosa, e classificados em Testudines (tartarugas, jabutis, cágados), Squamata (lagartos, serpentes), Crocodilia (jacarés, crocodilos, gaviais) e Sphenodontia (tuataras). As serpentes são detalhadas quanto aos tipos de dentição (áglifa, opistóglifa, proteróglifa, solenóglifa) e mecanismos de defesa. Em seguida, o texto explica que as aves descendem de dinossauros terópodes e apresentam endotermia, penas, ossos pneumáticos e sacos aéreos. A diversidade é dividida em carinatas (com carena no esterno, voadoras) e ratitas (aves corredoras, sem quilha desenvolvida).</p>
+        <h3>Análise</h3>
+        <p>A integração de dados genômicos recentes com a anatomia comparada fortalece o entendimento da filogenia dos vertebrados. A ênfase nas adaptações ao meio aquático e terrestre mostra como pressões ambientais moldaram estruturas complexas. A classificação dos peixes em Chondrichthyes e Osteichthyes é didática, mas o texto deixa claro o caráter parafilético do termo "peixe".</p>
+    </div>
 
-                    <h3>Ideias principais</h3>
-                    <ul class="ideias-lista">
-                        <li>O ovo amniótico, com âmnio, cório, alantoide e casca calcária, permitiu a reprodução independente do meio aquático.</li>
-                        <li>Répteis têm crânio diapsida (duas aberturas temporais), com exceção dos testudíneos, cujo crânio anapsida é derivado de um ancestral diapsida.</li>
-                        <li>Testudines possuem carapaça dorsal e plastrão ventral fundidos às vértebras e costelas; são ovíparos e não apresentam cuidado parental.</li>
-                        <li>Serpentes descendem de lagartos; a descoberta de um fóssil com quatro patas no Nordeste brasileiro corrobora essa hipótese. A dentição solenóglifa é típica de serpentes peçonhentas com fosseta loreal.</li>
-                        <li>Crocodilianos têm crânio alongado e robusto; diferenciam-se pela forma do focinho e exposição dos dentes. O gavial possui focinho extremamente estreito.</li>
-                        <li>As aves são endotérmicas e possuem penas, quilha no esterno, ossos pneumáticos e siringe para vocalização. Os sacos aéreos aumentam a eficiência respiratória.</li>
-                        <li>Carinatas são aves voadoras com carena desenvolvida; ratitas são corredoras (ema, avestruz, quivi) e não voam.</li>
-                    </ul>
+    <!-- CAPÍTULO 4 - RÉPTEIS E AVES -->
+    <div class="capitulo">
+        <h2>CAP. 4 – RÉPTEIS E AVES</h2>
 
-                    <h3>Citações</h3>
-                    <div class="citacao-bloco">
-                        <p>"As aves, portanto, surgiram há 150 milhões de anos aproximadamente a partir de ancestrais plumados como o Archaeopteryx. Estes foram alguns dos primeiros dinossauros a terem fósseis encontrados com penas."</p>
-                        <span class="autor-pagina">(SILVA JR. et al., p. 52)</span>
-                    </div>
-                    <div class="citacao-bloco">
-                        <p>"Os pterossauros não são dinossauros, mas sim reptilianos voadores mais distantes evolutivamente dos dinossauros."</p>
-                        <span class="autor-pagina">(SILVA JR. et al., p. 52)</span>
-                    </div>
+        <h3>Resumo</h3>
+        <p>O capítulo aborda a conquista definitiva do ambiente terrestre pelos amniotas, grupo que inclui répteis, aves e mamíferos. Destaca o surgimento do ovo amniótico, da pele queratinizada e da excreção de ácido úrico como adaptações cruciais. Os répteis são descritos como ectotérmicos, com pele seca e escamosa, e classificados em Testudines (tartarugas, jabutis, cágados), Squamata (lagartos, serpentes), Crocodilia (jacarés, crocodilos, gaviais) e Sphenodontia (tuataras). As serpentes são detalhadas quanto aos tipos de dentição (áglifa, opistóglifa, proteróglifa, solenóglifa) e mecanismos de defesa. Em seguida, o texto explica que as aves descendem de dinossauros terópodes e apresentam endotermia, penas, ossos pneumáticos e sacos aéreos. A diversidade é dividida em carinatas (com carena no esterno, voadoras) e ratitas (aves corredoras, sem quilha desenvolvida).</p>
 
-                    <h3>Análise</h3>
-                    <p class="analise-texto">A seção reforça a ideia de que "répteis" não formam um grupo monofilético, já que as aves compartilham ancestral comum com os crocodilianos. A descrição das adaptações para o voo é consistente, e a menção ao Archaeopteryx como fóssil de transição ajuda a visualizar o processo evolutivo. A classificação das serpentes por tipo de dentição é prática para identificação de espécies peçonhentas.</p>
-                </div>
-            </div>
+        <h3>Ideias principais</h3>
+        <ul>
+            <li>O ovo amniótico, com âmnio, cório, alantoide e casca calcária, permitiu a reprodução independente do meio aquático.</li>
+            <li>Répteis têm crânio diapsida (duas aberturas temporais), com exceção dos testudíneos, cujo crânio anapsida é derivado de um ancestral diapsida.</li>
+            <li>Testudines possuem carapaça dorsal e plastrão ventral fundidos às vértebras e costelas; são ovíparos e não apresentam cuidado parental.</li>
+            <li>Serpentes descendem de lagartos; a descoberta de um fóssil com quatro patas no Nordeste brasileiro corrobora essa hipótese. A dentição solenóglifa é típica de serpentes peçonhentas com fosseta loreal.</li>
+            <li>Crocodilianos têm crânio alongado e robusto; diferenciam-se pela forma do focinho e exposição dos dentes. O gavial possui focinho extremamente estreito.</li>
+            <li>As aves são endotérmicas e possuem penas, quilha no esterno, ossos pneumáticos e siringe para vocalização. Os sacos aéreos aumentam a eficiência respiratória.</li>
+            <li>Carinatas são aves voadoras com carena desenvolvida; ratitas são corredoras (ema, avestruz, quivi) e não voam.</li>
+        </ul>
 
-            <!-- CAPÍTULO 5 - MAMÍFEROS -->
-            <div class="capitulo">
-                <div class="titulo-capitulo">CAP. 5 – MAMÍFEROS</div>
-                <div class="corpo-capitulo">
-                    <h3>Resumo</h3>
-                    <p class="resumo-texto">O capítulo trata da evolução e diversidade dos mamíferos, grupo monofilético pertencente à linhagem Synapsida. As características distintivas incluem glândulas mamárias, pelos, endotermia e cuidado parental. O texto explica a importância do leite materno, dividido em colostro, fase de transição e leite maduro. Descreve o tegumento com epiderme, derme e panículo adiposo, e aborda a hibernação como estratégia de economia energética. A dentição é heterodonte (incisivos, caninos, pré-molares, molares) e adaptada à dieta; os ruminantes possuem estômago compartimentalizado (rúmen, retículo, omaso, abomaso). O sistema nervoso é o mais desenvolvido entre os vertebrados. A diversidade é apresentada em três grupos: Monotremata (ornitorrinco, equidna – ovíparos), Marsupialia (cangurus, coalas – com marsúpio e placenta transitória) e Eutheria (placentários), subdivididos nas superordens Afrotheria, Xenarthra, Euarchontoglires e Laurasiatheria.</p>
+        <h3>Citações</h3>
+        <blockquote>
+            <p>"As aves, portanto, surgiram há 150 milhões de anos aproximadamente a partir de ancestrais plumados como o Archaeopteryx. Estes foram alguns dos primeiros dinossauros a terem fósseis encontrados com penas."</p>
+            <footer>(SILVA JR. et al., p. 52)</footer>
+        </blockquote>
+        <blockquote>
+            <p>"Os pterossauros não são dinossauros, mas sim reptilianos voadores mais distantes evolutivamente dos dinossauros."</p>
+            <footer>(SILVA JR. et al., p. 52)</footer>
+        </blockquote>
 
-                    <h3>Ideias principais</h3>
-                    <ul class="ideias-lista">
-                        <li>Mamíferos originaram-se de sinapsídeos há cerca de 300 milhões de anos; a presença de um par de aberturas temporais no crânio é característica do grupo.</li>
-                        <li>Glândulas mamárias, sudoríferas e sebáceas são anexos da epiderme; o leite materno fornece imunidade e nutrição, sendo essencial para o vínculo materno.</li>
-                        <li>A endotermia é mantida pelo metabolismo, com auxílio do coração tetracavitário e isolamento térmico proporcionado pelos pelos e panículo adiposo.</li>
-                        <li>Ruminantes possuem estômago com quatro câmaras; micro-organismos no rúmen digerem celulose, e o alimento é regurgitado para nova mastigação antes de seguir ao abomaso.</li>
-                        <li>Monotremados são ovíparos e não possuem mamilos; marsupiais têm marsúpio onde o filhote completa o desenvolvimento; eutérios possuem placenta corioalantoidea.</li>
-                        <li>Entre os eutérios, destacam-se ordens como Primates (córtex desenvolvido, polegar opositor), Cetacea (adaptações aquáticas, ecolocalização) e Chiroptera (asas formadas por membrana dérmica).</li>
-                    </ul>
+        <h3>Análise</h3>
+        <p>A seção reforça a ideia de que "répteis" não formam um grupo monofilético, já que as aves compartilham ancestral comum com os crocodilianos. A descrição das adaptações para o voo é consistente, e a menção ao Archaeopteryx como fóssil de transição ajuda a visualizar o processo evolutivo. A classificação das serpentes por tipo de dentição é prática para identificação de espécies peçonhentas.</p>
+    </div>
 
-                    <h3>Citações</h3>
-                    <div class="citacao-bloco">
-                        <p>"O ato da amamentação e o cuidado parental desempenharam papéis fundamentais na evolução dos mamíferos, possibilitando vantagens adaptativas ao longo do tempo, como o aumento da taxa de sobrevivência e crescimento dos filhotes."</p>
-                        <span class="autor-pagina">(SILVA JR. et al., p. 56)</span>
-                    </div>
-                    <div class="citacao-bloco">
-                        <p>"A ocitocina (...) promove a contração uterina durante o parto e está envolvida na ejeção do leite no período de lactação. Esse hormônio está associado a comportamentos sociais (...)."</p>
-                        <span class="autor-pagina">(SILVA JR. et al., p. 56)</span>
-                    </div>
+    <!-- CAPÍTULO 5 - MAMÍFEROS -->
+    <div class="capitulo">
+        <h2>CAP. 5 – MAMÍFEROS</h2>
 
-                    <h3>Análise</h3>
-                    <p class="analise-texto">O capítulo explora bem a diversidade morfológica e reprodutiva dos mamíferos, mostrando como a lactação e o cuidado parental foram pressões seletivas importantes. A organização filogenética baseada em dados moleculares (Afrotheria, Xenarthra etc.) atualiza a classificação tradicional, embora possa gerar estranhamento inicial. A fisiologia dos ruminantes é apresentada de forma clara e conectada à anatomia.</p>
-                </div>
-            </div>
+        <h3>Resumo</h3>
+        <p>O capítulo trata da evolução e diversidade dos mamíferos, grupo monofilético pertencente à linhagem Synapsida. As características distintivas incluem glândulas mamárias, pelos, endotermia e cuidado parental. O texto explica a importância do leite materno, dividido em colostro, fase de transição e leite maduro. Descreve o tegumento com epiderme, derme e panículo adiposo, e aborda a hibernação como estratégia de economia energética. A dentição é heterodonte (incisivos, caninos, pré-molares, molares) e adaptada à dieta; os ruminantes possuem estômago compartimentalizado (rúmen, retículo, omaso, abomaso). O sistema nervoso é o mais desenvolvido entre os vertebrados. A diversidade é apresentada em três grupos: Monotremata (ornitorrinco, equidna – ovíparos), Marsupialia (cangurus, coalas – com marsúpio e placenta transitória) e Eutheria (placentários), subdivididos nas superordens Afrotheria, Xenarthra, Euarchontoglires e Laurasiatheria.</p>
 
-            <!-- CAPÍTULO 6 - SISTEMA DIGESTÓRIO -->
-            <div class="capitulo">
-                <div class="titulo-capitulo">CAP. 6 – SISTEMA DIGESTÓRIO</div>
-                <div class="corpo-capitulo">
-                    <h3>Resumo</h3>
-                    <p class="resumo-texto">O capítulo aborda a digestão nos animais, com foco no sistema digestório humano. Inicia comparando a digestão em diferentes grupos, destacando adaptações como o estômago dos ruminantes e a dentição especializada. Em seguida, detalha o trato gastrointestinal humano: boca (digestão mecânica e ação da amilase salivar), faringe e esôfago (deglutição e peristaltismo), estômago (suco gástrico, pepsina, quimificação), intestino delgado (duodeno, jejuno, íleo; ação do suco entérico, bile e suco pancreático; vilosidades e absorção), intestino grosso (absorção de água, formação das fezes, flora intestinal). Explica o papel do fígado (produção de bile, emulsificação de gorduras) e do pâncreas (suco pancreático com bicarbonato e enzimas como tripsina e lipase). Também menciona a regulação hormonal da digestão (gastrina, secretina, colecistoquinina) e condições como a doença celíaca.</p>
+        <h3>Ideias principais</h3>
+        <ul>
+            <li>Mamíferos originaram-se de sinapsídeos há cerca de 300 milhões de anos; a presença de um par de aberturas temporais no crânio é característica do grupo.</li>
+            <li>Glândulas mamárias, sudoríferas e sebáceas são anexos da epiderme; o leite materno fornece imunidade e nutrição, sendo essencial para o vínculo materno.</li>
+            <li>A endotermia é mantida pelo metabolismo, com auxílio do coração tetracavitário e isolamento térmico proporcionado pelos pelos e panículo adiposo.</li>
+            <li>Ruminantes possuem estômago com quatro câmaras; micro-organismos no rúmen digerem celulose, e o alimento é regurgitado para nova mastigação antes de seguir ao abomaso.</li>
+            <li>Monotremados são ovíparos e não possuem mamilos; marsupiais têm marsúpio onde o filhote completa o desenvolvimento; eutérios possuem placenta corioalantoidea.</li>
+            <li>Entre os eutérios, destacam-se ordens como Primates (córtex desenvolvido, polegar opositor), Cetacea (adaptações aquáticas, ecolocalização) e Chiroptera (asas formadas por membrana dérmica).</li>
+        </ul>
 
-                    <h3>Ideias principais</h3>
-                    <ul class="ideias-lista">
-                        <li>A digestão divide-se em mecânica (mastigação, peristaltismo) e química (enzimas que quebram macromoléculas em monômeros absorvíveis).</li>
-                        <li>Na boca, a amilase salivar inicia a digestão do amido; o pH ótimo da enzima é próximo de 7, sendo inativada no estômago ácido.</li>
-                        <li>O estômago secreta HCl (células parietais), pepsinogênio (células principais) e muco protetor; a pepsina digere proteínas em peptídeos.</li>
-                        <li>No duodeno, a bile (produzida pelo fígado) emulsiona gorduras; o suco pancreático neutraliza o quimo e contém amilase, lipase e proteases.</li>
-                        <li>As vilosidades e microvilosidades do intestino delgado aumentam a superfície de absorção dos nutrientes para o sangue e a linfa.</li>
-                        <li>O intestino grosso reabsorve água, abriga a flora intestinal e forma as fezes; a celulose, não digerida, auxilia o trânsito intestinal.</li>
-                        <li>Hormônios como gastrina, secretina e colecistoquinina regulam a secreção de sucos digestivos e a motilidade do trato gastrointestinal.</li>
-                    </ul>
+        <h3>Citações</h3>
+        <blockquote>
+            <p>"O ato da amamentação e o cuidado parental desempenharam papéis fundamentais na evolução dos mamíferos, possibilitando vantagens adaptativas ao longo do tempo, como o aumento da taxa de sobrevivência e crescimento dos filhotes."</p>
+            <footer>(SILVA JR. et al., p. 56)</footer>
+        </blockquote>
+        <blockquote>
+            <p>"A ocitocina (...) promove a contração uterina durante o parto e está envolvida na ejeção do leite no período de lactação. Esse hormônio está associado a comportamentos sociais (...)."</p>
+            <footer>(SILVA JR. et al., p. 56)</footer>
+        </blockquote>
 
-                    <h3>Citações</h3>
-                    <div class="citacao-bloco">
-                        <p>"A digestão se inicia já na boca. (...) a função dos dentes é triturar os alimentos em partículas mínimas para que o resto do processo aconteça. A saliva também é importante: ela desencadeia a degradação enzimática dos alimentos."</p>
-                        <span class="autor-pagina">(MONTEIRO, Superinteressante, apud SILVA JR. et al., p. 68)</span>
-                    </div>
-                    <div class="citacao-bloco">
-                        <p>"Diferentemente do que muita gente pensa, a principal parte da digestão não acontece no estômago. (...) o intestino delgado cumpre a tarefa de absorver os nutrientes."</p>
-                        <span class="autor-pagina">(MONTEIRO, Superinteressante, apud SILVA JR. et al., p. 68)</span>
-                    </div>
+        <h3>Análise</h3>
+        <p>O capítulo explora bem a diversidade morfológica e reprodutiva dos mamíferos, mostrando como a lactação e o cuidado parental foram pressões seletivas importantes. A organização filogenética baseada em dados moleculares (Afrotheria, Xenarthra etc.) atualiza a classificação tradicional, embora possa gerar estranhamento inicial. A fisiologia dos ruminantes é apresentada de forma clara e conectada à anatomia.</p>
+    </div>
 
-                    <h3>Análise</h3>
-                    <p class="analise-texto">O capítulo constrói uma visão integrada do processo digestivo, indo da anatomia macroscópica à ação enzimática e hormonal. A inclusão de quadros sobre enzimas e hormônios facilita a memorização. A referência à doença celíaca conecta o conteúdo escolar a uma condição real, reforçando a relevância do estudo da fisiologia.</p>
-                </div>
-            </div>
+    <!-- CAPÍTULO 6 - SISTEMA DIGESTÓRIO -->
+    <div class="capitulo">
+        <h2>CAP. 6 – SISTEMA DIGESTÓRIO</h2>
 
-            <!-- CAPÍTULO 7 - SISTEMA RESPIRATÓRIO -->
-            <div class="capitulo">
-                <div class="titulo-capitulo">CAP. 7 – SISTEMA RESPIRATÓRIO</div>
-                <div class="corpo-capitulo">
-                    <h3>Resumo</h3>
-                    <p class="resumo-texto">O capítulo aborda o sistema respiratório no reino animal e, em detalhe, no ser humano. Compara as superfícies respiratórias de diferentes filos (difusão direta, pele, brânquias, traqueias, pulmões) e explica o mecanismo de contracorrente nas brânquias dos peixes. No sistema respiratório humano, descreve as vias aéreas superiores (nariz, cavidade nasal, faringe) e inferiores (laringe, traqueia, brônquios, bronquíolos, alvéolos). Detalha a mecânica da ventilação pulmonar (inspiração e expiração mediadas pelo diafragma e músculos intercostais), a hematose nos alvéolos, o transporte de O₂ pela hemoglobina e de CO₂ na forma de bicarbonato. Explica o controle da respiração pelo centro respiratório no bulbo, sensível a alterações de pH e CO₂. Aborda também a ação do monóxido de carbono (CO) como inibidor do transporte de oxigênio e o uso de ventiladores mecânicos no tratamento da covid-19.</p>
+        <h3>Resumo</h3>
+        <p>O capítulo aborda a digestão nos animais, com foco no sistema digestório humano. Inicia comparando a digestão em diferentes grupos, destacando adaptações como o estômago dos ruminantes e a dentição especializada. Em seguida, detalha o trato gastrointestinal humano: boca (digestão mecânica e ação da amilase salivar), faringe e esôfago (deglutição e peristaltismo), estômago (suco gástrico, pepsina, quimificação), intestino delgado (duodeno, jejuno, íleo; ação do suco entérico, bile e suco pancreático; vilosidades e absorção), intestino grosso (absorção de água, formação das fezes, flora intestinal). Explica o papel do fígado (produção de bile, emulsificação de gorduras) e do pâncreas (suco pancreático com bicarbonato e enzimas como tripsina e lipase). Também menciona a regulação hormonal da digestão (gastrina, secretina, colecistoquinina) e condições como a doença celíaca.</p>
 
-                    <h3>Ideias principais</h3>
-                    <ul class="ideias-lista">
-                        <li>Brânquias realizam troca contracorrente: o fluxo de água é oposto ao do sangue, maximizando a captação de O₂. Peixes ósseos ventilam com movimentos da boca e opérculo.</li>
-                        <li>O ar inspirado é filtrado, aquecido e umidificado nas vias aéreas superiores; a epiglote impede a entrada de alimentos na laringe durante a deglutição.</li>
-                        <li>Os alvéolos são revestidos por células tipo I (trocas gasosas) e tipo II (surfactante, que reduz a tensão superficial e evita o colapso).</li>
-                        <li>A inspiração ocorre pela contração do diafragma e músculos intercostais, aumentando o volume torácico e reduzindo a pressão intrapulmonar.</li>
-                        <li>O CO₂ é transportado majoritariamente como íon bicarbonato (HCO₃⁻), convertido pela anidrase carbônica nas hemácias.</li>
-                        <li>O centro respiratório bulbar é estimulado pelo aumento da concentração de CO₂ e consequente queda do pH (acidose metabólica).</li>
-                        <li>O monóxido de carbono (CO) liga-se à hemoglobina com afinidade muito maior que o O₂, formando carboxiemoglobina e podendo levar à asfixia.</li>
-                    </ul>
+        <h3>Ideias principais</h3>
+        <ul>
+            <li>A digestão divide-se em mecânica (mastigação, peristaltismo) e química (enzimas que quebram macromoléculas em monômeros absorvíveis).</li>
+            <li>Na boca, a amilase salivar inicia a digestão do amido; o pH ótimo da enzima é próximo de 7, sendo inativada no estômago ácido.</li>
+            <li>O estômago secreta HCl (células parietais), pepsinogênio (células principais) e muco protetor; a pepsina digere proteínas em peptídeos.</li>
+            <li>No duodeno, a bile (produzida pelo fígado) emulsiona gorduras; o suco pancreático neutraliza o quimo e contém amilase, lipase e proteases.</li>
+            <li>As vilosidades e microvilosidades do intestino delgado aumentam a superfície de absorção dos nutrientes para o sangue e a linfa.</li>
+            <li>O intestino grosso reabsorve água, abriga a flora intestinal e forma as fezes; a celulose, não digerida, auxilia o trânsito intestinal.</li>
+            <li>Hormônios como gastrina, secretina e colecistoquinina regulam a secreção de sucos digestivos e a motilidade do trato gastrointestinal.</li>
+        </ul>
 
-                    <h3>Citações</h3>
-                    <div class="citacao-bloco">
-                        <p>"O sistema respiratório consiste em uma série de tubos, cavidades e superfícies especializadas que garantem a ocorrência das trocas gasosas entre o ambiente e o organismo."</p>
-                        <span class="autor-pagina">(SILVA JR. et al., p. 80)</span>
-                    </div>
-                    <div class="citacao-bloco">
-                        <p>"O uso de ventiladores artificiais no tratamento da covid-19 (...) O ventilador mecânico joga o ar rico em O₂ para dentro dos pulmões, por meio de uma pressão positiva (inspiração) e depois, por pressão negativa, suga o ar dos pulmões (expiração)."</p>
-                        <span class="autor-pagina">(SILVA JR. et al., p. 84)</span>
-                    </div>
+        <h3>Citações</h3>
+        <blockquote>
+            <p>"A digestão se inicia já na boca. (...) a função dos dentes é triturar os alimentos em partículas mínimas para que o resto do processo aconteça. A saliva também é importante: ela desencadeia a degradação enzimática dos alimentos."</p>
+            <footer>(MONTEIRO, Superinteressante, apud SILVA JR. et al., p. 68)</footer>
+        </blockquote>
+        <blockquote>
+            <p>"Diferentemente do que muita gente pensa, a principal parte da digestão não acontece no estômago. (...) o intestino delgado cumpre a tarefa de absorver os nutrientes."</p>
+            <footer>(MONTEIRO, Superinteressante, apud SILVA JR. et al., p. 68)</footer>
+        </blockquote>
 
-                    <h3>Análise</h3>
-                    <p class="analise-texto">O capítulo equilibra bem a fisiologia comparada e a humana, mostrando como o sistema respiratório responde às demandas metabólicas. A menção ao aquecimento global e à redução do O₂ dissolvido em águas quentes é um gancho pertinente para discussões ambientais. A atualização com o contexto da covid-19 e ventilação mecânica torna o conteúdo mais próximo da realidade recente dos estudantes.</p>
-                </div>
-            </div>
+        <h3>Análise</h3>
+        <p>O capítulo constrói uma visão integrada do processo digestivo, indo da anatomia macroscópica à ação enzimática e hormonal. A inclusão de quadros sobre enzimas e hormônios facilita a memorização. A referência à doença celíaca conecta o conteúdo escolar a uma condição real, reforçando a relevância do estudo da fisiologia.</p>
+    </div>
 
-            <!-- PALAVRAS-CHAVE (página separada) -->
-            <div class="tags-gerais">
-                <h3>Palavras-chave gerais</h3>
-                <ul class="lista-tags">
-                    <li>Vertebrados</li>
-                    <li>Peixes</li>
-                    <li>Anfíbios</li>
-                    <li>Répteis</li>
-                    <li>Aves</li>
-                    <li>Mamíferos</li>
-                    <li>Evolução</li>
-                    <li>Tetrápodes</li>
-                    <li>Amniota</li>
-                    <li>Endotermia</li>
-                    <li>Digestão</li>
-                    <li>Respiração</li>
-                    <li>Hematose</li>
-                    <li>Fisiologia humana</li>
-                </ul>
-            </div>
-        </div>
+    <!-- CAPÍTULO 7 - SISTEMA RESPIRATÓRIO -->
+    <div class="capitulo">
+        <h2>CAP. 7 – SISTEMA RESPIRATÓRIO</h2>
+
+        <h3>Resumo</h3>
+        <p>O capítulo aborda o sistema respiratório no reino animal e, em detalhe, no ser humano. Compara as superfícies respiratórias de diferentes filos (difusão direta, pele, brânquias, traqueias, pulmões) e explica o mecanismo de contracorrente nas brânquias dos peixes. No sistema respiratório humano, descreve as vias aéreas superiores (nariz, cavidade nasal, faringe) e inferiores (laringe, traqueia, brônquios, bronquíolos, alvéolos). Detalha a mecânica da ventilação pulmonar (inspiração e expiração mediadas pelo diafragma e músculos intercostais), a hematose nos alvéolos, o transporte de O₂ pela hemoglobina e de CO₂ na forma de bicarbonato. Explica o controle da respiração pelo centro respiratório no bulbo, sensível a alterações de pH e CO₂. Aborda também a ação do monóxido de carbono (CO) como inibidor do transporte de oxigênio e o uso de ventiladores mecânicos no tratamento da covid-19.</p>
+
+        <h3>Ideias principais</h3>
+        <ul>
+            <li>Brânquias realizam troca contracorrente: o fluxo de água é oposto ao do sangue, maximizando a captação de O₂. Peixes ósseos ventilam com movimentos da boca e opérculo.</li>
+            <li>O ar inspirado é filtrado, aquecido e umidificado nas vias aéreas superiores; a epiglote impede a entrada de alimentos na laringe durante a deglutição.</li>
+            <li>Os alvéolos são revestidos por células tipo I (trocas gasosas) e tipo II (surfactante, que reduz a tensão superficial e evita o colapso).</li>
+            <li>A inspiração ocorre pela contração do diafragma e músculos intercostais, aumentando o volume torácico e reduzindo a pressão intrapulmonar.</li>
+            <li>O CO₂ é transportado majoritariamente como íon bicarbonato (HCO₃⁻), convertido pela anidrase carbônica nas hemácias.</li>
+            <li>O centro respiratório bulbar é estimulado pelo aumento da concentração de CO₂ e consequente queda do pH (acidose metabólica).</li>
+            <li>O monóxido de carbono (CO) liga-se à hemoglobina com afinidade muito maior que o O₂, formando carboxiemoglobina e podendo levar à asfixia.</li>
+        </ul>
+
+        <h3>Citações</h3>
+        <blockquote>
+            <p>"O sistema respiratório consiste em uma série de tubos, cavidades e superfícies especializadas que garantem a ocorrência das trocas gasosas entre o ambiente e o organismo."</p>
+            <footer>(SILVA JR. et al., p. 80)</footer>
+        </blockquote>
+        <blockquote>
+            <p>"O uso de ventiladores artificiais no tratamento da covid-19 (...) O ventilador mecânico joga o ar rico em O₂ para dentro dos pulmões, por meio de uma pressão positiva (inspiração) e depois, por pressão negativa, suga o ar dos pulmões (expiração)."</p>
+            <footer>(SILVA JR. et al., p. 84)</footer>
+        </blockquote>
+
+        <h3>Análise</h3>
+        <p>O capítulo equilibra bem a fisiologia comparada e a humana, mostrando como o sistema respiratório responde às demandas metabólicas. A menção ao aquecimento global e à redução do O₂ dissolvido em águas quentes é um gancho pertinente para discussões ambientais. A atualização com o contexto da covid-19 e ventilação mecânica torna o conteúdo mais próximo da realidade recente dos estudantes.</p>
+    </div>
+
+    <!-- Palavras-chave -->
+    <div class="capitulo">
+        <h2>Palavras-chave gerais</h2>
+        <p>Vertebrados, Peixes, Anfíbios, Répteis, Aves, Mamíferos, Evolução, Tetrápodes, Amniota, Endotermia, Digestão, Respiração, Hematose, Fisiologia humana.</p>
     </div>
 </body>
 </html>
