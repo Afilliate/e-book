@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fichamento de Biologia</title>
     <style>
+        /* Controle de página para impressão */
         @media print {
             .capitulo {
                 page-break-before: always;
@@ -13,34 +14,76 @@
             .capitulo:first-of-type {
                 page-break-before: auto;
             }
+            /* Evita viúvas e órfãs */
+            p, li, blockquote {
+                widows: 2;
+                orphans: 2;
+            }
+            h2, h3 {
+                page-break-after: avoid;
+            }
+        }
+
+        /* Pequeno respiro visual na tela */
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.5;
+        }
+
+        .capa {
+            text-align: center;
+            margin-top: 25%;
+            margin-bottom: 25%;
+        }
+
+        .capitulo {
+            margin-top: 30px;
+        }
+
+        blockquote {
+            margin: 15px 0;
+            padding-left: 20px;
+            border-left: 2px solid #ccc;
+        }
+
+        footer {
+            text-align: right;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <div style="text-align: center; margin-top: 20%; margin-bottom: 20%;">
+    <div class="capa">
         <h1>Fichamento de Biologia</h1>
         <p><strong>Aluno:</strong> Daniel Augustus Gomes Barbosa</p>
         <p><strong>Turma:</strong> 2º EM B</p>
         <p><strong>Professora:</strong> Cristiane</p>
         <p><strong>Disciplina:</strong> Biologia</p>
-        <p><strong>Obra consultada:</strong>Capítulos 3 a 7.</p>
+        <p><strong>Obra consultada:</strong> Capítulos 3 a 7.</p>
     </div>
 
     <div class="capitulo">
         <h2>CAP. 3 – PEIXES E ANFÍBIOS</h2>
 
         <h3>Resumo</h3>
-        <p>O capítulo abre com uma questão de genética. Fizeram o sequenciamento do DNA do celacanto e do peixe pulmonado Protopterus annectens. O que se viu é que o pulmonado tá mais perto dos tetrápodes do que o celacanto. Aliás, o celacanto quase não mudou ao longo do tempo — tanto que o pessoal chama de fóssil vivo. Depois disso o texto descreve as condições da água: densidade e viscosidade altas, pouco oxigênio. Para enfrentar isso, os peixes acabaram com corpo hidrodinâmico, nadadeiras, escamas e a linha lateral. As brânquias funcionam com fluxo unidirecional, o que ajuda na troca de gases. Os peixes são separados em dois blocos grandes. Chondrichthyes — tubarões, raias e quimeras — têm esqueleto de cartilagem, fígado cheio de óleo e as ampolas de Lorenzini, que captam campo elétrico. Osteichthyes, os peixes ósseos, têm opérculo nas brânquias e bexiga natatória. Dentro deles ainda tem a divisão entre actinopterígeos (nadadeiras com raios) e sarcopterígeos (nadadeiras lobadas). Aí entra a transição para a terra. O fóssil Tiktaalik roseae, descoberto em 2006, mostrou que os primeiros tetrápodes ainda viviam mais na água. A conquista terrestre foi bem gradual. Os anfíbios são o primeiro grupo a dar esse passo, mas ainda dependem de ambiente úmido. Pele fina e vascularizada, respiração cutânea junto com pulmões simples, excreção de ureia e fecundação externa. Os girinos têm brânquias e depois passam por metamorfose, perdendo cauda e brânquias. Os anfíbios se dividem em Gymnophiona (cecílias), Urodela (salamandras, axolotes) e Anura (sapos, rãs e pererecas). Esses últimos se diferenciam pela pele e pelo hábitat — as rãs têm pele lisa e vivem mais na água, os sapos são mais terrestres e cheios de protuberâncias, e as pererecas têm discos adesivos nos dedos para subir em árvore. A pele permeável faz dos anfíbios ótimos bioindicadores.</p>
+        <p>O capítulo começa com uma notícia de pesquisa. Sequenciaram o genoma do celacanto e do peixe pulmonado <em>Protopterus annectens</em>. O resultado: o pulmonado tá mais próximo dos tetrápodes do que o celacanto. Aliás, o celacanto quase não muda há milhões de anos, tanto que chamam de fóssil vivo.</p>
+        <p>Depois o texto entra nas propriedades da água. Densidade e viscosidade altas, pouco oxigênio dissolvido. Pra viver aí, os peixes desenvolveram corpo hidrodinâmico, nadadeiras, escamas e linha lateral. As brânquias funcionam com fluxo unidirecional, o que melhora a troca gasosa.</p>
+        <p>A classificação divide os peixes em Chondrichthyes (cartilaginosos) e Osteichthyes (ósseos). Tubarões, raias e quimeras entram nos Chondrichthyes. Têm esqueleto de cartilagem, fígado grande e oleoso e as ampolas de Lorenzini, que captam campo elétrico. Já os Osteichthyes têm esqueleto ósseo, opérculo nas brânquias e bexiga natatória. Dentro deles, os actinopterígeos têm nadadeiras com raios; os sarcopterígeos têm nadadeiras lobadas.</p>
+        <p>A transição pra terra é contada com o fóssil <em>Tiktaalik roseae</em>, achado em 2006. Ele ainda era mais aquático, mostrando que a saída da água foi lenta. Os anfíbios foram os primeiros a dar esse passo, mas continuam dependendo de água. Pele fina e vascularizada, respiração cutânea, pulmões simples, ureia como excreta. Os girinos têm brânquias e depois passam por metamorfose, perdendo cauda e brânquias.</p>
+        <p>Os anfíbios se dividem em Gymnophiona (cecílias), Urodela (salamandras, axolotes) e Anura (sapos, rãs, pererecas). As diferenças entre rãs, sapos e pererecas vêm da pele e do hábitat. A pele fina faz deles bioindicadores.</p>
 
         <h3>Ideias principais</h3>
         <ul>
-            <li>DNA do celacanto mostrou que peixes pulmonados são grupo-irmão dos tetrápodes; celacanto evolui devagar e é tido como fóssil vivo.</li>
-            <li>Água oferece pouco oxigênio, densidade e viscosidade altas; peixes desenvolveram corpo alongado, nadadeiras, linha lateral e brânquias eficientes.</li>
-            <li>Chondrichthyes: esqueleto cartilaginoso, fígado oleoso, ureia no sangue para boiar, ampolas de Lorenzini que percebem eletricidade.</li>
-            <li>Osteichthyes: esqueleto ósseo, opérculo, bexiga natatória; actinopterígeos (raios) e sarcopterígeos (lobadas).</li>
-            <li>Tiktaalik é fóssil de transição; ainda mais aquático que terrestre. Saída da água foi um processo lento.</li>
-            <li>Anfíbios respiram pela pele e por pulmões; girino tem brânquias; metamorfose elimina cauda e brânquias por apoptose.</li>
-            <li>Anura: sapos, rãs e pererecas. Diferem em pele e hábitat; fecundação externa com amplexo e estágio larval aquático.</li>
+            <li>DNA do celacanto: peixes pulmonados são grupo-irmão dos tetrápodes. Celacanto evolui devagar, fóssil vivo.</li>
+            <li>Água: pouco oxigênio, densa, viscosa. Peixes têm corpo hidrodinâmico, nadadeiras, linha lateral.</li>
+            <li>Chondrichthyes: esqueleto cartilaginoso, fígado oleoso, ureia no sangue, ampolas de Lorenzini.</li>
+            <li>Osteichthyes: esqueleto ósseo, opérculo, bexiga natatória. Actinopterígeos (raios) e sarcopterígeos (lobadas).</li>
+            <li><em>Tiktaalik</em>: fóssil de transição, ainda mais aquático. Conquista terrestre gradual.</li>
+            <li>Anfíbios: pele úmida, respiração cutânea, girino com brânquias, metamorfose.</li>
+            <li>Anura: sapos, rãs, pererecas. Fecundação externa, amplexo, girino aquático.</li>
         </ul>
 
         <h3>Citações</h3>
@@ -54,29 +97,31 @@
         </blockquote>
 
         <h3>Análise</h3>
-        <p>Misturar genética com anatomia funciona bem pra entender a evolução. As adaptações à água batem certinho com as propriedades do ambiente. A classificação dos peixes é didática, mas o texto avisa que "peixe" não é grupo monofilético — os tetrápodes descendem de um ramo deles. A parte dos anfíbios deixa clara a dependência da água, o que é uma limitação evolutiva importante.</p>
+        <p>Misturar genética com anatomia ajuda a entender a evolução. As adaptações à água batem certinho com as condições do ambiente. A classificação dos peixes é didática, mas já avisam que "peixe" não é grupo monofilético. A dependência da água nos anfíbios é uma limitação evolutiva importante.</p>
     </div>
 
     <div class="capitulo">
         <h2>CAP. 4 – RÉPTEIS E AVES</h2>
 
         <h3>Resumo</h3>
-        <p>O capítulo fala dos amniotas, que conseguiram se desgarrar da água de vez. As novidades evolutivas foram o ovo com casca calcária, a pele queratinizada e a excreção de ácido úrico — tudo voltado a reter água. Os répteis são ectotérmicos, pele seca e escamosa. Os Testudines (tartarugas, jabutis, cágados) têm carapaça e plastrão fundidos ao esqueleto. Squamata junta lagartos e serpentes. Um achado importante foi o fóssil de uma serpente com quatro pernas no Nordeste brasileiro, reforçando a origem delas a partir de lagartos. As serpentes têm quatro tipos de dentição: áglifa (sem veneno), opistóglifa, proteróglifa (coral verdadeira) e solenóglifa (peçonhentas com fosseta loreal). Crocodilia reúne jacarés, crocodilos e gaviais, com crânio alongado e focinhos diferentes. As aves descendem de dinossauros terópodes. O Archaeopteryx é um fóssil que mostra penas e dentes ao mesmo tempo. As aves são endotérmicas, têm penas, ossos pneumáticos, quilha no esterno e sacos aéreos que aumentam a eficiência respiratória. A siringe produz os sons. Dividem-se em carinatas (voadoras, com carena desenvolvida) e ratitas (corredoras como ema, avestruz e quivi). Os pterossauros, aliás, não eram dinossauros, mas répteis voadores de outro ramo.</p>
+        <p>Os amniotas conquistaram de vez o ambiente terrestre. As novidades evolutivas: ovo com casca, pele queratinizada e excreção de ácido úrico. Tudo pra economizar água.</p>
+        <p>Répteis são ectotérmicos, pele seca e escamosa. Testudines (tartarugas, jabutis, cágados) têm carapaça e plastrão grudados no esqueleto. Squamata reúne lagartos e serpentes. Um fóssil brasileiro de serpente com quatro patas reforça que elas vieram de lagartos.</p>
+        <p>As serpentes têm quatro dentições: áglifa (sem veneno), opistóglifa, proteróglifa (coral verdadeira) e solenóglifa (peçonhentas com fosseta loreal). Crocodilia (jacarés, crocodilos, gaviais) têm crânio alongado e muitos dentes.</p>
+        <p>As aves descendem de dinossauros terópodes. O <em>Archaeopteryx</em> é o fóssil clássico de transição. São endotérmicas, têm penas, ossos pneumáticos, quilha no esterno e sacos aéreos. A siringe produz os sons. Carinatas voam; ratitas (ema, avestruz, quivi) correm. E os pterossauros nem eram dinossauros.</p>
 
         <h3>Ideias principais</h3>
         <ul>
-            <li>Ovo amniótico (âmnio, cório, alantoide, casca) libertou a reprodução do meio aquático.</li>
-            <li>Répteis têm crânio diapsida (duas fenestras); testudíneos têm anapsida, mas derivado de diapsida.</li>
-            <li>Testudines: carapaça e plastrão grudados em vértebras e costelas; ovíparos, sem cuidado parental.</li>
-            <li>Serpentes evoluíram de lagartos; fóssil brasileiro de quatro patas é evidência disso.</li>
-            <li>Dentição das serpentes: áglifa (sem veneno), opistóglifa, proteróglifa (coral), solenóglifa (fosseta loreal).</li>
-            <li>Crocodilianos: crânio robusto e alongado; jacaré, crocodilo e gavial diferem no focinho e exposição dos dentes.</li>
-            <li>Aves: endotermia, penas, ossos ocos, quilha, sacos aéreos, siringe. Carinatas voam, ratitas correm.</li>
+            <li>Ovo amniótico, pele queratinizada e ácido úrico permitiram independência da água.</li>
+            <li>Répteis: crânio diapsida. Testudines têm anapsida derivado de diapsida.</li>
+            <li>Testudines: carapaça e plastrão fundidos, ovíparos, sem cuidado parental.</li>
+            <li>Serpentes: evoluíram de lagartos, fóssil brasileiro apoia isso. Dentições variadas.</li>
+            <li>Crocodilianos: focinho alongado, dentes expostos. Gavial tem focinho fino.</li>
+            <li>Aves: endotermia, penas, ossos ocos, siringe. Carinatas voam, ratitas correm.</li>
         </ul>
 
         <h3>Citações</h3>
         <blockquote>
-            <p>"As aves, portanto, surgiram há 150 milhões de anos aproximadamente a partir de ancestrais plumados como o Archaeopteryx. Estes foram alguns dos primeiros dinossauros a terem fósseis encontrados com penas."</p>
+            <p>"As aves, portanto, surgiram há 150 milhões de anos aproximadamente a partir de ancestrais plumados como o <em>Archaeopteryx</em>. Estes foram alguns dos primeiros dinossauros a terem fósseis encontrados com penas."</p>
             <footer>(SILVA JR. et al., p. 52)</footer>
         </blockquote>
         <blockquote>
@@ -85,23 +130,25 @@
         </blockquote>
 
         <h3>Análise</h3>
-        <p>O capítulo deixa claro que répteis não é grupo natural porque as aves estão no meio. As adaptações pro voo são bem explicadas, e o Archaeopteryx como fóssil de transição ajuda a visualizar. A classificação das serpentes por dentição é prática pra identificar as peçonhentas.</p>
+        <p>O capítulo deixa claro que répteis não formam grupo natural, já que as aves tão no meio. A descrição das adaptações pro voo é direta. A dentição das serpentes é prática pra identificar peçonhentas.</p>
     </div>
 
     <div class="capitulo">
         <h2>CAP. 5 – MAMÍFEROS</h2>
 
         <h3>Resumo</h3>
-        <p>Os mamíferos pertencem à linhagem Synapsida. As marcas registradas do grupo são glândulas mamárias, pelos, endotermia e cuidado com a prole. O leite materno passa por três fases: colostro, transição e leite maduro. A pele tem epiderme, derme e panículo adiposo, que isola termicamente. Em frio extremo, alguns entram em hibernação, baixando o metabolismo. A dentição é heterodonte — incisivos, caninos, pré-molares e molares — e muda conforme a dieta. Os ruminantes (bois, girafas, camelos) têm estômago dividido em rúmen, retículo, omaso e abomaso. No rúmen, microrganismos digerem a celulose, e o bolo alimentar é regurgitado pra ser mastigado de novo antes de ir pro abomaso, que é o estômago químico propriamente dito. O sistema nervoso dos mamíferos é o mais desenvolvido entre os vertebrados. A classificação atual, baseada em DNA, separa Monotremata (ovíparos, sem mamilos: ornitorrinco e equidna), Marsupialia (com marsúpio e placenta simples: cangurus, coalas) e Eutheria (placentários). Os eutérios são divididos em Afrotheria (elefantes, peixes-bois), Xenarthra (preguiças, tatus), Euarchontoglires (primatas, roedores, coelhos) e Laurasiatheria (carnívoros, cetáceos, morcegos, ungulados).</p>
+        <p>Os mamíferos vieram da linhagem Synapsida. Glândulas mamárias, pelos e endotermia são as marcas do grupo. O leite materno tem colostro, fase de transição e leite maduro. A pele tem epiderme, derme e panículo adiposo. Em frio extremo, alguns hibernam.</p>
+        <p>A dentição é heterodonte e varia com a dieta. Os ruminantes (bois, girafas, camelos) têm estômago com rúmen, retículo, omaso e abomaso. No rúmen, microrganismos digerem a celulose, e o bolo volta à boca pra ser mastigado de novo. O sistema nervoso é o mais desenvolvido.</p>
+        <p>A classificação moderna separa Monotremata (ornitorrinco, equidna — ovíparos), Marsupialia (cangurus, coalas — marsúpio) e Eutheria (placentários). Os eutérios são divididos em Afrotheria, Xenarthra, Euarchontoglires e Laurasiatheria, com base em dados moleculares.</p>
 
         <h3>Ideias principais</h3>
         <ul>
-            <li>Surgiram de sinapsídeos há uns 300 milhões de anos. Crânio com um par de fenestras temporais.</li>
-            <li>Glândulas mamárias e sudoríferas vêm da epiderme; leite materno protege e fortalece o vínculo.</li>
-            <li>Endotermia usa metabolismo, coração tetracavitário e isolamento de pelos e gordura.</li>
-            <li>Ruminantes: estômago com quatro câmaras; rúmen fermenta celulose; alimento é regurgitado e remastigado.</li>
-            <li>Monotremados põem ovos; marsupiais têm marsúpio; eutérios têm placenta completa.</li>
-            <li>Eutérios: Primatas (polegar opositor), Cetáceos (ecolocalização), Quirópteros (asas de membrana).</li>
+            <li>Surgiram de sinapsídeos há 300 milhões de anos. Crânio com um par de fenestras temporais.</li>
+            <li>Glândulas mamárias e sudoríferas vêm da epiderme. Leite materno protege e cria vínculo.</li>
+            <li>Endotermia: metabolismo, coração tetracavitário, pelos e panículo adiposo.</li>
+            <li>Ruminantes: quatro câmaras no estômago, fermentação no rúmen, regurgitação.</li>
+            <li>Monotremados ovíparos, marsupiais com bolsa, eutérios com placenta completa.</li>
+            <li>Eutérios: Primatas, Cetáceos, Quirópteros e outros.</li>
         </ul>
 
         <h3>Citações</h3>
@@ -115,24 +162,26 @@
         </blockquote>
 
         <h3>Análise</h3>
-        <p>A lactação e o cuidado parental são diferenciais importantes. A classificação molecular (Afrotheria etc.) é moderna mas funciona bem. A fisiologia dos ruminantes é detalhada e mostra uma adaptação bem específica a dietas com celulose.</p>
+        <p>A lactação e o cuidado parental são diferenciais claros. A classificação molecular é moderna. A fisiologia dos ruminantes é bem detalhada e fácil de entender.</p>
     </div>
 
     <div class="capitulo">
         <h2>CAP. 6 – SISTEMA DIGESTÓRIO</h2>
 
         <h3>Resumo</h3>
-        <p>O capítulo aborda a digestão nos vertebrados e depois mergulha no sistema digestório humano. A digestão pode ser mecânica (mastigação, peristaltismo) ou química (ação de enzimas). Na boca, a amilase salivar já começa a quebrar o amido. A deglutição manda o bolo alimentar pela faringe e esôfago. O estômago produz HCl (células parietais), pepsinogênio (células principais) e muco. O HCl ativa o pepsinogênio em pepsina, que digere proteínas. No duodeno, entram a bile (fígado) e o suco pancreático (pâncreas). A bile emulsiona gorduras, o suco pancreático tem bicarbonato (neutraliza o quimo) e enzimas como tripsina, lipase e amilase. O suco entérico também contribui. O intestino delgado é forrado de vilosidades e microvilosidades, que ampliam a área de absorção. Os nutrientes vão pro sangue e pra linfa. O que sobra chega ao intestino grosso, onde a água é reabsorvida, as bactérias da flora fermentam restos e formam as fezes. Hormônios controlam o ritmo: gastrina (estimula o estômago), secretina e colecistoquinina (intestino). O capítulo também cita a doença celíaca, onde o glúten desencadeia uma reação que achata as vilosidades do intestino, prejudicando a absorção.</p>
+        <p>A digestão é mecânica (mastigação, peristaltismo) e química (enzimas). Na boca, a amilase salivar já quebra amido. A deglutição leva o bolo pela faringe e esôfago até o estômago.</p>
+        <p>No estômago, o HCl ativa o pepsinogênio em pepsina, que digere proteínas. O muco protege a parede. No duodeno, o fígado solta a bile, que emulsiona gorduras. O pâncreas solta suco pancreático com bicarbonato e enzimas como tripsina, lipase e amilase.</p>
+        <p>O intestino delgado tem vilosidades e microvilosidades que aumentam a absorção. Os nutrientes vão pro sangue e linfa. O que sobra vai pro intestino grosso: reabsorção de água, fermentação pela flora e formação das fezes. Hormônios como gastrina, secretina e colecistoquinina controlam o processo. O capítulo ainda fala da doença celíaca, em que o glúten achata as vilosidades.</p>
 
         <h3>Ideias principais</h3>
         <ul>
-            <li>Digestão mecânica (mastigação, movimentos) e química (enzimas) atuam juntas.</li>
-            <li>Amilase salivar age na boca em pH perto de 7; no estômago ácido ela para.</li>
-            <li>Estômago: HCl, pepsinogênio → pepsina, muco. Proteínas são quebradas em peptídeos.</li>
-            <li>Duodeno: bile emulsiona gorduras; suco pancreático neutraliza e carrega amilase, lipase, tripsina.</li>
-            <li>Vilosidades e microvilosidades no intestino delgado maximizam a absorção.</li>
-            <li>Intestino grosso reabsorve água, flora fermenta, forma fezes. Celulose auxilia o trânsito.</li>
-            <li>Gastrina, secretina e colecistoquinina são hormônios que regulam secreções e motilidade.</li>
+            <li>Digestão mecânica e química atuam juntas.</li>
+            <li>Amilase salivar age na boca, pH neutro. No estômago ácido ela para.</li>
+            <li>Estômago: HCl, pepsina, muco. Proteínas viram peptídeos.</li>
+            <li>Duodeno: bile emulsiona, suco pancreático neutraliza e tem enzimas.</li>
+            <li>Vilosidades e microvilosidades no intestino delgado ampliam absorção.</li>
+            <li>Intestino grosso reabsorve água, flora fermenta, forma fezes.</li>
+            <li>Hormônios: gastrina, secretina, CCK controlam secreção e motilidade.</li>
         </ul>
 
         <h3>Citações</h3>
@@ -146,24 +195,26 @@
         </blockquote>
 
         <h3>Análise</h3>
-        <p>O capítulo desmonta o mito de que o estômago é o principal na digestão e coloca o intestino delgado no centro. Os quadros de enzimas e hormônios são bem úteis pra estudar. A menção à doença celíaca conecta fisiologia com saúde.</p>
+        <p>O capítulo desmonta o mito do estômago como herói da digestão e coloca o intestino delgado no centro. Os quadros de enzimas e hormônios são bons pra revisão. A doença celíaca conecta fisiologia com realidade.</p>
     </div>
 
     <div class="capitulo">
         <h2>CAP. 7 – SISTEMA RESPIRATÓRIO</h2>
 
         <h3>Resumo</h3>
-        <p>O capítulo começa com uma visão comparada. Animais simples fazem difusão direta. Anfíbios usam a pele. A maioria dos aquáticos tem brânquias, que funcionam com fluxo contracorrente — a água passa no sentido oposto ao sangue, o que melhora a captação de O₂. Insetos têm traqueias. Aves e mamíferos usam pulmões, com diferenças: as aves têm sacos aéreos que tornam a respiração mais eficiente. Nos humanos, o ar entra pelas narinas, é filtrado, aquecido e umidificado na cavidade nasal. Passa pela faringe e pela laringe (protegida pela epiglote). Desce pela traqueia, brônquios e bronquíolos até os alvéolos. A ventilação depende do diafragma e dos músculos intercostais: na inspiração eles contraem, o volume da caixa torácica aumenta e a pressão diminui, puxando o ar. Na expiração eles relaxam. A hematose acontece nos alvéolos: O₂ vai pro sangue, CO₂ sai. O oxigênio é transportado pela hemoglobina. O gás carbônico viaja 70% como bicarbonato (HCO₃⁻), convertido pela anidrase carbônica dentro das hemácias. O centro respiratório no bulbo controla a frequência, respondendo a mudanças de pH e CO₂. O capítulo ainda alerta sobre o monóxido de carbono (CO), que tem mais afinidade com a hemoglobina que o O₂, formando carboxiemoglobina e causando asfixia. Por fim, comenta o uso de ventiladores mecânicos em pacientes graves de covid-19.</p>
+        <p>O capítulo compara a respiração em vários grupos. Brânquias usam fluxo contracorrente — água e sangue em sentidos opostos, o que melhora a captação de O₂. Insetos têm traqueias. Aves têm sacos aéreos.</p>
+        <p>No ser humano, o ar entra pelas narinas, é filtrado, aquecido e umidificado. Passa pela faringe e laringe (com epiglote). Desce pela traqueia e brônquios até os alvéolos. A ventilação usa diafragma e intercostais: contraem na inspiração, relaxam na expiração.</p>
+        <p>Nos alvéolos, a hematose: O₂ vai pro sangue, CO₂ sai. O oxigênio é carregado pela hemoglobina. O gás carbônico viaja 70% como bicarbonato. O bulbo controla a respiração reagindo a mudanças de pH e CO₂. O capítulo alerta sobre o monóxido de carbono, que gruda na hemoglobina e bloqueia o O₂, e comenta o uso de ventiladores mecânicos na covid-19.</p>
 
         <h3>Ideias principais</h3>
         <ul>
-            <li>Brânquias: contracorrente maximiza troca. Peixes ósseos ventilam com boca e opérculo.</li>
-            <li>Ar inspirado é filtrado, aquecido e umedecido; epiglote fecha laringe na deglutição.</li>
+            <li>Brânquias: contracorrente melhora troca. Peixes ósseos ventilam com boca e opérculo.</li>
+            <li>Ar é filtrado, aquecido e umedecido. Epiglote fecha laringe na deglutição.</li>
             <li>Alvéolos: células tipo I (trocas) e tipo II (surfactante).</li>
             <li>Inspiração: diafragma e intercostais contraem, volume sobe, pressão cai.</li>
-            <li>Transporte de CO₂: 70% como bicarbonato (anidrase carbônica nas hemácias).</li>
+            <li>CO₂ viaja como bicarbonato, convertido pela anidrase carbônica nas hemácias.</li>
             <li>Bulbo controla respiração por pH e CO₂; acidose estimula ventilação.</li>
-            <li>CO compete com O₂ pela hemoglobina; carboxiemoglobina pode matar por asfixia.</li>
+            <li>CO compete com O₂ pela hemoglobina; carboxiemoglobina causa asfixia.</li>
         </ul>
 
         <h3>Citações</h3>
@@ -177,9 +228,9 @@
         </blockquote>
 
         <h3>Análise</h3>
-        <p>O capítulo faz uma boa comparação entre os diferentes tipos de respiração e depois foca no humano. A menção ao aquecimento global e à redução de O₂ na água é um alerta. A parte dos ventiladores mecânicos e covid-19 deixa o conteúdo atualizado e próximo da realidade.</p>
+        <p>O capítulo conecta bem a fisiologia comparada com a humana. A menção ao aquecimento global e à covid-19 deixa o conteúdo atualizado. A parte do monóxido de carbono é um alerta prático importante.</p>
     </div>
 
-
+    </div>
 </body>
 </html>
