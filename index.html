@@ -8,31 +8,7 @@
         /* ===== CONFIGURAÇÕES GERAIS ABNT ===== */
         @page {
             size: A4;
-            margin: 3cm 2cm 2cm 3cm;
-        }
-
-        /* Página da capa sem numeração */
-        @page capa {
-            @top-right { content: none; }
-        }
-
-        /* Página da folha de rosto sem numeração */
-        @page folharosto {
-            @top-right { content: none; }
-        }
-
-        /* Página do sumário sem numeração */
-        @page sumario {
-            @top-right { content: none; }
-        }
-
-        /* Página de conteúdo com numeração */
-        @page conteudo {
-            @top-right {
-                content: counter(page);
-                font-family: Arial, sans-serif;
-                font-size: 10pt;
-            }
+            margin: 0; /* margens controladas pelo padding da .pagina */
         }
 
         * {
@@ -57,20 +33,23 @@
             min-height: 297mm;
             background: #ffffff;
             margin: 10mm auto;
-            padding: 30mm 20mm 20mm 30mm;
+            padding: 30mm 20mm 20mm 30mm; /* superior, direita, inferior, esquerda */
             box-shadow: 0 0 8px rgba(0,0,0,0.2);
             page-break-after: always;
+            position: relative; /* para posicionar o número da página */
         }
 
         .pagina:last-child {
             page-break-after: auto;
         }
 
-        /* Atribuição das páginas nomeadas */
-        .capa { page: capa; }
-        .folharosto { page: folharosto; }
-        .sumario { page: sumario; }
-        .conteudo { page: conteudo; }
+        .page-number {
+            position: absolute;
+            top: 2cm;   /* posição do número da página */
+            right: 2cm;
+            font-family: Arial, sans-serif;
+            font-size: 10pt;
+        }
 
         /* ===== CAPA ===== */
         .capa {
@@ -94,12 +73,6 @@
             font-weight: bold;
             font-size: 14pt;
             text-transform: uppercase;
-            margin-bottom: 2em;
-        }
-        .capa .tipo-trabalho {
-            font-size: 12pt;
-            text-align: justify;
-            max-width: 70%;
             margin-bottom: 2em;
         }
         .capa .cidade {
@@ -187,11 +160,6 @@
             margin-bottom: 0.5em;
             text-align: left;
             font-weight: bold;
-            page-break-before: always;
-            page-break-after: avoid;
-        }
-        .conteudo h2:first-of-type {
-            page-break-before: auto; /* primeira seção não quebra */
         }
         .conteudo p {
             text-indent: 1.25cm;
@@ -200,8 +168,11 @@
         }
         .conteudo .referencias p {
             text-indent: 0;
-            margin-left: 1.25cm;
+            margin-left: 0;          /* referências alinhadas à esquerda */
             text-align: left;
+        }
+        .conteudo .referencias strong {
+            font-weight: bold;       /* destaque para o título da obra */
         }
 
         /* Impressão */
@@ -217,7 +188,8 @@
     </style>
 </head>
 <body>
-    <!-- CAPA -->
+
+    <!-- CAPA (não conta, sem número) -->
     <div class="pagina capa">
         <p class="instituicao">COLÉGIO UNICULTURA</p>
         <p class="autor">
@@ -229,11 +201,10 @@
             Wendy Luiggi Correia
         </p>
         <h1 class="titulo">Garrafas Secretas:<br>Jogo de Combinação de Garrafas Coloridas</h1>
-        <p class="tipo-trabalho">Trabalho apresentado ao Colégio Unicultura, como requisito parcial para avaliação na disciplina de Matemática, sob orientação da Prof.ª Viviane.</p>
         <p class="cidade">Guarulhos<br>2026</p>
     </div>
 
-    <!-- FOLHA DE ROSTO -->
+    <!-- FOLHA DE ROSTO (p. 1, sem número) -->
     <div class="pagina folharosto">
         <p class="autor">
             Daniel Augustus Gomes Barbosa<br>
@@ -249,59 +220,93 @@
         <p class="cidade">Guarulhos<br>2026</p>
     </div>
 
-    <!-- SUMÁRIO -->
+    <!-- SUMÁRIO (p. 2, sem número) -->
     <div class="pagina sumario">
         <h1>Sumário</h1>
         <ul>
-            <li class="item"><span>1 Introdução</span><span>4</span></li>
-            <li class="item"><span>2 Nome e Conceito do Jogo</span><span>5</span></li>
-            <li class="item"><span>3 Materiais Utilizados</span><span>6</span></li>
-            <li class="item"><span>4 Regras do Jogo</span><span>7</span></li>
-            <li class="item"><span>5 Espaço Amostral</span><span>8</span></li>
-            <li class="item"><span>6 Probabilidade dos Principais Eventos ou da Vitória</span><span>9</span></li>
-            <li class="item"><span>7 Análise sobre o Equilíbrio do Jogo</span><span>10</span></li>
-            <li class="item"><span>8 Considerações Finais</span><span>11</span></li>
-            <li class="item"><span>Referências</span><span>12</span></li>
+            <li class="item"><span>1 Introdução</span><span>3</span></li>
+            <li class="item"><span>2 Nome e Conceito do Jogo</span><span>4</span></li>
+            <li class="item"><span>3 Materiais Utilizados</span><span>5</span></li>
+            <li class="item"><span>4 Regras do Jogo</span><span>6</span></li>
+            <li class="item"><span>5 Espaço Amostral</span><span>7</span></li>
+            <li class="item"><span>6 Probabilidade dos Principais Eventos ou da Vitória</span><span>8</span></li>
+            <li class="item"><span>7 Análise sobre o Equilíbrio do Jogo</span><span>9</span></li>
+            <li class="item"><span>8 Considerações Finais</span><span>10</span></li>
+            <li class="item"><span>Referências</span><span>11</span></li>
         </ul>
     </div>
 
-    <!-- CONTEÚDO -->
-    <div class="pagina conteudo">
+    <!-- CONTEÚDO (páginas numeradas a partir da p. 3) -->
+
+    <!-- 1 Introdução -->
+    <div class="pagina conteudo" id="introducao">
+        <span class="page-number">3</span>
         <h2>1 Introdução</h2>
         <p>Nosso grupo queria construir um jogo que unisse sorte, lógica e probabilidade. Depois de várias conversas, surgiu a ideia de usar garrafas coloridas e um compartimento secreto. A proposta era simples: uma sequência de cinco cores fica escondida na parte de baixo, e o jogador precisa reorganizar as garrafas da parte de cima para tentar reproduzi-la. A cada tentativa, recebemos apenas o número de acertos, sem saber quais cores estão certas.</p>
         <p>Neste trabalho, explicamos o conceito do jogo, os materiais que usamos, as regras definidas, o espaço amostral e as probabilidades principais. Também analisamos se todos os jogadores têm as mesmas chances de vencer, considerando a dinâmica de fila e de tentativas sucessivas.</p>
+    </div>
 
+    <!-- 2 Nome e Conceito do Jogo -->
+    <div class="pagina conteudo" id="nome-conceito">
+        <span class="page-number">4</span>
         <h2>2 Nome e Conceito do Jogo</h2>
         <p>O jogo recebe o nome de <strong>Garrafas Secretas</strong> porque a sequência correta permanece oculta em um compartimento inferior, como um segredo. Na parte superior, ficam cinco garrafas com as mesmas cores, porém dispostas em ordem aleatória. O objetivo é rearranjar as garrafas de cima até que fiquem na mesma ordem da sequência secreta. Escolhemos cinco cores bem distintas para evitar confusão: vermelho, azul, verde, amarelo e roxo.</p>
+    </div>
 
+    <!-- 3 Materiais Utilizados -->
+    <div class="pagina conteudo" id="materiais">
+        <span class="page-number">5</span>
         <h2>3 Materiais Utilizados</h2>
         <p>Para montar o jogo, utilizamos: dez garrafas de plástico pequenas (cinco para a sequência secreta e cinco para a área de jogo), corante alimentício nas cinco cores, água, duas caixas de sapato, tinta guache preta, pincel, tesoura, cola quente e fita adesiva. Enchemos as garrafas com água e corante, fechamos bem as tampas e reforçamos com fita veda-rosca para evitar vazamentos. Uma caixa foi cortada e pintada de preto para servir de compartimento inferior; a outra foi adaptada como suporte superior com cinco berços para encaixar as garrafas. Durante a montagem, uma das tampas vazou dentro da mochila de um integrante, então passamos a testar todas as garrafas antes de cada partida.</p>
+    </div>
 
+    <!-- 4 Regras do Jogo -->
+    <div class="pagina conteudo" id="regras">
+        <span class="page-number">6</span>
         <h2>4 Regras do Jogo</h2>
         <p>O jogo pode ser disputado por um grupo de jogadores organizados em fila. No início de cada rodada, um mediador sorteia aleatoriamente uma sequência com as cinco cores, sem repetição, e a coloca no compartimento inferior, fora da visão dos jogadores. Em seguida, as cinco garrafas da parte superior são embaralhadas e colocadas em ordem aleatória.</p>
         <p>O primeiro jogador da fila observa a disposição atual e pode trocar as garrafas de lugar como quiser. Quando terminar, o mediador informa apenas quantas garrafas estão na posição correta, sem revelar quais são. Por exemplo, se a sequência secreta for vermelho, azul, verde, amarelo e roxo, e o jogador deixar vermelho, azul, verde, roxo e amarelo, o mediador diz "três acertos", pois as três primeiras estão corretas e as duas últimas estão invertidas.</p>
         <p>Se o jogador acertar as cinco posições, ele vence a rodada. Caso contrário, a disposição das garrafas permanece como ele deixou, e o jogador vai para o final da fila. O próximo jogador assume a partir daquele estado, usando as informações acumuladas das tentativas anteriores. O jogo continua até alguém completar a sequência. Durante os testes, percebemos que manter um registro das dicas ajudava muito, então passamos a anotar o número de acertos de cada tentativa em um papel.</p>
+    </div>
 
+    <!-- 5 Espaço Amostral -->
+    <div class="pagina conteudo" id="espaco-amostral">
+        <span class="page-number">7</span>
         <h2>5 Espaço Amostral</h2>
         <p>O espaço amostral é formado por todas as sequências possíveis de cinco cores distintas, pois a ordem importa e não há repetição. O número de casos possíveis é dado pela permutação simples de 5 elementos: 5! = 5 × 4 × 3 × 2 × 1 = 120. Segundo Morgado e Carvalho (2013), a permutação de n objetos distintos é n!, portanto há 120 maneiras diferentes de organizar as cinco garrafas.</p>
+    </div>
 
+    <!-- 6 Probabilidade dos Principais Eventos ou da Vitória -->
+    <div class="pagina conteudo" id="probabilidade">
+        <span class="page-number">8</span>
         <h2>6 Probabilidade dos Principais Eventos ou da Vitória</h2>
         <p>Se a sequência secreta for sorteada de forma uniforme, qualquer uma das 120 combinações tem probabilidade de 1/120, aproximadamente 0,83%. Se um jogador montar uma ordem aleatória sem nenhuma informação, a chance de acertar de primeira é essa.</p>
         <p>Após receber uma dica, o número de possibilidades diminui. Por exemplo, se o mediador informar que duas garrafas estão corretas, o jogador pode manter essas duas fixas e permutar apenas as três restantes. Nesse caso, restam 3! = 6 sequências possíveis para as posições erradas. Se a próxima tentativa for aleatória entre essas seis, a chance de acertar sobe para 1/6, cerca de 16,67%. Se o mediador informar zero acertos, o jogador sabe que nenhuma garrafa está no lugar certo, o que elimina a sequência testada e restringe as demais a um conjunto de 44 derangements possíveis.</p>
         <p>Se as tentativas fossem puramente aleatórias e independentes, a probabilidade de obter pelo menos um acerto em dez tentativas seria de 1 − (119/120)^10, cerca de 8,03%. Porém, como os jogadores usam as dicas para eliminar combinações, a chance real de vitória em dez tentativas é muito maior, dependendo da estratégia dedutiva adotada. Em nossos testes, os grupos que anotavam as dicas e testavam hipóteses conseguiam completar a sequência, em média, em sete tentativas.</p>
+    </div>
 
+    <!-- 7 Análise sobre o Equilíbrio do Jogo -->
+    <div class="pagina conteudo" id="equilibrio">
+        <span class="page-number">9</span>
         <h2>7 Análise sobre o Equilíbrio do Jogo</h2>
         <p>O sorteio da sequência secreta e a disposição inicial das garrafas superiores são aleatórios, o que garante que nenhuma cor ou posição seja privilegiada. No entanto, a dinâmica de fila introduz uma diferença importante: os jogadores que entram mais tarde têm acesso ao estado parcialmente organizado e às dicas das tentativas anteriores, o que lhes dá uma vantagem em relação aos primeiros. Se a vitória for individual, essa característica pode ser considerada um desequilíbrio.</p>
         <p>Para manter o jogo justo, adotamos duas medidas: primeiro, a cada nova rodada, a ordem da fila é invertida ou sorteada; segundo, quando o objetivo é coletivo, todos os jogadores contribuem para a solução, e a vitória é atribuída ao grupo. Com esses ajustes, consideramos que o jogo se torna equilibrado, pois todos têm as mesmas condições de participar e contribuir, embora a posição na fila influencie a probabilidade individual de ser o vencedor.</p>
+    </div>
 
+    <!-- 8 Considerações Finais -->
+    <div class="pagina conteudo" id="consideracoes">
+        <span class="page-number">10</span>
         <h2>8 Considerações Finais</h2>
         <p>O jogo Garrafas Secretas mostrou-se eficaz para compreender na prática os conceitos de permutação, espaço amostral e probabilidade condicional. A chance inicial de acerto é baixa, mas o uso das dicas transforma o jogo em um exercício de lógica e eliminação de possibilidades. A experiência também evidenciou a importância do registro das tentativas e da cooperação entre os jogadores.</p>
         <p>Pretendemos futuramente criar uma versão com seis garrafas, ampliando o espaço amostral para 720 combinações, e testar o jogo com outras turmas. Acreditamos que atividades como essa tornam o estudo da Matemática mais concreto e divertido.</p>
-
-        <h2>Referências</h2>
-        <div class="referencias">
-            <p>MORGADO, A. C.; CARVALHO, P. C. P. Matemática Discreta. 2. ed. Rio de Janeiro: SBM, 2013.</p>
-        </div>
     </div>
+
+    <!-- Referências -->
+    <div class="pagina conteudo referencias" id="referencias">
+        <span class="page-number">11</span>
+        <h2>Referências</h2>
+        <p>MORGADO, A. C.; CARVALHO, P. C. P. <strong>Matemática Discreta</strong>. 2. ed. Rio de Janeiro: SBM, 2013.</p>
+    </div>
+
 </body>
 </html>
