@@ -8,7 +8,7 @@
         /* ===== CONFIGURAÇÕES GERAIS ABNT ===== */
         @page {
             size: A4;
-            margin: 0; /* margens controladas pelo padding da .pagina */
+            margin: 0;
         }
 
         * {
@@ -33,10 +33,10 @@
             min-height: 297mm;
             background: #ffffff;
             margin: 10mm auto;
-            padding: 30mm 20mm 20mm 30mm; /* superior, direita, inferior, esquerda */
+            padding: 30mm 20mm 20mm 30mm;
             box-shadow: 0 0 8px rgba(0,0,0,0.2);
             page-break-after: always;
-            position: relative; /* para posicionar o número da página */
+            position: relative;
         }
 
         .pagina:last-child {
@@ -45,8 +45,8 @@
 
         .page-number {
             position: absolute;
-            top: 2cm;
-            right: 2cm;
+            top: 1.5cm;     /* distância do topo */
+            right: 1.5cm;   /* distância da direita */
             font-family: Arial, sans-serif;
             font-size: 10pt;
         }
@@ -62,22 +62,22 @@
         .capa .instituicao {
             font-weight: bold;
             font-size: 14pt;
-            margin-bottom: 0.5em;
+            margin-bottom: 2em;        /* mais espaço */
         }
         .capa .autor {
             font-weight: bold;
             font-size: 12pt;
-            margin-bottom: 2em;
+            margin-bottom: 3em;        /* mais espaço */
         }
         .capa .titulo {
             font-weight: bold;
             font-size: 14pt;
             text-transform: uppercase;
-            margin-bottom: 2em;
+            margin-bottom: 3em;        /* mais espaço */
         }
         .capa .cidade {
             font-size: 12pt;
-            margin-top: 4em;
+            margin-top: 6em;           /* mais espaço */
         }
 
         /* ===== FOLHA DE ROSTO ===== */
@@ -103,8 +103,8 @@
         .folharosto .natureza {
             font-size: 12pt;
             text-align: justify;
-            margin-bottom: 1.5em;
-            margin-left: 7.5cm; /* recuo exato para a metade da folha */
+            margin-bottom: 2em;
+            margin-left: 7.5cm;
             margin-right: 0;
             text-indent: 0;
         }
@@ -116,7 +116,7 @@
         }
         .folharosto .cidade {
             font-size: 12pt;
-            margin-top: 4em;
+            margin-top: 6em;
             text-align: center;
         }
 
@@ -184,8 +184,8 @@
             text-indent: 0;
             margin-left: 0;
             text-align: left;
-            line-height: 1.0;        /* espaçamento simples na referência */
-            margin-bottom: 1em;      /* espaço entre referências */
+            line-height: 1.0;
+            margin-bottom: 1em;
         }
         .conteudo .referencias strong {
             font-weight: bold;
