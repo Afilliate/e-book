@@ -5,21 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABNT - Garrafas Secretas</title>
     <style>
-        /* ===== CONFIGURAÇÕES ABNT ===== */
+        /* ===== CONFIGURAÇÕES GERAIS ABNT ===== */
         @page {
             size: A4;
-            margin: 3cm 2cm 2cm 3cm; /* superior 3cm, direita 2cm, inferior 2cm, esquerda 3cm */
+            margin: 3cm 2cm 2cm 3cm;
+        }
+
+        /* Página da capa sem numeração */
+        @page capa {
+            @top-right { content: none; }
+        }
+
+        /* Página da folha de rosto sem numeração */
+        @page folharosto {
+            @top-right { content: none; }
+        }
+
+        /* Página do sumário sem numeração */
+        @page sumario {
+            @top-right { content: none; }
+        }
+
+        /* Página de conteúdo com numeração */
+        @page conteudo {
             @top-right {
                 content: counter(page);
                 font-family: Arial, sans-serif;
                 font-size: 10pt;
             }
         }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             background: #e0e0e0;
             display: flex;
@@ -30,22 +51,26 @@
             line-height: 1.5;
             color: #000;
         }
+
         .pagina {
             width: 210mm;
             min-height: 297mm;
             background: #ffffff;
             margin: 10mm auto;
-            padding: 30mm 20mm 20mm 30mm; /* topo 3cm, direita 2cm, inferior 2cm, esquerda 3cm */
+            padding: 30mm 20mm 20mm 30mm;
             box-shadow: 0 0 8px rgba(0,0,0,0.2);
-            font-size: 12pt;
-            line-height: 1.5;
-            color: #000;
-            font-family: Arial, sans-serif;
             page-break-after: always;
         }
+
         .pagina:last-child {
             page-break-after: auto;
         }
+
+        /* Atribuição das páginas nomeadas */
+        .capa { page: capa; }
+        .folharosto { page: folharosto; }
+        .sumario { page: sumario; }
+        .conteudo { page: conteudo; }
 
         /* ===== CAPA ===== */
         .capa {
@@ -82,6 +107,46 @@
             margin-top: 4em;
         }
 
+        /* ===== FOLHA DE ROSTO ===== */
+        .folharosto {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            text-align: left;
+        }
+        .folharosto .autor {
+            font-weight: bold;
+            font-size: 12pt;
+            margin-bottom: 2em;
+            text-align: center;
+        }
+        .folharosto .titulo {
+            font-weight: bold;
+            font-size: 14pt;
+            text-transform: uppercase;
+            margin-bottom: 2em;
+            text-align: center;
+        }
+        .folharosto .natureza {
+            font-size: 12pt;
+            text-align: justify;
+            margin-bottom: 1.5em;
+            margin-left: 40%;
+            margin-right: 0;
+            text-indent: 0;
+        }
+        .folharosto .orientador {
+            font-size: 12pt;
+            margin-bottom: 2em;
+            margin-left: 40%;
+            text-indent: 0;
+        }
+        .folharosto .cidade {
+            font-size: 12pt;
+            margin-top: 4em;
+            text-align: center;
+        }
+
         /* ===== SUMÁRIO ===== */
         .sumario h1 {
             text-align: center;
@@ -90,50 +155,56 @@
             margin-bottom: 1.5em;
             font-weight: bold;
         }
-        .sumario .item {
-            text-align: left;
+        .sumario ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .sumario li {
             font-size: 12pt;
             margin-bottom: 0.25em;
             text-indent: 0;
+            text-align: left;
+        }
+        .sumario .item {
+            display: flex;
+            justify-content: space-between;
+        }
+        .sumario .item span:first-child {
+            margin-right: 1em;
         }
 
         /* ===== CONTEÚDO ===== */
-        h1, h2 {
-            font-weight: bold;
-            margin: 0;
+        .conteudo {
+            font-family: Arial, sans-serif;
+            font-size: 12pt;
+            line-height: 1.5;
+            color: #000;
         }
-        .titulo-principal {
-            text-align: center;
+        .conteudo h2 {
             font-size: 12pt;
             text-transform: uppercase;
-            margin-bottom: 1.5em;
-        }
-        .resumo, .palavras-chave {
-            text-align: justify;
-            font-size: 12pt;
-            margin-bottom: 1em;
-        }
-        .resumo-label, .palavras-label {
-            font-weight: bold;
-        }
-        h2 {
-            font-size: 12pt;
-            text-transform: uppercase;
-            margin-top: 1.5em;
+            margin-top: 0;
             margin-bottom: 0.5em;
             text-align: left;
+            font-weight: bold;
+            page-break-before: always;
             page-break-after: avoid;
         }
-        p {
+        .conteudo h2:first-of-type {
+            page-break-before: auto; /* primeira seção não quebra */
+        }
+        .conteudo p {
             text-indent: 1.25cm;
             text-align: justify;
             margin-bottom: 0.75em;
         }
-        .referencias p {
+        .conteudo .referencias p {
             text-indent: 0;
             margin-left: 1.25cm;
             text-align: left;
         }
+
+        /* Impressão */
         @media print {
             body {
                 background: none;
@@ -142,10 +213,6 @@
                 box-shadow: none;
                 margin: 0;
             }
-        }
-        /* Remover numeração da capa e sumário */
-        .capa, .sumario {
-            counter-reset: page 0;
         }
     </style>
 </head>
@@ -166,28 +233,40 @@
         <p class="cidade">Guarulhos<br>2026</p>
     </div>
 
+    <!-- FOLHA DE ROSTO -->
+    <div class="pagina folharosto">
+        <p class="autor">
+            Daniel Augustus Gomes Barbosa<br>
+            Felipe Marcellus Cunha Ribeiro<br>
+            João Vitor Lourenço da Silva<br>
+            Nicolas Enzo Aoki<br>
+            Nicola Soares Leite<br>
+            Wendy Luiggi Correia
+        </p>
+        <h1 class="titulo">Garrafas Secretas:<br>Jogo de Combinação de Garrafas Coloridas</h1>
+        <p class="natureza">Trabalho apresentado ao Colégio Unicultura, como requisito parcial para avaliação na disciplina de Matemática, sob orientação da Prof.ª Viviane.</p>
+        <p class="orientador">Orientadora: Prof.ª Viviane</p>
+        <p class="cidade">Guarulhos<br>2026</p>
+    </div>
+
     <!-- SUMÁRIO -->
     <div class="pagina sumario">
         <h1>Sumário</h1>
-        <p class="item">1 Introdução</p>
-        <p class="item">2 Nome e Conceito do Jogo</p>
-        <p class="item">3 Materiais Utilizados</p>
-        <p class="item">4 Regras do Jogo</p>
-        <p class="item">5 Espaço Amostral</p>
-        <p class="item">6 Probabilidade dos Principais Eventos ou da Vitória</p>
-        <p class="item">7 Análise sobre o Equilíbrio do Jogo</p>
-        <p class="item">8 Considerações Finais</p>
-        <p class="item">Referências</p>
+        <ul>
+            <li class="item"><span>1 Introdução</span><span>4</span></li>
+            <li class="item"><span>2 Nome e Conceito do Jogo</span><span>5</span></li>
+            <li class="item"><span>3 Materiais Utilizados</span><span>6</span></li>
+            <li class="item"><span>4 Regras do Jogo</span><span>7</span></li>
+            <li class="item"><span>5 Espaço Amostral</span><span>8</span></li>
+            <li class="item"><span>6 Probabilidade dos Principais Eventos ou da Vitória</span><span>9</span></li>
+            <li class="item"><span>7 Análise sobre o Equilíbrio do Jogo</span><span>10</span></li>
+            <li class="item"><span>8 Considerações Finais</span><span>11</span></li>
+            <li class="item"><span>Referências</span><span>12</span></li>
+        </ul>
     </div>
 
-    <!-- PÁGINA DE CONTEÚDO -->
-    <div class="pagina">
-        <h1 class="titulo-principal">Garrafas Secretas:<br>Jogo de Combinação de Garrafas Coloridas</h1>
-        
-        <p class="resumo"><span class="resumo-label">Resumo:</span> Este trabalho descreve o jogo Garrafas Secretas, criado pelo grupo para explorar análise combinatória e probabilidade. No jogo, uma sequência oculta de cinco garrafas coloridas deve ser descoberta a partir de tentativas e dicas sobre posições corretas. São apresentados o conceito, os materiais, as regras, o espaço amostral de 120 possibilidades e as probabilidades envolvidas. A análise indica que, embora a chance inicial de acerto por sorte seja baixa, o uso de feedback torna o jogo dinâmico e favorece o raciocínio dedutivo.</p>
-        
-        <p class="palavras-chave"><span class="palavras-label">Palavras-chave:</span> Jogos educativos. Raciocínio lógico. Probabilidade. Educação Matemática.</p>
-
+    <!-- CONTEÚDO -->
+    <div class="pagina conteudo">
         <h2>1 Introdução</h2>
         <p>Nosso grupo queria construir um jogo que unisse sorte, lógica e probabilidade. Depois de várias conversas, surgiu a ideia de usar garrafas coloridas e um compartimento secreto. A proposta era simples: uma sequência de cinco cores fica escondida na parte de baixo, e o jogador precisa reorganizar as garrafas da parte de cima para tentar reproduzi-la. A cada tentativa, recebemos apenas o número de acertos, sem saber quais cores estão certas.</p>
         <p>Neste trabalho, explicamos o conceito do jogo, os materiais que usamos, as regras definidas, o espaço amostral e as probabilidades principais. Também analisamos se todos os jogadores têm as mesmas chances de vencer, considerando a dinâmica de fila e de tentativas sucessivas.</p>
