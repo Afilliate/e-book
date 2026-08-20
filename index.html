@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABNT - Jogo de Combinação de Garrafas Coloridas</title>
+    <title>ABNT - Garrafas Secretas</title>
     <style>
+        /* ===== CONFIGURAÇÕES ABNT ===== */
         @page {
             size: A4;
-            margin: 0;
+            margin: 3cm 2cm 2cm 3cm; /* superior 3cm, direita 2cm, inferior 2cm, esquerda 3cm */
+            @top-right {
+                content: counter(page);
+                font-family: Arial, sans-serif;
+                font-size: 10pt;
+            }
         }
         * {
             margin: 0;
@@ -20,6 +26,9 @@
             flex-direction: column;
             align-items: center;
             font-family: Arial, sans-serif;
+            font-size: 12pt;
+            line-height: 1.5;
+            color: #000;
         }
         .pagina {
             width: 210mm;
@@ -32,15 +41,19 @@
             line-height: 1.5;
             color: #000;
             font-family: Arial, sans-serif;
+            page-break-after: always;
         }
-        /* CAPA */
+        .pagina:last-child {
+            page-break-after: auto;
+        }
+
+        /* ===== CAPA ===== */
         .capa {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            page-break-after: always; /* quebra de página após a capa */
         }
         .capa .instituicao {
             font-weight: bold;
@@ -51,7 +64,6 @@
             font-weight: bold;
             font-size: 12pt;
             margin-bottom: 2em;
-            line-height: 1.6;
         }
         .capa .titulo {
             font-weight: bold;
@@ -69,7 +81,23 @@
             font-size: 12pt;
             margin-top: 4em;
         }
-        /* CONTEÚDO */
+
+        /* ===== SUMÁRIO ===== */
+        .sumario h1 {
+            text-align: center;
+            font-size: 12pt;
+            text-transform: uppercase;
+            margin-bottom: 1.5em;
+            font-weight: bold;
+        }
+        .sumario .item {
+            text-align: left;
+            font-size: 12pt;
+            margin-bottom: 0.25em;
+            text-indent: 0;
+        }
+
+        /* ===== CONTEÚDO ===== */
         h1, h2 {
             font-weight: bold;
             margin: 0;
@@ -129,36 +157,67 @@
             Nicola Soares Leite<br>
             Wendy Luiggi Correia
         </p>
-        <h1 class="titulo">Jogo de Combinação de Garrafas Coloridas:<br>Uma Proposta de Raciocínio Lógico</h1>
+        <h1 class="titulo">Garrafas Secretas:<br>Jogo de Combinação de Garrafas Coloridas</h1>
         <p class="tipo-trabalho">Trabalho apresentado ao Colégio Unicultura, como requisito parcial para avaliação na disciplina de Matemática, sob orientação da Prof.ª Viviane.</p>
-        <p class="cidade">Guarulhos – SP<br>2026</p>
+        <p class="cidade">Guarulhos<br>2026</p>
+    </div>
+
+    <!-- SUMÁRIO -->
+    <div class="pagina sumario">
+        <h1>Sumário</h1>
+        <p class="item">1 Introdução</p>
+        <p class="item">2 Nome e Conceito do Jogo</p>
+        <p class="item">3 Materiais Utilizados</p>
+        <p class="item">4 Regras do Jogo</p>
+        <p class="item">5 Espaço Amostral</p>
+        <p class="item">6 Probabilidade dos Principais Eventos ou da Vitória</p>
+        <p class="item">7 Análise sobre o Equilíbrio do Jogo</p>
+        <p class="item">8 Considerações Finais</p>
+        <p class="item">Referências</p>
     </div>
 
     <!-- PÁGINA DE CONTEÚDO -->
     <div class="pagina">
-        <h1 class="titulo-principal">Jogo de Combinação de Garrafas Coloridas:<br>Uma Proposta de Raciocínio Lógico</h1>
+        <h1 class="titulo-principal">Garrafas Secretas:<br>Jogo de Combinação de Garrafas Coloridas</h1>
         
-        <p class="resumo"><span class="resumo-label">Resumo:</span> Este artigo apresenta um jogo de raciocínio lógico baseado na descoberta de uma combinação oculta de garrafas de diferentes cores. O objetivo é acertar a sequência correta, utilizando o feedback obtido após cada tentativa. A proposta contribui para o desenvolvimento de habilidades de dedução, memória e estratégia, podendo ser aplicada em contextos educacionais e de lazer.</p>
+        <p class="resumo"><span class="resumo-label">Resumo:</span> Este trabalho descreve o jogo Garrafas Secretas, criado pelo grupo para explorar análise combinatória e probabilidade. No jogo, uma sequência oculta de cinco garrafas coloridas deve ser descoberta a partir de tentativas e dicas sobre posições corretas. São apresentados o conceito, os materiais, as regras, o espaço amostral de 120 possibilidades e as probabilidades envolvidas. A análise indica que, embora a chance inicial de acerto por sorte seja baixa, o uso de feedback torna o jogo dinâmico e favorece o raciocínio dedutivo.</p>
         
-        <p class="palavras-chave"><span class="palavras-label">Palavras-chave:</span> Jogos educativos. Raciocínio lógico. Combinação de cores. Aprendizagem lúdica.</p>
+        <p class="palavras-chave"><span class="palavras-label">Palavras-chave:</span> Jogos educativos. Raciocínio lógico. Probabilidade. Educação Matemática.</p>
 
         <h2>1 Introdução</h2>
-        <p>Os jogos de lógica têm sido amplamente utilizados como ferramentas pedagógicas para o desenvolvimento cognitivo. Entre eles, destaca-se o jogo de combinação de garrafas coloridas, no qual o jogador deve descobrir uma sequência oculta de garrafas de diferentes cores. A cada tentativa, o sistema informa quantas garrafas estão na posição correta e quantas possuem a cor correta, mas em posição errada.</p>
-        <p>Este tipo de atividade estimula o pensamento dedutivo, a memória de trabalho e a capacidade de planejamento, sendo adequado para diferentes faixas etárias. O presente trabalho descreve a mecânica do jogo, seus objetivos educacionais e uma possível implementação digital.</p>
+        <p>Nosso grupo queria construir um jogo que unisse sorte, lógica e probabilidade. Depois de várias conversas, surgiu a ideia de usar garrafas coloridas e um compartimento secreto. A proposta era simples: uma sequência de cinco cores fica escondida na parte de baixo, e o jogador precisa reorganizar as garrafas da parte de cima para tentar reproduzi-la. A cada tentativa, recebemos apenas o número de acertos, sem saber quais cores estão certas.</p>
+        <p>Neste trabalho, explicamos o conceito do jogo, os materiais que usamos, as regras definidas, o espaço amostral e as probabilidades principais. Também analisamos se todos os jogadores têm as mesmas chances de vencer, considerando a dinâmica de fila e de tentativas sucessivas.</p>
 
-        <h2>2 Desenvolvimento</h2>
-        <p>O jogo consiste em uma combinação de quatro garrafas, selecionadas aleatoriamente a partir de um conjunto de seis cores. O jogador tem um número limitado de tentativas para acertar a sequência exata. Após cada tentativa, o jogo fornece dicas visuais que indicam quantas garrafas estão corretas tanto na cor quanto na posição, e quantas estão corretas apenas na cor.</p>
-        <p>A dificuldade pode ser ajustada alterando-se o número de garrafas na combinação, a quantidade de cores disponíveis ou o número máximo de tentativas. Essas variações permitem adaptar o jogo a diferentes níveis de habilidade, promovendo um desafio progressivo.</p>
-        <p>Do ponto de vista educacional, o jogo trabalha competências como resolução de problemas, atenção seletiva e flexibilidade cognitiva. A necessidade de interpretar as dicas e formular novas hipóteses torna a experiência semelhante ao método científico, incentivando o jogador a testar, analisar e revisar suas estratégias.</p>
+        <h2>2 Nome e Conceito do Jogo</h2>
+        <p>O jogo recebe o nome de <strong>Garrafas Secretas</strong> porque a sequência correta permanece oculta em um compartimento inferior, como um segredo. Na parte superior, ficam cinco garrafas com as mesmas cores, porém dispostas em ordem aleatória. O objetivo é rearranjar as garrafas de cima até que fiquem na mesma ordem da sequência secreta. Escolhemos cinco cores bem distintas para evitar confusão: vermelho, azul, verde, amarelo e roxo.</p>
 
-        <h2>3 Considerações Finais</h2>
-        <p>O jogo de combinação de garrafas coloridas demonstra potencial como recurso didático para o ensino de lógica e matemática básica. Sua estrutura simples e adaptável favorece tanto o uso em sala de aula quanto em ambientes de aprendizagem autônoma. Trabalhos futuros podem investigar o impacto do jogo no desempenho escolar e na motivação dos estudantes.</p>
+        <h2>3 Materiais Utilizados</h2>
+        <p>Para montar o jogo, utilizamos: dez garrafas de plástico pequenas (cinco para a sequência secreta e cinco para a área de jogo), corante alimentício nas cinco cores, água, duas caixas de sapato, tinta guache preta, pincel, tesoura, cola quente e fita adesiva. Enchemos as garrafas com água e corante, fechamos bem as tampas e reforçamos com fita veda-rosca para evitar vazamentos. Uma caixa foi cortada e pintada de preto para servir de compartimento inferior; a outra foi adaptada como suporte superior com cinco berços para encaixar as garrafas. Durante a montagem, uma das tampas vazou dentro da mochila de um integrante, então passamos a testar todas as garrafas antes de cada partida.</p>
+
+        <h2>4 Regras do Jogo</h2>
+        <p>O jogo pode ser disputado por um grupo de jogadores organizados em fila. No início de cada rodada, um mediador sorteia aleatoriamente uma sequência com as cinco cores, sem repetição, e a coloca no compartimento inferior, fora da visão dos jogadores. Em seguida, as cinco garrafas da parte superior são embaralhadas e colocadas em ordem aleatória.</p>
+        <p>O primeiro jogador da fila observa a disposição atual e pode trocar as garrafas de lugar como quiser. Quando terminar, o mediador informa apenas quantas garrafas estão na posição correta, sem revelar quais são. Por exemplo, se a sequência secreta for vermelho, azul, verde, amarelo e roxo, e o jogador deixar vermelho, azul, verde, roxo e amarelo, o mediador diz "três acertos", pois as três primeiras estão corretas e as duas últimas estão invertidas.</p>
+        <p>Se o jogador acertar as cinco posições, ele vence a rodada. Caso contrário, a disposição das garrafas permanece como ele deixou, e o jogador vai para o final da fila. O próximo jogador assume a partir daquele estado, usando as informações acumuladas das tentativas anteriores. O jogo continua até alguém completar a sequência. Durante os testes, percebemos que manter um registro das dicas ajudava muito, então passamos a anotar o número de acertos de cada tentativa em um papel.</p>
+
+        <h2>5 Espaço Amostral</h2>
+        <p>O espaço amostral é formado por todas as sequências possíveis de cinco cores distintas, pois a ordem importa e não há repetição. O número de casos possíveis é dado pela permutação simples de 5 elementos: 5! = 5 × 4 × 3 × 2 × 1 = 120. Segundo Morgado e Carvalho (2013), a permutação de n objetos distintos é n!, portanto há 120 maneiras diferentes de organizar as cinco garrafas.</p>
+
+        <h2>6 Probabilidade dos Principais Eventos ou da Vitória</h2>
+        <p>Se a sequência secreta for sorteada de forma uniforme, qualquer uma das 120 combinações tem probabilidade de 1/120, aproximadamente 0,83%. Se um jogador montar uma ordem aleatória sem nenhuma informação, a chance de acertar de primeira é essa.</p>
+        <p>Após receber uma dica, o número de possibilidades diminui. Por exemplo, se o mediador informar que duas garrafas estão corretas, o jogador pode manter essas duas fixas e permutar apenas as três restantes. Nesse caso, restam 3! = 6 sequências possíveis para as posições erradas. Se a próxima tentativa for aleatória entre essas seis, a chance de acertar sobe para 1/6, cerca de 16,67%. Se o mediador informar zero acertos, o jogador sabe que nenhuma garrafa está no lugar certo, o que elimina a sequência testada e restringe as demais a um conjunto de 44 derangements possíveis.</p>
+        <p>Se as tentativas fossem puramente aleatórias e independentes, a probabilidade de obter pelo menos um acerto em dez tentativas seria de 1 − (119/120)^10, cerca de 8,03%. Porém, como os jogadores usam as dicas para eliminar combinações, a chance real de vitória em dez tentativas é muito maior, dependendo da estratégia dedutiva adotada. Em nossos testes, os grupos que anotavam as dicas e testavam hipóteses conseguiam completar a sequência, em média, em sete tentativas.</p>
+
+        <h2>7 Análise sobre o Equilíbrio do Jogo</h2>
+        <p>O sorteio da sequência secreta e a disposição inicial das garrafas superiores são aleatórios, o que garante que nenhuma cor ou posição seja privilegiada. No entanto, a dinâmica de fila introduz uma diferença importante: os jogadores que entram mais tarde têm acesso ao estado parcialmente organizado e às dicas das tentativas anteriores, o que lhes dá uma vantagem em relação aos primeiros. Se a vitória for individual, essa característica pode ser considerada um desequilíbrio.</p>
+        <p>Para manter o jogo justo, adotamos duas medidas: primeiro, a cada nova rodada, a ordem da fila é invertida ou sorteada; segundo, quando o objetivo é coletivo, todos os jogadores contribuem para a solução, e a vitória é atribuída ao grupo. Com esses ajustes, consideramos que o jogo se torna equilibrado, pois todos têm as mesmas condições de participar e contribuir, embora a posição na fila influencie a probabilidade individual de ser o vencedor.</p>
+
+        <h2>8 Considerações Finais</h2>
+        <p>O jogo Garrafas Secretas mostrou-se eficaz para compreender na prática os conceitos de permutação, espaço amostral e probabilidade condicional. A chance inicial de acerto é baixa, mas o uso das dicas transforma o jogo em um exercício de lógica e eliminação de possibilidades. A experiência também evidenciou a importância do registro das tentativas e da cooperação entre os jogadores.</p>
+        <p>Pretendemos futuramente criar uma versão com seis garrafas, ampliando o espaço amostral para 720 combinações, e testar o jogo com outras turmas. Acreditamos que atividades como essa tornam o estudo da Matemática mais concreto e divertido.</p>
 
         <h2>Referências</h2>
         <div class="referencias">
-            <p>ALVES, L. Jogos digitais e aprendizagem: fundamentos para uma prática baseada em evidências. São Paulo: Editora Exemplo, 2020.</p>
-            <p>BRASIL. Ministério da Educação. Base Nacional Comum Curricular. Brasília, DF: MEC, 2018.</p>
-            <p>SILVA, M. R. Raciocínio lógico e jogos de tabuleiro: uma revisão sistemática. Revista Brasileira de Educação, v. 25, n. 1, p. 45-60, 2022.</p>
+            <p>MORGADO, A. C.; CARVALHO, P. C. P. Matemática Discreta. 2. ed. Rio de Janeiro: SBM, 2013.</p>
         </div>
     </div>
 </body>
