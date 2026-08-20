@@ -45,7 +45,7 @@
 
         .page-number {
             position: absolute;
-            top: 2cm;   /* posição do número da página */
+            top: 2cm;
             right: 2cm;
             font-family: Arial, sans-serif;
             font-size: 10pt;
@@ -104,14 +104,14 @@
             font-size: 12pt;
             text-align: justify;
             margin-bottom: 1.5em;
-            margin-left: 40%;
+            margin-left: 7.5cm; /* recuo exato para a metade da folha */
             margin-right: 0;
             text-indent: 0;
         }
         .folharosto .orientador {
             font-size: 12pt;
             margin-bottom: 2em;
-            margin-left: 40%;
+            margin-left: 7.5cm;
             text-indent: 0;
         }
         .folharosto .cidade {
@@ -140,10 +140,19 @@
         }
         .sumario .item {
             display: flex;
-            justify-content: space-between;
+            align-items: baseline;
         }
-        .sumario .item span:first-child {
-            margin-right: 1em;
+        .sumario .item .titulo {
+            flex: 0 0 auto;
+        }
+        .sumario .item .dots {
+            flex: 1 1 auto;
+            border-bottom: 1px dotted #000;
+            margin: 0 0.5em;
+            transform: translateY(-0.2em);
+        }
+        .sumario .item .numero {
+            flex: 0 0 auto;
         }
 
         /* ===== CONTEÚDO ===== */
@@ -166,13 +175,20 @@
             text-align: justify;
             margin-bottom: 0.75em;
         }
+
+        /* Referências */
+        .conteudo .referencias h2 {
+            margin-bottom: 1em;
+        }
         .conteudo .referencias p {
             text-indent: 0;
-            margin-left: 0;          /* referências alinhadas à esquerda */
+            margin-left: 0;
             text-align: left;
+            line-height: 1.0;        /* espaçamento simples na referência */
+            margin-bottom: 1em;      /* espaço entre referências */
         }
         .conteudo .referencias strong {
-            font-weight: bold;       /* destaque para o título da obra */
+            font-weight: bold;
         }
 
         /* Impressão */
@@ -224,15 +240,51 @@
     <div class="pagina sumario">
         <h1>Sumário</h1>
         <ul>
-            <li class="item"><span>1 Introdução</span><span>3</span></li>
-            <li class="item"><span>2 Nome e Conceito do Jogo</span><span>4</span></li>
-            <li class="item"><span>3 Materiais Utilizados</span><span>5</span></li>
-            <li class="item"><span>4 Regras do Jogo</span><span>6</span></li>
-            <li class="item"><span>5 Espaço Amostral</span><span>7</span></li>
-            <li class="item"><span>6 Probabilidade dos Principais Eventos ou da Vitória</span><span>8</span></li>
-            <li class="item"><span>7 Análise sobre o Equilíbrio do Jogo</span><span>9</span></li>
-            <li class="item"><span>8 Considerações Finais</span><span>10</span></li>
-            <li class="item"><span>Referências</span><span>11</span></li>
+            <li class="item">
+                <span class="titulo">1 Introdução</span>
+                <span class="dots"></span>
+                <span class="numero">3</span>
+            </li>
+            <li class="item">
+                <span class="titulo">2 Nome e Conceito do Jogo</span>
+                <span class="dots"></span>
+                <span class="numero">4</span>
+            </li>
+            <li class="item">
+                <span class="titulo">3 Materiais Utilizados</span>
+                <span class="dots"></span>
+                <span class="numero">5</span>
+            </li>
+            <li class="item">
+                <span class="titulo">4 Regras do Jogo</span>
+                <span class="dots"></span>
+                <span class="numero">6</span>
+            </li>
+            <li class="item">
+                <span class="titulo">5 Espaço Amostral</span>
+                <span class="dots"></span>
+                <span class="numero">7</span>
+            </li>
+            <li class="item">
+                <span class="titulo">6 Probabilidade dos Principais Eventos ou da Vitória</span>
+                <span class="dots"></span>
+                <span class="numero">8</span>
+            </li>
+            <li class="item">
+                <span class="titulo">7 Análise sobre o Equilíbrio do Jogo</span>
+                <span class="dots"></span>
+                <span class="numero">9</span>
+            </li>
+            <li class="item">
+                <span class="titulo">8 Considerações Finais</span>
+                <span class="dots"></span>
+                <span class="numero">10</span>
+            </li>
+            <li class="item">
+                <span class="titulo">Referências</span>
+                <span class="dots"></span>
+                <span class="numero">11</span>
+            </li>
         </ul>
     </div>
 
