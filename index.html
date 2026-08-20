@@ -3,234 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fichamento de Biologia</title>
+    <title>ABNT - Jogo de Combinação de Garrafas Coloridas</title>
     <style>
-        /* Controle de página para impressão */
-        @media print {
-            .capitulo {
-                page-break-before: always;
-                page-break-inside: avoid;
-            }
-            .capitulo:first-of-type {
-                page-break-before: auto;
-            }
-            /* Evita viúvas e órfãs */
-            p, li, blockquote {
-                widows: 2;
-                orphans: 2;
-            }
-            h2, h3 {
-                page-break-after: avoid;
-            }
+        @page {
+            size: A4;
+            margin: 0;
         }
-
-        /* Pequeno respiro visual na tela */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            font-family: 'Times New Roman', Times, serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            background: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        .pagina {
+            width: 210mm;
+            min-height: 297mm;
+            background: #ffffff;
+            margin: 10mm auto;
+            padding: 30mm 20mm 20mm 30mm; /* topo 3cm, direita 2cm, inferior 2cm, esquerda 3cm */
+            box-shadow: 0 0 8px rgba(0,0,0,0.2);
+            font-size: 12pt;
             line-height: 1.5;
+            color: #000;
+            font-family: Arial, sans-serif;
         }
-
+        /* CAPA */
         .capa {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            margin-top: 25%;
-            margin-bottom: 25%;
+            page-break-after: always; /* quebra de página após a capa */
         }
-
-        .capitulo {
-            margin-top: 30px;
-        }
-
-        blockquote {
-            margin: 15px 0;
-            padding-left: 20px;
-            border-left: 2px solid #ccc;
-        }
-
-        footer {
-            text-align: right;
+        .capa .instituicao {
             font-weight: bold;
+            font-size: 14pt;
+            margin-bottom: 0.5em;
+        }
+        .capa .autor {
+            font-weight: bold;
+            font-size: 12pt;
+            margin-bottom: 2em;
+            line-height: 1.6;
+        }
+        .capa .titulo {
+            font-weight: bold;
+            font-size: 14pt;
+            text-transform: uppercase;
+            margin-bottom: 2em;
+        }
+        .capa .tipo-trabalho {
+            font-size: 12pt;
+            text-align: justify;
+            max-width: 70%;
+            margin-bottom: 2em;
+        }
+        .capa .cidade {
+            font-size: 12pt;
+            margin-top: 4em;
+        }
+        /* CONTEÚDO */
+        h1, h2 {
+            font-weight: bold;
+            margin: 0;
+        }
+        .titulo-principal {
+            text-align: center;
+            font-size: 12pt;
+            text-transform: uppercase;
+            margin-bottom: 1.5em;
+        }
+        .resumo, .palavras-chave {
+            text-align: justify;
+            font-size: 12pt;
+            margin-bottom: 1em;
+        }
+        .resumo-label, .palavras-label {
+            font-weight: bold;
+        }
+        h2 {
+            font-size: 12pt;
+            text-transform: uppercase;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+            text-align: left;
+            page-break-after: avoid;
+        }
+        p {
+            text-indent: 1.25cm;
+            text-align: justify;
+            margin-bottom: 0.75em;
+        }
+        .referencias p {
+            text-indent: 0;
+            margin-left: 1.25cm;
+            text-align: left;
+        }
+        @media print {
+            body {
+                background: none;
+            }
+            .pagina {
+                box-shadow: none;
+                margin: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="capa">
-        <h1>Fichamento de Biologia</h1>
-        <p><strong>Aluno:</strong> Daniel Augustus Gomes Barbosa</p>
-        <p><strong>Turma:</strong> 2º EM B</p>
-        <p><strong>Professora:</strong> Cristiane</p>
-        <p><strong>Disciplina:</strong> Biologia</p>
-        <p><strong>Obra consultada:</strong> Capítulos 3 a 7.</p>
+    <!-- CAPA -->
+    <div class="pagina capa">
+        <p class="instituicao">COLÉGIO UNICULTURA</p>
+        <p class="autor">
+            Daniel Augustus Gomes Barbosa<br>
+            Felipe Marcellus Cunha Ribeiro<br>
+            João Vitor Lourenço da Silva<br>
+            Nicolas Enzo Aoki<br>
+            Nicola Soares Leite<br>
+            Wendy Luiggi Correia
+        </p>
+        <h1 class="titulo">Jogo de Combinação de Garrafas Coloridas:<br>Uma Proposta de Raciocínio Lógico</h1>
+        <p class="tipo-trabalho">Trabalho apresentado ao Colégio Unicultura, como requisito parcial para avaliação na disciplina de Matemática, sob orientação da Prof.ª Viviane.</p>
+        <p class="cidade">Guarulhos – SP<br>2026</p>
     </div>
 
-    <div class="capitulo">
-        <h2>CAP. 3 – PEIXES E ANFÍBIOS</h2>
+    <!-- PÁGINA DE CONTEÚDO -->
+    <div class="pagina">
+        <h1 class="titulo-principal">Jogo de Combinação de Garrafas Coloridas:<br>Uma Proposta de Raciocínio Lógico</h1>
+        
+        <p class="resumo"><span class="resumo-label">Resumo:</span> Este artigo apresenta um jogo de raciocínio lógico baseado na descoberta de uma combinação oculta de garrafas de diferentes cores. O objetivo é acertar a sequência correta, utilizando o feedback obtido após cada tentativa. A proposta contribui para o desenvolvimento de habilidades de dedução, memória e estratégia, podendo ser aplicada em contextos educacionais e de lazer.</p>
+        
+        <p class="palavras-chave"><span class="palavras-label">Palavras-chave:</span> Jogos educativos. Raciocínio lógico. Combinação de cores. Aprendizagem lúdica.</p>
 
-        <h3>Resumo</h3>
-        <p>O capítulo começa com uma notícia de pesquisa. Sequenciaram o genoma do celacanto e do peixe pulmonado <em>Protopterus annectens</em>. O resultado: o pulmonado tá mais próximo dos tetrápodes do que o celacanto. Aliás, o celacanto quase não muda há milhões de anos, tanto que chamam de fóssil vivo.</p>
-        <p>Depois o texto entra nas propriedades da água. Densidade e viscosidade altas, pouco oxigênio dissolvido. Pra viver aí, os peixes desenvolveram corpo hidrodinâmico, nadadeiras, escamas e linha lateral. As brânquias funcionam com fluxo unidirecional, o que melhora a troca gasosa.</p>
-        <p>A classificação divide os peixes em Chondrichthyes (cartilaginosos) e Osteichthyes (ósseos). Tubarões, raias e quimeras entram nos Chondrichthyes. Têm esqueleto de cartilagem, fígado grande e oleoso e as ampolas de Lorenzini, que captam campo elétrico. Já os Osteichthyes têm esqueleto ósseo, opérculo nas brânquias e bexiga natatória. Dentro deles, os actinopterígeos têm nadadeiras com raios; os sarcopterígeos têm nadadeiras lobadas.</p>
-        <p>A transição pra terra é contada com o fóssil <em>Tiktaalik roseae</em>, achado em 2006. Ele ainda era mais aquático, mostrando que a saída da água foi lenta. Os anfíbios foram os primeiros a dar esse passo, mas continuam dependendo de água. Pele fina e vascularizada, respiração cutânea, pulmões simples, ureia como excreta. Os girinos têm brânquias e depois passam por metamorfose, perdendo cauda e brânquias.</p>
-        <p>Os anfíbios se dividem em Gymnophiona (cecílias), Urodela (salamandras, axolotes) e Anura (sapos, rãs, pererecas). As diferenças entre rãs, sapos e pererecas vêm da pele e do hábitat. A pele fina faz deles bioindicadores.</p>
+        <h2>1 Introdução</h2>
+        <p>Os jogos de lógica têm sido amplamente utilizados como ferramentas pedagógicas para o desenvolvimento cognitivo. Entre eles, destaca-se o jogo de combinação de garrafas coloridas, no qual o jogador deve descobrir uma sequência oculta de garrafas de diferentes cores. A cada tentativa, o sistema informa quantas garrafas estão na posição correta e quantas possuem a cor correta, mas em posição errada.</p>
+        <p>Este tipo de atividade estimula o pensamento dedutivo, a memória de trabalho e a capacidade de planejamento, sendo adequado para diferentes faixas etárias. O presente trabalho descreve a mecânica do jogo, seus objetivos educacionais e uma possível implementação digital.</p>
 
-        <h3>Ideias principais</h3>
-        <ul>
-            <li>DNA do celacanto: peixes pulmonados são grupo-irmão dos tetrápodes. Celacanto evolui devagar, fóssil vivo.</li>
-            <li>Água: pouco oxigênio, densa, viscosa. Peixes têm corpo hidrodinâmico, nadadeiras, linha lateral.</li>
-            <li>Chondrichthyes: esqueleto cartilaginoso, fígado oleoso, ureia no sangue, ampolas de Lorenzini.</li>
-            <li>Osteichthyes: esqueleto ósseo, opérculo, bexiga natatória. Actinopterígeos (raios) e sarcopterígeos (lobadas).</li>
-            <li><em>Tiktaalik</em>: fóssil de transição, ainda mais aquático. Conquista terrestre gradual.</li>
-            <li>Anfíbios: pele úmida, respiração cutânea, girino com brânquias, metamorfose.</li>
-            <li>Anura: sapos, rãs, pererecas. Fecundação externa, amplexo, girino aquático.</li>
-        </ul>
+        <h2>2 Desenvolvimento</h2>
+        <p>O jogo consiste em uma combinação de quatro garrafas, selecionadas aleatoriamente a partir de um conjunto de seis cores. O jogador tem um número limitado de tentativas para acertar a sequência exata. Após cada tentativa, o jogo fornece dicas visuais que indicam quantas garrafas estão corretas tanto na cor quanto na posição, e quantas estão corretas apenas na cor.</p>
+        <p>A dificuldade pode ser ajustada alterando-se o número de garrafas na combinação, a quantidade de cores disponíveis ou o número máximo de tentativas. Essas variações permitem adaptar o jogo a diferentes níveis de habilidade, promovendo um desafio progressivo.</p>
+        <p>Do ponto de vista educacional, o jogo trabalha competências como resolução de problemas, atenção seletiva e flexibilidade cognitiva. A necessidade de interpretar as dicas e formular novas hipóteses torna a experiência semelhante ao método científico, incentivando o jogador a testar, analisar e revisar suas estratégias.</p>
 
-        <h3>Citações</h3>
-        <blockquote>
-            <p>"Os celacantos não enfrentaram condições ambientais que favorecessem o acúmulo de alterações genéticas. Eles continuam vivendo primariamente na costa leste da África e (...) são considerados pelos biólogos como fósseis vivos."</p>
-            <footer>(ANDRADE, 2013, apud SILVA JR. et al., p. 36)</footer>
-        </blockquote>
-        <blockquote>
-            <p>"A linha lateral é um sistema que capacita os peixes e outros vertebrados aquáticos a decodificarem o ambiente. (...) detectam vibrações em seu entorno, propiciando a busca por nutrientes, a reprodução e a proteção contra predadores."</p>
-            <footer>(SILVA JR. et al., p. 40)</footer>
-        </blockquote>
+        <h2>3 Considerações Finais</h2>
+        <p>O jogo de combinação de garrafas coloridas demonstra potencial como recurso didático para o ensino de lógica e matemática básica. Sua estrutura simples e adaptável favorece tanto o uso em sala de aula quanto em ambientes de aprendizagem autônoma. Trabalhos futuros podem investigar o impacto do jogo no desempenho escolar e na motivação dos estudantes.</p>
 
-        <h3>Análise</h3>
-        <p>Misturar genética com anatomia ajuda a entender a evolução. As adaptações à água batem certinho com as condições do ambiente. A classificação dos peixes é didática, mas já avisam que "peixe" não é grupo monofilético. A dependência da água nos anfíbios é uma limitação evolutiva importante.</p>
-    </div>
-
-    <div class="capitulo">
-        <h2>CAP. 4 – RÉPTEIS E AVES</h2>
-
-        <h3>Resumo</h3>
-        <p>Os amniotas conquistaram de vez o ambiente terrestre. As novidades evolutivas: ovo com casca, pele queratinizada e excreção de ácido úrico. Tudo pra economizar água.</p>
-        <p>Répteis são ectotérmicos, pele seca e escamosa. Testudines (tartarugas, jabutis, cágados) têm carapaça e plastrão grudados no esqueleto. Squamata reúne lagartos e serpentes. Um fóssil brasileiro de serpente com quatro patas reforça que elas vieram de lagartos.</p>
-        <p>As serpentes têm quatro dentições: áglifa (sem veneno), opistóglifa, proteróglifa (coral verdadeira) e solenóglifa (peçonhentas com fosseta loreal). Crocodilia (jacarés, crocodilos, gaviais) têm crânio alongado e muitos dentes.</p>
-        <p>As aves descendem de dinossauros terópodes. O <em>Archaeopteryx</em> é o fóssil clássico de transição. São endotérmicas, têm penas, ossos pneumáticos, quilha no esterno e sacos aéreos. A siringe produz os sons. Carinatas voam; ratitas (ema, avestruz, quivi) correm. E os pterossauros nem eram dinossauros.</p>
-
-        <h3>Ideias principais</h3>
-        <ul>
-            <li>Ovo amniótico, pele queratinizada e ácido úrico permitiram independência da água.</li>
-            <li>Répteis: crânio diapsida. Testudines têm anapsida derivado de diapsida.</li>
-            <li>Testudines: carapaça e plastrão fundidos, ovíparos, sem cuidado parental.</li>
-            <li>Serpentes: evoluíram de lagartos, fóssil brasileiro apoia isso. Dentições variadas.</li>
-            <li>Crocodilianos: focinho alongado, dentes expostos. Gavial tem focinho fino.</li>
-            <li>Aves: endotermia, penas, ossos ocos, siringe. Carinatas voam, ratitas correm.</li>
-        </ul>
-
-        <h3>Citações</h3>
-        <blockquote>
-            <p>"As aves, portanto, surgiram há 150 milhões de anos aproximadamente a partir de ancestrais plumados como o <em>Archaeopteryx</em>. Estes foram alguns dos primeiros dinossauros a terem fósseis encontrados com penas."</p>
-            <footer>(SILVA JR. et al., p. 52)</footer>
-        </blockquote>
-        <blockquote>
-            <p>"Os pterossauros não são dinossauros, mas sim reptilianos voadores mais distantes evolutivamente dos dinossauros."</p>
-            <footer>(SILVA JR. et al., p. 52)</footer>
-        </blockquote>
-
-        <h3>Análise</h3>
-        <p>O capítulo deixa claro que répteis não formam grupo natural, já que as aves tão no meio. A descrição das adaptações pro voo é direta. A dentição das serpentes é prática pra identificar peçonhentas.</p>
-    </div>
-
-    <div class="capitulo">
-        <h2>CAP. 5 – MAMÍFEROS</h2>
-
-        <h3>Resumo</h3>
-        <p>Os mamíferos vieram da linhagem Synapsida. Glândulas mamárias, pelos e endotermia são as marcas do grupo. O leite materno tem colostro, fase de transição e leite maduro. A pele tem epiderme, derme e panículo adiposo. Em frio extremo, alguns hibernam.</p>
-        <p>A dentição é heterodonte e varia com a dieta. Os ruminantes (bois, girafas, camelos) têm estômago com rúmen, retículo, omaso e abomaso. No rúmen, microrganismos digerem a celulose, e o bolo volta à boca pra ser mastigado de novo. O sistema nervoso é o mais desenvolvido.</p>
-        <p>A classificação moderna separa Monotremata (ornitorrinco, equidna — ovíparos), Marsupialia (cangurus, coalas — marsúpio) e Eutheria (placentários). Os eutérios são divididos em Afrotheria, Xenarthra, Euarchontoglires e Laurasiatheria, com base em dados moleculares.</p>
-
-        <h3>Ideias principais</h3>
-        <ul>
-            <li>Surgiram de sinapsídeos há 300 milhões de anos. Crânio com um par de fenestras temporais.</li>
-            <li>Glândulas mamárias e sudoríferas vêm da epiderme. Leite materno protege e cria vínculo.</li>
-            <li>Endotermia: metabolismo, coração tetracavitário, pelos e panículo adiposo.</li>
-            <li>Ruminantes: quatro câmaras no estômago, fermentação no rúmen, regurgitação.</li>
-            <li>Monotremados ovíparos, marsupiais com bolsa, eutérios com placenta completa.</li>
-            <li>Eutérios: Primatas, Cetáceos, Quirópteros e outros.</li>
-        </ul>
-
-        <h3>Citações</h3>
-        <blockquote>
-            <p>"O ato da amamentação e o cuidado parental desempenharam papéis fundamentais na evolução dos mamíferos, possibilitando vantagens adaptativas ao longo do tempo, como o aumento da taxa de sobrevivência e crescimento dos filhotes."</p>
-            <footer>(SILVA JR. et al., p. 56)</footer>
-        </blockquote>
-        <blockquote>
-            <p>"A ocitocina (...) promove a contração uterina durante o parto e está envolvida na ejeção do leite no período de lactação. Esse hormônio está associado a comportamentos sociais (...)."</p>
-            <footer>(SILVA JR. et al., p. 56)</footer>
-        </blockquote>
-
-        <h3>Análise</h3>
-        <p>A lactação e o cuidado parental são diferenciais claros. A classificação molecular é moderna. A fisiologia dos ruminantes é bem detalhada e fácil de entender.</p>
-    </div>
-
-    <div class="capitulo">
-        <h2>CAP. 6 – SISTEMA DIGESTÓRIO</h2>
-
-        <h3>Resumo</h3>
-        <p>A digestão é mecânica (mastigação, peristaltismo) e química (enzimas). Na boca, a amilase salivar já quebra amido. A deglutição leva o bolo pela faringe e esôfago até o estômago.</p>
-        <p>No estômago, o HCl ativa o pepsinogênio em pepsina, que digere proteínas. O muco protege a parede. No duodeno, o fígado solta a bile, que emulsiona gorduras. O pâncreas solta suco pancreático com bicarbonato e enzimas como tripsina, lipase e amilase.</p>
-        <p>O intestino delgado tem vilosidades e microvilosidades que aumentam a absorção. Os nutrientes vão pro sangue e linfa. O que sobra vai pro intestino grosso: reabsorção de água, fermentação pela flora e formação das fezes. Hormônios como gastrina, secretina e colecistoquinina controlam o processo. O capítulo ainda fala da doença celíaca, em que o glúten achata as vilosidades.</p>
-
-        <h3>Ideias principais</h3>
-        <ul>
-            <li>Digestão mecânica e química atuam juntas.</li>
-            <li>Amilase salivar age na boca, pH neutro. No estômago ácido ela para.</li>
-            <li>Estômago: HCl, pepsina, muco. Proteínas viram peptídeos.</li>
-            <li>Duodeno: bile emulsiona, suco pancreático neutraliza e tem enzimas.</li>
-            <li>Vilosidades e microvilosidades no intestino delgado ampliam absorção.</li>
-            <li>Intestino grosso reabsorve água, flora fermenta, forma fezes.</li>
-            <li>Hormônios: gastrina, secretina, CCK controlam secreção e motilidade.</li>
-        </ul>
-
-        <h3>Citações</h3>
-        <blockquote>
-            <p>"A digestão se inicia já na boca. (...) a função dos dentes é triturar os alimentos em partículas mínimas para que o resto do processo aconteça. A saliva também é importante: ela desencadeia a degradação enzimática dos alimentos."</p>
-            <footer>(MONTEIRO, Superinteressante, apud SILVA JR. et al., p. 68)</footer>
-        </blockquote>
-        <blockquote>
-            <p>"Diferentemente do que muita gente pensa, a principal parte da digestão não acontece no estômago. (...) o intestino delgado cumpre a tarefa de absorver os nutrientes."</p>
-            <footer>(MONTEIRO, Superinteressante, apud SILVA JR. et al., p. 68)</footer>
-        </blockquote>
-
-        <h3>Análise</h3>
-        <p>O capítulo desmonta o mito do estômago como herói da digestão e coloca o intestino delgado no centro. Os quadros de enzimas e hormônios são bons pra revisão. A doença celíaca conecta fisiologia com realidade.</p>
-    </div>
-
-    <div class="capitulo">
-        <h2>CAP. 7 – SISTEMA RESPIRATÓRIO</h2>
-
-        <h3>Resumo</h3>
-        <p>O capítulo compara a respiração em vários grupos. Brânquias usam fluxo contracorrente — água e sangue em sentidos opostos, o que melhora a captação de O₂. Insetos têm traqueias. Aves têm sacos aéreos.</p>
-        <p>No ser humano, o ar entra pelas narinas, é filtrado, aquecido e umidificado. Passa pela faringe e laringe (com epiglote). Desce pela traqueia e brônquios até os alvéolos. A ventilação usa diafragma e intercostais: contraem na inspiração, relaxam na expiração.</p>
-        <p>Nos alvéolos, a hematose: O₂ vai pro sangue, CO₂ sai. O oxigênio é carregado pela hemoglobina. O gás carbônico viaja 70% como bicarbonato. O bulbo controla a respiração reagindo a mudanças de pH e CO₂. O capítulo alerta sobre o monóxido de carbono, que gruda na hemoglobina e bloqueia o O₂, e comenta o uso de ventiladores mecânicos na covid-19.</p>
-
-        <h3>Ideias principais</h3>
-        <ul>
-            <li>Brânquias: contracorrente melhora troca. Peixes ósseos ventilam com boca e opérculo.</li>
-            <li>Ar é filtrado, aquecido e umedecido. Epiglote fecha laringe na deglutição.</li>
-            <li>Alvéolos: células tipo I (trocas) e tipo II (surfactante).</li>
-            <li>Inspiração: diafragma e intercostais contraem, volume sobe, pressão cai.</li>
-            <li>CO₂ viaja como bicarbonato, convertido pela anidrase carbônica nas hemácias.</li>
-            <li>Bulbo controla respiração por pH e CO₂; acidose estimula ventilação.</li>
-            <li>CO compete com O₂ pela hemoglobina; carboxiemoglobina causa asfixia.</li>
-        </ul>
-
-        <h3>Citações</h3>
-        <blockquote>
-            <p>"O sistema respiratório consiste em uma série de tubos, cavidades e superfícies especializadas que garantem a ocorrência das trocas gasosas entre o ambiente e o organismo."</p>
-            <footer>(SILVA JR. et al., p. 80)</footer>
-        </blockquote>
-        <blockquote>
-            <p>"O uso de ventiladores artificiais no tratamento da covid-19 (...) O ventilador mecânico joga o ar rico em O₂ para dentro dos pulmões, por meio de uma pressão positiva (inspiração) e depois, por pressão negativa, suga o ar dos pulmões (expiração)."</p>
-            <footer>(SILVA JR. et al., p. 84)</footer>
-        </blockquote>
-
-        <h3>Análise</h3>
-        <p>O capítulo conecta bem a fisiologia comparada com a humana. A menção ao aquecimento global e à covid-19 deixa o conteúdo atualizado. A parte do monóxido de carbono é um alerta prático importante.</p>
-    </div>
-
+        <h2>Referências</h2>
+        <div class="referencias">
+            <p>ALVES, L. Jogos digitais e aprendizagem: fundamentos para uma prática baseada em evidências. São Paulo: Editora Exemplo, 2020.</p>
+            <p>BRASIL. Ministério da Educação. Base Nacional Comum Curricular. Brasília, DF: MEC, 2018.</p>
+            <p>SILVA, M. R. Raciocínio lógico e jogos de tabuleiro: uma revisão sistemática. Revista Brasileira de Educação, v. 25, n. 1, p. 45-60, 2022.</p>
+        </div>
     </div>
 </body>
 </html>
