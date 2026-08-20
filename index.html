@@ -45,8 +45,8 @@
 
         .page-number {
             position: absolute;
-            top: 1.5cm;     /* distância do topo */
-            right: 1.5cm;   /* distância da direita */
+            top: 2cm;      /* distância do topo corrigida para 2cm */
+            right: 2cm;    /* distância da direita corrigida para 2cm */
             font-family: Arial, sans-serif;
             font-size: 10pt;
         }
@@ -62,22 +62,22 @@
         .capa .instituicao {
             font-weight: bold;
             font-size: 14pt;
-            margin-bottom: 2em;        /* mais espaço */
+            margin-bottom: 2em;
         }
         .capa .autor {
             font-weight: bold;
             font-size: 12pt;
-            margin-bottom: 3em;        /* mais espaço */
+            margin-bottom: 3em;
         }
         .capa .titulo {
             font-weight: bold;
             font-size: 14pt;
             text-transform: uppercase;
-            margin-bottom: 3em;        /* mais espaço */
+            margin-bottom: 3em;
         }
         .capa .cidade {
             font-size: 12pt;
-            margin-top: 6em;           /* mais espaço */
+            margin-top: 6em;
         }
 
         /* ===== FOLHA DE ROSTO ===== */
@@ -104,15 +104,16 @@
             font-size: 12pt;
             text-align: justify;
             margin-bottom: 2em;
-            margin-left: 7.5cm;
+            margin-left: 4.5cm;   /* ajustado para 7,5cm da borda esquerda (3cm margem + 4,5cm) */
             margin-right: 0;
             text-indent: 0;
         }
         .folharosto .orientador {
             font-size: 12pt;
-            margin-bottom: 2em;
-            margin-left: 7.5cm;
+            text-align: right;    /* alinhado à direita conforme ABNT */
+            margin-left: 0;
             text-indent: 0;
+            margin-bottom: 2em;
         }
         .folharosto .cidade {
             font-size: 12pt;
@@ -134,6 +135,8 @@
         }
         .sumario li {
             font-size: 12pt;
+            font-weight: bold;          /* negrito para consistência com o corpo do texto */
+            text-transform: uppercase;  /* caixa alta conforme títulos das seções */
             margin-bottom: 0.25em;
             text-indent: 0;
             text-align: left;
@@ -165,8 +168,8 @@
         .conteudo h2 {
             font-size: 12pt;
             text-transform: uppercase;
-            margin-top: 0;
-            margin-bottom: 0.5em;
+            margin-top: 1.5em;      /* espaço antes do título */
+            margin-bottom: 1.5em;   /* espaço depois do título */
             text-align: left;
             font-weight: bold;
         }
@@ -178,6 +181,7 @@
 
         /* Referências */
         .conteudo .referencias h2 {
+            text-align: center;     /* centralizado por não ter indicativo numérico */
             margin-bottom: 1em;
         }
         .conteudo .referencias p {
